@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Troy's Bio</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<!--Begin Metas for Accessibility-->
+		<meta name="keywords" content="enter,keywords,here" />
+		<meta name="description" content="Enter a description" />
+		<!--End Metas for Accessibility-->
+		
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+
+		<!--jQuery Mobile
+		Use Chrome for debugging, doesn't work right in firefox-->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+		<link rel="stylesheet" href="css/style.css">
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+		<!--for mobile, you need javascript at the top of the page otherwise you'll get page flicker -->
+
+		<script type="text/javascript">
+		//this can't be tested in a local file, you must use mamp.
+			/*
+			function success(data) {
+				console.log(d);
+				console.log("lat: ", data.coords.latitude);
+				console.log("lon: ", data.coords.longitude);
+			}
+			function error(data) {
+				console.log(data);
+			}
+			navigator.geolocation.getCurrentPosition(success, error);
+			//you can constantly check by saying navigator.geolcation.watchPosition(success, error);
+			*/
+		</script>
+	</head>	
+	<body>
+		<section id="home" data-role="page" data-theme="b">
+			<div data-role="header">
+				<h1>XCuseMe - Proof of Concept</h1>
+				<!--<a href="#home" data-icon="gear" data-iconpos="left">Options</a>-->
+				<div data-role="navbar" data-iconpos="top">
+					<ul>
+						<li><a href="#" id="callServerBtn" data-role="button">Call Your Server</a> </li>
+					</ul>
+				</div><!-- /navbar -->
+			</div>
+
+			<div data-role="content">
+				<ul data-role="listview" id="conceptList" data-theme="g">
+					<li data-role="list-divider">Proof of Concept</li>
+				</ul>
+				
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+				<h5>&copy;2010 - MDD1204</h5>
+			</div>
+		</section>
+		<script type="text/javascript" src="js/script.js"></script>
+	</body>
+</html>
