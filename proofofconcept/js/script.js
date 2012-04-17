@@ -8,7 +8,7 @@
 	var apiKey = "xvien5ya8rh538ryt5kh",
 		conceptList = $("#conceptList"),
 		callServerBtn = $("#callServerBtn"),
-		needsAssistanceToggle = false
+		needsAssistanceToggle = "false"
 	;
 
 
@@ -45,9 +45,11 @@
 
 		//change the local boolean to know what's up
 		needsAssistanceToggle = response[0].needsAssistance;
-
+		console.log("WHAT DOES THE SERVER SAY: ",needsAssistanceToggle);
 		//letting the status of the table be displayed
-		var tableStatus = (needsAssistanceToggle == true) ? "Server Requested" : "Normal";
+		//for whatever reason, if true isn't a string, it doesn't work.
+		var tableStatus = (needsAssistanceToggle === "true") ? "Server Requested" : "Normal";
+		console.log("NeedsAssistanceToggle is: " + needsAssistanceToggle + " The table status is: " + tableStatus);
 		conceptList.append('<li>Table Status: '+ tableStatus +'</li>');
 	};
 
@@ -75,10 +77,11 @@
 		mongoDataObj.object = {
 			//toggle the needsAssistance boolean in mongo. 
 			//If it's false, make it true, if true make it false.
-			"$set" : {"needsAssistance" : (needsAssistanceToggle == true) ? false : true} //objects within objects, mofos
+			//this is updating as a string for some reason
+			"$set" : {"needsAssistance" : needsAssistanceToggle === "true" ? "false" : "true"} //objects within objects, mofos
 		};
 
-  		//mongoDataObj.document = doc;
+  		mongoDataObj.document = doc;
 
   		$.ajax({
       		url: url,
@@ -100,8 +103,10 @@
 			//if the response.ok is 1, the data was sucessfully changed in mongo.
 			//No need to grab the new data, we already have it in our local variable.
 			//since this is a toggle, it'll be the opposite of whatever it was.
-			needsAssistanceToggle = (needsAssistanceToggle == true) ? false : true;
-			tableStatus = (needsAssistanceToggle == true) ? "Server Requested" : "Normal";
+			console.log('BEFORE THE CHANGE: ', needsAssistanceToggle)
+			needsAssistanceToggle = (needsAssistanceToggle === "true") ? "false" : "true";
+			console.log('AFTER THE CHANGE: ', needsAssistanceToggle)
+			tableStatus = (needsAssistanceToggle === "true") ? "Server Requested" : "Normal";
 			conceptList.append('<li>Table Status: '+ tableStatus +'</li>');
 		}else{
 			console.log("Something's up with the response.ok");
