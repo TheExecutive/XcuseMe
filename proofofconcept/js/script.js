@@ -51,6 +51,8 @@
 		var tableStatus = (needsAssistanceToggle === "true") ? "Server Requested" : "Normal";
 		console.log("NeedsAssistanceToggle is: " + needsAssistanceToggle + " The table status is: " + tableStatus);
 		conceptList.append('<li>Table Status: '+ tableStatus +'</li>');
+		conceptList.listview('refresh'); //you must call this method any time you make
+			//updates to a listview
 	};
 
 	function notifyServer(url, query, doc, method, callback){
@@ -73,7 +75,7 @@
 		};
 		/*object The JSON document update command (called objNew in the MongoDB docs. 
 		Accepts standard MongoDB update directives, like $set or $inc).*/
-		//This is pretty much a shitty way of saying what the fuck you wanna update
+		//This is pretty much a shitty way of saying what you wanna update
 		mongoDataObj.object = {
 			//toggle the needsAssistance boolean in mongo. 
 			//If it's false, make it true, if true make it false.
@@ -108,6 +110,8 @@
 			console.log('AFTER THE CHANGE: ', needsAssistanceToggle)
 			tableStatus = (needsAssistanceToggle === "true") ? "Server Requested" : "Normal";
 			conceptList.append('<li>Table Status: '+ tableStatus +'</li>');
+			conceptList.listview('refresh'); //you must call this method any time you make
+			//updates to a listview
 		}else{
 			console.log("Something's up with the response.ok");
 		};
@@ -119,7 +123,7 @@
 
 		//first state the query to run on the Mongo Database. This is to be stated as an object.
 		var mongoQuery = {
-			"type": "table" //get the data where the table is number 5
+			"type": "table" //get the data where the type is table
 		};
 		fetchMongoData("https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",mongoQuery,{},"GET",processInformation);
 		//url, query, doc, method, callback
