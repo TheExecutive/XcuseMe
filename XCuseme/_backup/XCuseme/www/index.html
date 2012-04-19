@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+		
+		<title>XCuse.me app - Welcome</title>
+		
+		<!-- jquery mobile -->
+		<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+		
+		<script type="text/javascript" src="js/dialog2.js"></script>
+		
+		<script type="text/javascript" src="js/main.js" ></script>
+		
+		<!-- main css -->
+		<link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/dialog.css" /> 
+  		<link rel="stylesheet" type="text/css" href="css/warm_and_cool.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/iPhone.css" />
+	</head>
+	
+	<body>
+	
+		<!-- =============== START PAGE ================= -->
+		<div id="home-page" class="pages" data-role="page" data-theme="a" >
+			<div data-role="header">
+				<h1>Welcome</h1>
+				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
+			</div><!--close header-->
+			
+			<div id="mainContent" data-role="content">
+				<div id="mainLogo">
+					<div id="logoImg">
+						<img id="logo" src="images/logo/mainLogo.png" alt="excuse me main logo" title="the main logo for the excuse me mobile application" />
+					</div>
+				</div><!--close mainLogo div-->
+			</div><!--close header-->
+			
+			<div class="nextArrow">
+				<a href="#" class="nextArrowLink" title="goto the next step to select your table and start your service">next</a>
+			</div>
+			
+			<div class="setUpTable">
+				<h3>Which table are you at?</h3>
+				
+				<div class="tableSelect">
+					<a href="#" class="tableMinusBtn control" title="back arrow">-</a>
+					
+					<span class="tableNumber">10</span>
+					
+					<a href="#" class="tablePlusBtn control"  title="forward arrow">+</a>
+					
+					<a href="#" class="startService" data-role="button">Start Service</a> 
+				</div>
+				
+			</div>
+			
+			<div class="staffCallDialog">
+				
+				<h1>THANK YOU</H1>
+				
+			</div>
+			
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
+				<div data-role="navbar" class="nav-glyphish-example">
+					<ul>
+						<li>
+							<a href="#home-page" class="ui-btn-active" id="home" data-icon="custom">Home</a>
+						</li>
+						<li>
+							<a href="#menu-page" id="aboutme" data-icon="custom">Menu</a>
+						</li>
+						<li>
+							<a href="#deals-page" id="links" data-icon="custom">Deals</a>
+						</li>
+						<li>
+							<a href="#bill-page" id="gallery" data-icon="custom">My Bill</a>
+						</li>
+						<li>
+							<a href="#contact-page" id="email" data-icon="custom">Contact</a>
+						</li>
+					</ul>
+				</div><!-- close navbar -->
+			</div><!--close footer -->
+		</div><!--close home div-->
+		<!-- =============== END PAGE ================= -->
+		
+		
+		<!-- =============== START PAGE ================= -->
+		<div id="menu-page" class="pages" data-role="page" data-theme="a">
+			<div data-role="header" data-position="fixed">
+				<h1>Menu</h1>
+				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
+			</div><!--close header-->
+			
+			<div id="foodDetail">
+				
+			</div><!--close food menu-->
+			
+			<div id="mainContent" data-role="content">
+				<div class="menuList">
+					<div class="content-primary">
+						<ul data-role="listview">
+							<li>
+								<a href="#beverages-page">
+									<img src="glyphish-icons/icons/34-coffee.png" alt="Beverages menu icon" class="menuIcon ui-li-icon" title="Beverages menu icon" height="20">
+									
+									Beverages
+									
+									<span class="ui-li-count beverages">0</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="#appetizers-page">
+									<img src="glyphish-icons/icons/48-fork-and-knife.png" alt="Appetizers menu icon" class="menuIcon ui-li-icon" title="Appetizers menu icon" height="20">
+									
+									Appetizers 
+									
+									<span class="ui-li-count appetizers">0</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="#">
+									<img src="glyphish-icons/icons/48-fork-and-knife.png" alt="Salads menu icon" class="menuIcon ui-li-icon" title="Salads menu icon" height="20">
+									
+									Salads 
+									
+									<span class="ui-li-count salads">0</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="#">
+									<img src="glyphish-icons/icons/48-fork-and-knife.png" alt="Chicken menu icon" class="menuIcon ui-li-icon" title="Chicken menu icon" height="20">
+									
+									Chicken 
+									
+									<span class="ui-li-count chicken">0</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="#">
+									<img src="glyphish-icons/icons/48-fork-and-knife.png" alt="Pasta menu icon" class="menuIcon ui-li-icon" title="Pasta menu icon" height="20">
+									
+									Pasta 
+									
+									<span class="ui-li-count pasta">0</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="#">
+									<img src="glyphish-icons/icons/48-fork-and-knife.png" alt="Seafood menu icon" class="menuIcon ui-li-icon" title="Seafood menu icon" height="20">
+									
+									Seafood
+									
+									<span class="ui-li-count seafood">0</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="#">
+									<img src="glyphish-icons/icons/48-fork-and-knife.png" alt="Rib/Steaks  menu icon" class="menuIcon ui-li-icon" title="Rib/Steaks  menu icon" height="20">
+									
+									Rib/Steaks 
+									
+									<span class="ui-li-count ribSteaks">0</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="#">
+									<img src="glyphish-icons/icons/48-fork-and-knife.png" alt="Burger/Sandwiches  menu icon" class="menuIcon ui-li-icon" title="Burger/Sandwiches  menu icon" height="20">
+									
+									Burger/Sandwiches 
+									
+									<span class="ui-li-count burgerSandwiches">0</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="#">
+									<img src="glyphish-icons/icons/48-fork-and-knife.png" alt="Kids Menu  menu icon" class="menuIcon ui-li-icon" title="Kids Menu  menu icon" height="20">
+									
+									Kids Menu 
+									
+									<span class="ui-li-count kidsMenu">0</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="#">
+									<img src="glyphish-icons/icons/48-fork-and-knife.png" alt="Healthy Options menu icon" class="menuIcon ui-li-icon" title="Healthy Options menu icon" height="20">
+									
+									Healthy Options
+									
+									<span class="ui-li-count healthyOptions">0</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="#">
+									<img src="glyphish-icons/icons/48-fork-and-knife.png" alt="Desserts menu icon" class="menuIcon ui-li-icon" title="Desserts menu icon" height="20">
+									
+									Desserts
+									
+									<span class="ui-li-count deserts">0</span>
+								</a>
+							</li>
+						</ul>
+					</div><!--close content-primary div-->
+				</div><!--close menuList div-->
+			</div><!--close mainContent div-->
+			
+			<div class="staffCallDialog">
+				<h1>THANK YOU</H1>
+			</div>
+			
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
+				<div data-role="navbar" class="nav-glyphish-example">
+					<ul>
+						<li>
+							<a href="#home-page" id="home" data-icon="custom">Home</a>
+						</li>
+						<li>
+							<a href="#menu-page" class="ui-btn-active" id="aboutme" data-icon="custom">Menu</a>
+						</li>
+						<li>
+							<a href="#deals-page" id="links" data-icon="custom">Deals</a>
+						</li>
+						<li>
+							<a href="#bill-page" id="gallery" data-icon="custom">My Bill</a>
+						</li>
+						<li>
+							<a href="#contact-page" id="email" data-icon="custom">Contact</a>
+						</li>
+					</ul>
+				</div><!-- close navbar -->
+			</div><!--close footer -->
+		</div><!--close home div-->
+		<!-- =============== END PAGE ================= -->
+		
+		
+		
+		<!-- =============== START PAGE ================= -->
+		<div id="beverages-page" class="pages" data-role="page" data-theme="a">
+			<div data-role="header" data-position="fixed">
+				<h1>Beverages</h1>
+				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
+			</div><!--close header--> 
+			
+			<div id="foodDetail">
+				
+			</div><!--close food menu-->
+			
+			<div id="mainContent" data-role="content">
+				<div class="menuList">
+					<div class="content-primary">
+					
+						<ul data-role="listview" data-theme="a" data-filter="true" data-filter-placeholder="quick search...">
+						
+							<!-- =================== C =================== -->
+							<li data-role="list-divider">C</li>
+								<li data-filtertext="Coke Coca Cola" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="34662" />
+										
+										<span class="menuItemName">
+											Coke Classic
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$2.09</span>
+									</a>
+								</li>
+								
+								<li data-filtertext="Coke Coca Cola" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="34662" />
+										
+										<span class="menuItemName">
+											Coke Zero
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$2.13</span>
+									</a>
+								</li>
+								
+								<li data-filtertext="Coke Coca Cola" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="34662" />
+										
+										<span class="menuItemName">
+											Coke Diet
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$1.99</span>
+									</a>
+								</li>
+								
+							<!-- =================== F =================== -->
+							<li data-role="list-divider">F</li>
+								<li data-filtertext="Orange Fanta Laranja" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="51234" />
+										
+										
+										<span class="menuItemName">
+											Fanta Orange
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$2.00</span>
+									</a>
+								</li>
+								<li data-filtertext="Grape Fanta Uva" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="76234" />
+										
+										<span class="menuItemName">
+											Fanta Grape
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$2.15</span>
+									</a>
+								</li>
+								
+							<!-- =================== L =================== -->
+							<li data-role="list-divider">L</li>
+								<li data-filtertext="Life Savers Soda" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="1235622" />
+										
+										<span class="menuItemName">
+											Life Savers Soda
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$2.55</span>
+									</a>
+								</li>
+								
+							<!-- =================== P =================== -->
+							<li data-role="list-divider">P</li>
+								<li data-filtertext="Pepsi" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="43221" />
+										
+										<span class="menuItemName">
+											Pepsi
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$2.11</span>
+									</a>
+								</li>
+								
+								<li data-filtertext="Pepsi" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="43221" />
+										
+										<span class="menuItemName">
+											Pepsi Diet
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$2.39</span>
+									</a>
+								</li>
+								
+							<!-- =================== S =================== -->
+							<li data-role="list-divider">S</li>
+								<li data-filtertext="Sprite" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="1235512" />
+										
+										<span class="menuItemName">
+											Sprite
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$2.50</span>
+									</a>
+								</li>
+								
+								<li data-filtertext="Coors Rocky Mountain Sparkling Water agua com gas água" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="723212"/>
+										
+										<span class="menuItemName">
+											Sparkling Water
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$3.50</span>
+									</a>
+								</li>
+								
+							<!-- =================== V =================== -->
+							<li data-role="list-divider">V</li>
+								<li data-filtertext="Vio" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="123733" />
+										
+										<span class="menuItemName">
+											Vio
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$2.50</span>
+									</a>
+								</li>
+						</ul>
+					</div><!--close content-primary div-->
+				</div><!--close menuList div-->
+			</div><!--close mainContent div-->
+			
+			<div class="staffCallDialog">
+				<h1>THANK YOU</H1>
+			</div>
+			
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
+				<div data-role="navbar" class="nav-glyphish-example">
+					<ul>
+						<li>
+							<a href="#home-page" id="home" data-icon="custom">Home</a>
+						</li>
+						<li>
+							<a href="#menu-page" class="ui-btn-active" id="aboutme" data-icon="custom">Menu</a>
+						</li>
+						<li>
+							<a href="#deals-page" id="links" data-icon="custom">Deals</a>
+						</li>
+						<li>
+							<a href="#bill-page" id="gallery" data-icon="custom">My Bill</a>
+						</li>
+						<li>
+							<a href="#contact-page" id="email" data-icon="custom">Contact</a>
+						</li>
+					</ul>
+				</div><!-- close navbar -->
+			</div><!--close footer -->
+		</div><!--close home div-->
+		<!-- =============== END PAGE ================= -->
+		
+		
+		
+		
+		//todo
+		<!-- =============== START PAGE ================= -->
+		<div id="appetizers-page" class="pages" data-role="page" data-theme="a">
+			<div data-role="header" data-position="fixed">
+				<h1>Appetizers</h1>
+				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
+			</div><!--close header--> 
+			
+			<div id="foodDetail">
+				
+			</div><!--close food menu-->
+			
+			<div id="mainContent" data-role="content">
+				<div class="menuList">
+					<div class="content-primary">
+					
+						<ul data-role="listview" data-theme="a" data-filter="true" data-filter-placeholder="quick search...">
+						
+							<!-- =================== C =================== -->
+							<li data-role="list-divider">C</li>
+								<li data-filtertext="Coke Coca Cola" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="34662" />
+										
+										<span class="menuItemName">
+											Appetizers
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$2.09</span>
+									</a>
+								</li>
+								
+							<!-- =================== F =================== -->
+							<li data-role="list-divider">F</li>
+								<li data-filtertext="Orange Fanta Laranja" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="51234" />
+										
+										
+										<span class="menuItemName">
+											Random Test
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$2.00</span>
+									</a>
+								</li>
+								<li data-filtertext="Grape Fanta Uva" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="76234" />
+										
+										<span class="menuItemName">
+											afasf
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$2.15</span>
+									</a>
+								</li>
+								
+							<!-- =================== L =================== -->
+							<li data-role="list-divider">L</li>
+								<li data-filtertext="Life Savers Soda" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="1235622" />
+										
+										<span class="menuItemName">
+											Life Savers Soda
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$2.55</span>
+									</a>
+								</li>
+								
+							<!-- =================== P =================== -->
+							<li data-role="list-divider">P</li>
+								<li data-filtertext="Pepsi" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="43221" />
+										
+										<span class="menuItemName">
+											Pepsi
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$2.11</span>
+									</a>
+								</li>
+								
+								<li data-filtertext="Pepsi" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="43221" />
+										
+										<span class="menuItemName">
+											Pepsi Diet
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$2.39</span>
+									</a>
+								</li>
+								
+							<!-- =================== S =================== -->
+							<li data-role="list-divider">S</li>
+								<li data-filtertext="Sprite" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="1235512" />
+										
+										<span class="menuItemName">
+											Sprite
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$2.50</span>
+									</a>
+								</li>
+								
+								<li data-filtertext="Coors Rocky Mountain Sparkling Water agua com gas água" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="723212"/>
+										
+										<span class="menuItemName">
+											Sparkling Water
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$3.50</span>
+									</a>
+								</li>
+								
+							<!-- =================== V =================== -->
+							<li data-role="list-divider">V</li>
+								<li data-filtertext="Vio" class="menuListItem">
+									<a href="#">
+										<input class="menuItemNumber" value="123733" />
+										
+										<span class="menuItemName">
+											Vio
+										</span>
+							
+										<span class="ui-li-count menuItemPrice">$2.50</span>
+									</a>
+								</li>
+						</ul>
+					</div><!--close content-primary div-->
+				</div><!--close menuList div-->
+			</div><!--close mainContent div-->
+			
+			<div class="staffCallDialog">
+				<h1>THANK YOU</H1>
+			</div>
+			
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
+				<div data-role="navbar" class="nav-glyphish-example">
+					<ul>
+						<li>
+							<a href="#home-page" id="home" data-icon="custom">Home</a>
+						</li>
+						<li>
+							<a href="#menu-page" class="ui-btn-active" id="aboutme" data-icon="custom">Menu</a>
+						</li>
+						<li>
+							<a href="#deals-page" id="links" data-icon="custom">Deals</a>
+						</li>
+						<li>
+							<a href="#bill-page" id="gallery" data-icon="custom">My Bill</a>
+						</li>
+						<li>
+							<a href="#contact-page" id="email" data-icon="custom">Contact</a>
+						</li>
+					</ul>
+				</div><!-- close navbar -->
+			</div><!--close footer -->
+		</div><!--close home div-->
+		<!-- =============== END PAGE ================= -->
+		
+		
+		
+		
+		
+		<!-- =============== START PAGE ================= -->
+		<div id="bill-page" class="pages" data-role="page" data-theme="a">
+			<div data-role="header" data-position="fixed">
+				<h1>My Bill</h1>
+				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
+			</div><!--close header-->
+			
+			<div id="foodDetail">
+				
+			</div><!--close food menu-->
+			
+			<div id="mainContent" data-role="content">
+				<div class="menuList">
+					<div class="content-primary menuCart">
+						<ul data-role="listview" data-inset="true" data-theme="b" id='stringselect' class="stringselect">
+							<li>You Haven't Ordered Nothing...</li>
+						</ul>
+	
+							<!---
+							<div class="fieldcontain"> 
+								<select data-native-menu="false" name='stringselect' id='stringselect'> 
+									<option>View ordered items</option> 
+								</select> 
+							</div>
+							--->
+						
+					</div><!--close content-primary div-->
+				</div><!--close menuList div-->
+			</div><!--close mainContent div-->
+			
+			<div class="staffCallDialog">
+				<h1>THANK YOU</H1>
+			</div>
+			
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
+				<div data-role="navbar" class="nav-glyphish-example">
+					<ul>
+						<li>
+							<a href="#home-page" id="home" data-icon="custom">Home</a>
+						</li>
+						<li>
+							<a href="#menu-page" id="aboutme" data-icon="custom">Menu</a>
+						</li>
+						<li>
+							<a href="#deals-page" id="links" data-icon="custom">Deals</a>
+						</li>
+						<li>
+							<a href="#bill-page" class="ui-btn-active"  id="gallery" data-icon="custom">My Bill</a>
+						</li>
+						<li>
+							<a href="#contact-page" id="email" data-icon="custom">Contact</a>
+						</li>
+					</ul>
+				</div><!-- close navbar -->
+			</div><!--close footer -->
+		</div><!--close home div-->
+		<!-- =============== END PAGE ================= -->
+		
+		
+	</body>
+</html>

@@ -13,7 +13,6 @@
 -----------------------------------------------------------------------------------------------------------*/
 
 .ui-bar-a {
-	border: 1px solid         		#B3B3B3         /*{a-bar-border}*/;
 	background:        #0e0e0e        /*{a-bar-background-color}*/;
 	color:        #ffffff        /*{a-bar-color}*/;
 	font-weight: bold;
@@ -55,8 +54,8 @@
 }
 .ui-body-a,
 .ui-overlay-a {
-	border: 1px solid        #ffffff        /*{a-body-border}*/;
-	color:       #ffffff       /*{a-body-color}*/;
+	border: 1px solid       #ffffff        /*{a-body-border}*/;
+	color:	#ffffff    /*{a-body-color}*/;
 	text-shadow:         0         /*{a-body-shadow-x}*/        1px        /*{a-body-shadow-y}*/        0        /*{a-body-shadow-radius}*/       #000000       /*{a-body-shadow-color}*/;
 	background:        #333333        /*{a-body-background-color}*/;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(        #333333        /*{a-body-background-start}*/), to(        #333333        /*{a-body-background-end}*/)); /* Saf4+, Chrome */
@@ -305,7 +304,6 @@
 -----------------------------------------------------------------------------------------------------------*/
 
 .ui-bar-c {
-	border: 1px solid         		#B3B3B3         /*{c-bar-border}*/;
 	background:        #0e0e0e        /*{c-bar-background-color}*/;
 	color:        #ffffff        /*{c-bar-color}*/;
 	font-weight: bold;
@@ -392,7 +390,6 @@
 }
 
 .ui-btn-up-c {
-	border: 1px solid         		#cccccc         /*{c-bup-border}*/;
 	background:        #ffffff        /*{c-bup-background-color}*/;
 	font-weight: bold;
 	color:  #ffffff  /*{c-bup-color}*/;
@@ -409,7 +406,6 @@
 }
 
 .ui-btn-hover-c {
-	border: 1px solid         		#bbbbbb         /*{c-bhover-border}*/;
 	background:         			#dfdfdf         /*{c-bhover-background-color}*/;
 	font-weight: bold;
 	color:  #ffffff  /*{c-bhover-color}*/;
@@ -425,7 +421,6 @@
 	color:  #ffffff  /*{c-bhover-color}*/;
 }
 .ui-btn-down-c {
-	border: 1px solid       #bbbbbb       /*{c-bdown-border}*/;
 	background:       #d6d6d6       /*{c-bdown-background-color}*/;
 	font-weight: bold;
 	color:       #bc414b       /*{c-bdown-color}*/;
@@ -540,7 +535,6 @@
 }
 
 .ui-btn-up-d {
-	border: 1px solid         		#cccccc         /*{d-bup-border}*/;
 	background:        #ffffff        /*{d-bup-background-color}*/;
 	font-weight: bold;
 	color:  #ffffff  /*{d-bup-color}*/;
@@ -557,7 +551,6 @@
 }
 
 .ui-btn-hover-d {
-	border: 1px solid         		#bbbbbb         /*{d-bhover-border}*/;
 	background:         			#dfdfdf         /*{d-bhover-background-color}*/;
 	font-weight: bold;
 	color:  #ffffff  /*{d-bhover-color}*/;
@@ -573,7 +566,6 @@
 	color:  #ffffff  /*{d-bhover-color}*/;
 }
 .ui-btn-down-d {
-	border: 1px solid       #bbbbbb       /*{d-bdown-border}*/;
 	background:       #d6d6d6       /*{d-bdown-background-color}*/;
 	font-weight: bold;
 	color: #fff /*{d-bdown-color}*/;
@@ -612,7 +604,6 @@ a.ui-link-inherit {
 /* Active class used as the "on" state across all themes
 -----------------------------------------------------------------------------------------------------------*/
 .ui-btn-active {
-	border: 1px solid       #ffffff       /*{global-active-border}*/;
 	background:       #bc414b       /*{global-active-background-color}*/;
 	font-weight: bold;
 	color:       #ffffff       /*{global-active-color}*/;

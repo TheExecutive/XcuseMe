@@ -6,24 +6,23 @@
 		
 		<title>XCuse.me app - Welcome</title>
 		
-		<!-- jquery mobile -->
-		<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
-		
+		<!-- jquery -->
+		<script type="text/javascript" src="js/jquery-1.6.4.js"></script>
+		<script type="text/javascript" src="js/jquery-mobile.js"></script>
 		<script type="text/javascript" src="js/dialog2.js"></script>
-		
 		<script type="text/javascript" src="js/main.js" ></script>
+		<script type="text/javascript" src="js/jquery.easing-1.3.js"></script>
+		<script type="text/javascript" src="js/jquery.ios-slider-0.9.js"></script>
 		
-		<!-- main css -->
-		<link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="css/jquery-mobile.css" />
 		<link rel="stylesheet" type="text/css" href="css/dialog.css" /> 
   		<link rel="stylesheet" type="text/css" href="css/warm_and_cool.css" />
+
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
-		<link rel="stylesheet" type="text/css" href="css/iPhone.css" />
 	</head>
 	
 	<body>
-	
 		<!-- =============== START PAGE ================= -->
 		<div id="home-page" class="pages" data-role="page" data-theme="a" >
 			<div data-role="header">
@@ -38,25 +37,6 @@
 					</div>
 				</div><!--close mainLogo div-->
 			</div><!--close header-->
-			
-			<div class="nextArrow">
-				<a href="#" class="nextArrowLink" title="goto the next step to select your table and start your service">next</a>
-			</div>
-			
-			<div class="setUpTable">
-				<h3>Which table are you at?</h3>
-				
-				<div class="tableSelect">
-					<a href="#" class="tableMinusBtn control" title="back arrow">-</a>
-					
-					<span class="tableNumber">10</span>
-					
-					<a href="#" class="tablePlusBtn control"  title="forward arrow">+</a>
-					
-					<a href="#" class="startService" data-role="button">Start Service</a> 
-				</div>
-				
-			</div>
 			
 			<div class="staffCallDialog">
 				
@@ -233,6 +213,110 @@
 						</li>
 						<li>
 							<a href="#deals-page" id="links" data-icon="custom">Deals</a>
+						</li>
+						<li>
+							<a href="#bill-page" id="gallery" data-icon="custom">My Bill</a>
+						</li>
+						<li>
+							<a href="#contact-page" id="email" data-icon="custom">Contact</a>
+						</li>
+					</ul>
+				</div><!-- close navbar -->
+			</div><!--close footer -->
+		</div><!--close home div-->
+		<!-- =============== END PAGE ================= -->
+		
+		
+		
+	
+		<!-- =============== START PAGE ================= -->
+		<div id="deals-page" class="pages" data-role="page" data-theme="a" >
+			<div data-role="header">
+				<h1>Deals</h1>
+				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
+			</div><!--close header-->
+			
+			<div id="dealContent">
+				<div class = 'iosSlider'>
+					<div class = 'slider'>
+						<div class = 'item' id = 'item1'>
+							<div class = 'text1'>
+								Mondays
+							</div>
+							
+							<div class = 'text2'>
+								Menu Madness - from 4:00pm to 10:00pm all entrees (lobster not included) Menu Madness - from 4:00pm to 10:00pm all entrees (lobster not included)
+							</div>
+							
+							<div class = 'dealPrice'>
+								$13.99
+							</div>
+						</div>
+						
+						<div class = 'item' id = 'item2'>
+							<div class = 'text1'>
+								Tuesday
+							</div>
+							
+							<div class = 'text2'>
+								get dinner for 2 with a bottle of wine
+							</div>
+							
+							<div class = 'dealPrice'>
+								$13.99
+							</div>
+						</div>
+						
+						<div class = 'item' id = 'item3'>
+							<div class = 'text1'>
+								Wednesday House
+							</div>
+							
+							<div class = 'text2'>
+								Menu Madness - from 4:00pm to 10:00pm all entrees (lobster not included)
+							</div>
+							
+							<div class = 'dealPrice'>
+								$13.99
+							</div>
+						</div>
+						
+						<div class = 'item' id = 'item4'>
+							<div class = 'text1'>
+								Thursday Party
+							</div>
+							
+							<div class = 'text2'>
+								Menu Madness - from 4:00pm to 10:00pm all entrees (lobster not included)
+							</div>
+							
+							<div class = 'dealPrice'>
+								$13.99
+							</div>
+						</div>
+					</div>
+			
+					<div class = 'prevButton'></div>
+					<div class = 'nextButton'></div>
+				</div>
+				
+			</div><!--close header-->
+			
+			<div class="staffCallDialog">
+				<h1>THANK YOU</H1>
+			</div>
+			
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
+				<div data-role="navbar" class="nav-glyphish-example">
+					<ul>
+						<li>
+							<a href="#home-page" id="home" data-icon="custom">Home</a>
+						</li>
+						<li>
+							<a href="#menu-page" id="aboutme" data-icon="custom">Menu</a>
+						</li>
+						<li>
+							<a href="#deals-page" class="ui-btn-active" id="links" data-icon="custom">Deals</a>
 						</li>
 						<li>
 							<a href="#bill-page" id="gallery" data-icon="custom">My Bill</a>
@@ -429,7 +513,7 @@
 						<li>
 							<a href="#deals-page" id="links" data-icon="custom">Deals</a>
 						</li>
-						<li>
+						<li class="billMenuClick">
 							<a href="#bill-page" id="gallery" data-icon="custom">My Bill</a>
 						</li>
 						<li>
@@ -443,8 +527,6 @@
 		
 		
 		
-		
-		//todo
 		<!-- =============== START PAGE ================= -->
 		<div id="appetizers-page" class="pages" data-role="page" data-theme="a">
 			<div data-role="header" data-position="fixed">
@@ -617,7 +699,6 @@
 		
 		
 		
-		
 		<!-- =============== START PAGE ================= -->
 		<div id="bill-page" class="pages" data-role="page" data-theme="a">
 			<div data-role="header" data-position="fixed">
@@ -629,23 +710,95 @@
 				
 			</div><!--close food menu-->
 			
-			<div id="mainContent" data-role="content">
-				<div class="menuList">
-					<div class="content-primary menuCart">
-						<ul data-role="listview" data-inset="true" data-theme="b" id='stringselect' class="stringselect">
-							<li>You Haven't Ordered Nothing...</li>
-						</ul>
-	
-							<!---
-							<div class="fieldcontain"> 
-								<select data-native-menu="false" name='stringselect' id='stringselect'> 
-									<option>View ordered items</option> 
-								</select> 
-							</div>
-							--->
+			<div id="billContent">
+				<div class="content-primary menuCart">
+				
+					<ul data-role="listview" data-inset="true" data-theme="b">
+						<li class="billTitle">
+							Total Bill 
+							
+							<span class="cartItemPrice totalPrice" id="totalPrice">
+								$100.00
+							</span>
+						</li>
 						
-					</div><!--close content-primary div-->
-				</div><!--close menuList div-->
+						<ul id='stringselect' class="stringselect">
+							<!-- ordered items will be placed here using appendTo -->
+						</ul>
+					</ul>
+					
+					<ul data-role="listview" data-inset="true" data-theme="b" class="billSection">
+						<li class="billSection2">
+							How many people ?
+							<span class="cartItemPrice totalPrice">
+									<select name="number-of-person" id="number-of-person" data-mini="true">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+									</select>
+							</span>
+						</li>
+						
+						<li class="billSection2">
+							Tip % 
+							<span class="cartItemPrice totalPrice">
+									<select name="tip-percentage" id="tip-percentage" data-mini="true">
+										<option value="10">10%</option>
+										<option value="15">15%</option>
+										<option value="20">20%</option>
+										<option value="25" selected="selected">25%</option>
+										<option value="30">30%</option>
+									</select>
+							</span>
+						</li>
+						
+						<li>
+							Tip per person 
+							
+							<span class="cartItemPrice totalPrice" id="tip-per-person">
+								$15.00
+							</span>
+						</li>
+						
+						<li>
+							Total per person 
+							
+							<span class="cartItemPrice totalPrice" id="total-per-person">
+								$32.50
+							</span>
+						</li>
+						
+						<li data-theme="e" >
+							Total with Tip
+							
+							<span class="cartItemPrice totalPrice" id="total-plus-tip">
+								$45.10
+							</span>
+						</li>
+					</ul>
+					
+						<!---
+						<div class="ui-body ui-body-b billSection control">
+							<fieldset class="ui-grid-a">
+									<div class="ui-block-b sendFeedback"><button type="submit" data-theme="d">Check Out...</button></div>
+							</fieldset>
+						</div>
+
+						<div class="fieldcontain"> 
+							<select data-native-menu="false" name='stringselect' id='stringselect'> 
+								<option>View ordered items</option> 
+							</select> 
+						</div>
+						--->
+					
+				</div><!--close content-primary div-->
 			</div><!--close mainContent div-->
 			
 			<div class="staffCallDialog">
@@ -669,6 +822,103 @@
 						</li>
 						<li>
 							<a href="#contact-page" id="email" data-icon="custom">Contact</a>
+						</li>
+					</ul>
+				</div><!-- close navbar -->
+			</div><!--close footer -->
+		</div><!--close home div-->
+		<!-- =============== END PAGE ================= -->
+		
+		<!-- =============== START PAGE ================= -->
+		<div id="contact-page" class="pages" data-role="page" data-theme="a" >
+			<div data-role="header">
+				<h1>Feddback</h1>
+				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
+			</div><!--close header-->
+			
+			<div id="mainContent" class="contactPage" data-role="content">
+				<form action="#" method="get">
+					<div data-role="fieldcontain">
+						<label for="name" class="contactInput">What is your name ?</label>
+						<input type="text" name="name" id="name" value="" data-theme="b"  />
+					</div>
+					
+					<div data-role="fieldcontain">
+						<label for="slider">Rate your costumer experience : </label>
+						<input type="range" name="slider" id="slider" value="50" min="0" max="100" data-highlight="true"  data-theme="b" />
+					</div>
+					
+					<div data-role="fieldcontain">
+						<label for="select-choice-3" class="select">Who served you ?</label>
+						<select name="select-choice-3" id="select-choice-3" data-theme="b" >
+							<option value="Marcos DeSousa">Marcos DeSousa</option>
+							<option value="Troy Grant">Troy Grant</option>
+							<option value="Caio Mitre">Caio Mitre</option>
+							<option value="Paulo Pinho">Paulo Pinho</option>
+							<option value="Jorge Ferraz">Jorge Ferraz</option>
+							<option value="Gabe Bueno">Gabe Bueno</option>
+							<option value="Jean Ickchuki">Jean Ickchuki</option>
+							<option value="Thom Ribeiro">Thom Ribeiro</option>
+							<option value="Jeff Louzada">Jeff Louzada</option>
+						</select>
+					</div>
+					
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<legend>Did you like your food ?</legend>
+								<input type="radio" name="like-food-radio" id="radio-choice-1" value="yes" checked="checked" data-theme="b" />
+								<label for="radio-choice-1">Yes</label>
+		
+								<input type="radio" name="like-food-radio" id="radio-choice-2" value="no"  data-theme="b"  />
+								<label for="radio-choice-2">No</label>
+						</fieldset>
+					</div>
+					
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<legend>Would you recommend this app?</legend>
+								<input type="radio" name="recomment-app-radio" id="radio-choice-1" value="yes" checked="checked" data-theme="b" />
+								<label for="radio-choice-1">Yes</label>
+		
+								<input type="radio" name="recomment-app-radio" id="radio-choice-2" value="no"  data-theme="b"  />
+								<label for="radio-choice-2">No</label>
+						</fieldset>
+					</div>
+					
+					<div data-role="fieldcontain">
+						<label for="textarea">Comment (optional):</label>
+						<textarea cols="40" rows="8" name="textarea" id="textarea" data-theme="b"></textarea>
+					</div>
+					
+						<fieldset class="ui-grid-a">
+							<button type="submit" data-theme="e">Send Feedback</button>
+						</fieldset>
+				</form>
+			</div><!--close header-->
+			
+			<div class="staffCallDialog">
+				
+				<h1>THANK YOU</H1>
+				
+			</div>
+			
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
+				<div data-role="navbar" class="nav-glyphish-example">
+					<ul>
+						<li>
+							<a href="#home-page" id="home" data-icon="custom">Home</a>
+						</li>
+						<li>
+							<a href="#menu-page" id="aboutme" data-icon="custom">Menu</a>
+						</li>
+						<li>
+							<a href="#deals-page" id="links" data-icon="custom">Deals</a>
+						</li>
+						<li>
+							<a href="#bill-page" id="gallery" data-icon="custom">My Bill</a>
+						</li>
+						<li>
+							<a href="#contact-page" class="ui-btn-active"  id="email" data-icon="custom">Contact</a>
 						</li>
 					</ul>
 				</div><!-- close navbar -->
