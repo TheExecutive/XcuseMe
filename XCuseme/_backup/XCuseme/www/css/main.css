@@ -13,145 +13,29 @@
 	position: relative;
 }
 
-
-.setUpTable{
-	position: absolute;
-	top: 43px;
-	left: 0px;
-	width: 100%;
+.contactPage{
+	background-color: white;
+	min-height: 100%;
 	height: 100%;
-	text-align: center;
-	background: url("../images/bg/bg-transparent-85pect.png") repeat top left;
-}	
-
-.tableNumber{
-	font: 10em/1 "Arial Black";
-}
-
-.tableSelect{
-	height:40%;
-	width: 75%;
-	border: 1px solid white;
-	margin: 0 auto;
 	
-	background-color: #fff;
 	color: #404040;
 	
-	
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	
-	-webkit-box-shadow: 0px 0px 10px 0px #000;
-	-moz-box-shadow: 0px 0px 10px 0px #000;
-	box-shadow: 0px 0px 10px 0px #000;
-	
-	position: relative;
+	text-shadow: 1px 0px 0px #dedede;
+	filter: dropshadow(color=#dedede, offx=1, offy=0);
 }
 
-.tableSelect a.startService{
-	position: absolute;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
-	
-	color: white;
-
-	text-shadow: 1px 0px 0px #000000;
-	filter: dropshadow(color=#000000, offx=1, offy=0);
-        
-	
-	background: rgb(41,154,11); /* Old browsers */
-	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI5OWEwYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyOTlhMGIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-linear-gradient(top, rgba(41,154,11,1) 0%, rgba(41,154,11,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(41,154,11,1)), color-stop(100%,rgba(41,154,11,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(41,154,11,1) 0%,rgba(41,154,11,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(41,154,11,1) 0%,rgba(41,154,11,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(41,154,11,1) 0%,rgba(41,154,11,1) 100%); /* IE10+ */
-	background: linear-gradient(top, rgba(41,154,11,1) 0%,rgba(41,154,11,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#299a0b', endColorstr='#299a0b',GradientType=0 ); /* IE6-8 */
-	
-	-webkit-box-shadow: 0px 0px 10px 0px #888888;
-	-moz-box-shadow: 0px 0px 10px 0px #888888;
-	box-shadow: 0px 0px 10px 0px #888888;
-	
-	border: 1px solid white;
+.contactPage input:focus{
+	-webkit-box-shadow: inset 0px 0px 5px 0px #dedede;
+	-moz-box-shadow: inset 0px 0px 5px 0px #dedede;
+	box-shadow: inset 0px 0px 5px 0px #dedede;
 }
 
-.tableSelect a.startService:hover{
-	background: rgb(41,154,11); /* Old browsers */
-	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI5OWEwYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM1ZTk5NGUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-linear-gradient(top, rgba(41,154,11,1) 0%, rgba(94,153,78,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(41,154,11,1)), color-stop(100%,rgba(94,153,78,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(41,154,11,1) 0%,rgba(94,153,78,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(41,154,11,1) 0%,rgba(94,153,78,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(41,154,11,1) 0%,rgba(94,153,78,1) 100%); /* IE10+ */
-	background: linear-gradient(top, rgba(41,154,11,1) 0%,rgba(94,153,78,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#299a0b', endColorstr='#5e994e',GradientType=0 ); /* IE6-8 */
-	
-	-webkit-box-shadow: 0px 0px 5px 0px #888888;
-	-moz-box-shadow: 0px 0px 5px 0px #888888;
-	box-shadow: 0px 0px 5px 0px #888888;
-	
-	border: 1px solid white;
+.sendFeedback{
+	float: right;
 }
 
-.tableSelect a.control{
-	text-decoration: none;
-	font: 10em/1 "Arial Black";
-	
-	display: block;
-	height: 100px;
-	width: 100px;
-	
-	position: absolute;
-}
-
-.tableSelect .tableMinusBtn{
-	top: 0px;
-	left: 0px;
-}
-
-.tableSelect .tablePlusBtn{
-	top: 0px;
-	right: 15px;
-}
-
-.nextArrow{
-	position: absolute;
-	top: 0px;
-	right: 0px;
-}
-
-.nextArrow a{
-	display: block;
-	height: 100px;
-	width: 60px;
-	background-color: #000000;
-	text-indent: -2000px;
-	margin-right: -5px;
-	margin-top: 100px;
-	border: 1px solid white;
-	
-	opacity: .5 ;
-	filter: alpha(opacity=5);
-	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=5)";
-	
-	-webkit-border-radius: 10px 0px 0px 10px;
-	-moz-border-radius: 10px 0px 0px 10px;
-	border-radius: 10px 0px 0px 10px;
-	
-	-webkit-box-shadow: 0px 0px 10px 0px #000;
-	-moz-box-shadow: 0px 0px 10px 0px #000;
-	box-shadow: 0px 0px 10px 0px #000;
-}	
-
-.nextArrow a:hover{
-	opacity: .75;
-	filter: alpha(opacity=75);
-	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+.ui-field-contain{
+	padding-bottom: 15px;
 }
 
 .staffCallDialog{
@@ -163,22 +47,30 @@
 	background-color: black;
 }
 
-
-
-.cartItemPrice{
-	float: right;
-	color: #b53737;
-}
-
-
 .stringselect{
-	height: 10em;
-	max-height: 10em;
+	height: 5em;
+	max-height: 5em;
 	overflow: scroll;
+	
+	padding-top: 15px;
 	
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
+	
+	background: rgb(255,255,255); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNWU1ZTUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(229,229,229,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-8 */
+	
+	background: url("http://subtlepatterns.com/patterns/lined_paper.png") repeat;
+	background-size: 65%;
 	
 	/*
 	-webkit-box-shadow: 0px 0px 10px 0px #000;
@@ -187,9 +79,56 @@
 	*/
 }
 
+/* todo : fix the height of the menu, because its messing up my navigation.. keeps blinking*/
 .menuList{
-	width: 100%;
-	height: 100%;
+	height: 50%;
+}
+
+#billContent{
+	padding: 10px;
+}
+
+.billSection{
+	margin-top: 10px;
+}
+
+.billSection2{
+	padding: 1em 15px !important;
+}
+
+.billSection2 .ui-btn{
+	margin-top: -10px;
+	margin-right: -5px;
+	padding: 0px;
+}
+
+.billSection.control{
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.billTitle{
+	margin-bottom: -15px;
+}
+
+.cartItemPrice{
+	float: right;
+	color: #b53737;
+}
+
+.itemOrdered{
+	color: #404040;
+	padding-top: 10px;
+	font: .8em/1 "Arial",Helvetica,Arial,sans-serif;
+	
+	text-shadow: 1px 0px 0px #fff;
+	filter: dropshadow(color=#fff, offx=1, offy=0);
+	
+	list-style: bullet;
+	margin-left: 0px;
+	padding-left: 0px;
+	padding-right: 2em;
 }
 
 .menuIcon{
@@ -248,3 +187,178 @@
 .menuItemNumber{
 	display: none !important; 
 }
+
+
+			#dealContent{
+				padding: 10px;
+			}
+			
+			.iosSlider {
+				background-color: #000000;
+				height: 20em;
+				width: 100%;
+				
+				padding: 0px;
+				
+				-webkit-box-shadow: 0px 0px 10px 0px #000;
+				-moz-box-shadow: 0px 0px 10px 0px #000;
+				box-shadow: 0px 0px 10px 0px #000;
+				
+			}
+			
+			.iosSlider .slider {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.dealPrice{
+				position: absolute;
+				top: 40%;
+				left: 0px;
+				
+				text-align: center;
+				
+				display: table-cell; 
+				vertical-align: middle;
+				
+				padding: 1em;
+				
+				font: bold 1.5em/1 "Arial",Helvetica,Arial,sans-serif;
+				
+				-webkit-border-radius: 0px 10px 10px 0px;
+				-moz-border-radius: 0px 10px 10px 0px;
+				border-radius: 0px 10px 10px 0px;
+				
+				-webkit-box-shadow: 0px 0px 10px 0px #000;
+				-moz-box-shadow: 0px 0px 10px 0px #000;
+				box-shadow: 0px 0px 10px 0px #000;
+				
+				background: rgb(255,214,94); /* Old browsers */
+				/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+				background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZDY1ZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZWJmMDQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+				background: -moz-linear-gradient(top,  rgba(255,214,94,1) 0%, rgba(254,191,4,1) 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,214,94,1)), color-stop(100%,rgba(254,191,4,1))); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top,  rgba(255,214,94,1) 0%,rgba(254,191,4,1) 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top,  rgba(255,214,94,1) 0%,rgba(254,191,4,1) 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top,  rgba(255,214,94,1) 0%,rgba(254,191,4,1) 100%); /* IE10+ */
+				background: linear-gradient(top,  rgba(255,214,94,1) 0%,rgba(254,191,4,1) 100%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd65e', endColorstr='#febf04',GradientType=0 ); /* IE6-8 */
+			}
+			
+			.iosSlider .slider .item {
+				position: relative;
+				top: 0;
+				left: 0;
+				
+				height: 20em;
+				width: 50em;
+				
+				background: #000000;
+			}
+			
+			.iosSlider .slider #item1{
+				background: url(../images/deals/deal1.jpg) no-repeat 50% 50%;
+			}
+			
+			.iosSlider .slider #item2{
+				background: url(../images/deals/deal2.jpg) no-repeat 50% 50%;
+			}
+			
+			.iosSlider .slider #item3{
+				background: url(../images/deals/deal3.jpg) no-repeat 20% 50%;
+			}
+			
+			.iosSlider .slider #item4{
+				background: url(../images/deals/deal4.jpg) no-repeat 50% 50%;
+			}
+			
+			.iosSlider .slider .item .text1 {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				
+				width: 100%;
+				
+				-webkit-border-radius: 10px 10px 0px 0px;
+				-moz-border-radius: 10px 10px 0px 0px;
+				border-radius: 10px 10px 0px 0px;
+				
+				overflow: hidden;
+				
+				background: url("../images/bg/bg-transparent-85pect.png") repeat top left;
+			}
+			
+			
+			.iosSlider .slider .item .text1{
+				color: #fff;
+				font: bold 2em/1 "Arial",Helvetica,Arial,sans-serif;
+				padding: 5px 10px;
+			}
+			
+			.iosSlider .slider .item .text2 {
+				position: absolute;
+				bottom: 0px;
+				left: 0px;
+				
+				background: url("../images/bg/bg-transparent-85pect.png") repeat top left;
+				
+				padding: 10px 25px;
+			}
+			
+			.iosSlider .slider .item .text2{
+				color: #fff;
+				font: 1em/1 "Arial",Helvetica,Arial,sans-serif;
+			}
+			
+			.iosSliderButtons {
+				position: absolute;
+				bottom: 10px;
+				left: 10px;
+				width: 200px;
+				height: 10px;
+			}
+			
+			.iosSliderButtons .button {
+				float: left;
+				width: 9px;
+				height: 9px;
+				background: #999;
+				margin: 0 10px 0 0;
+				opacity: 0.25;
+				filter: alpha(opacity:25);
+				border: 1px solid #000;
+			}
+			
+			.iosSliderButtons .selected {
+				background: #000;
+				opacity: 1;
+				filter: alpha(opacity:100);
+			}
+			
+			.iosSlider .prevButton {
+				position: absolute;
+				top: 20%;
+				left: 1%;
+				width: 20px;
+				height: 40px;
+				background: url(../images/slider-buttons.png) no-repeat 0 0;
+				z-index: 2;
+				
+				opacity: .50;
+				filter: alpha(opacity=50);
+				-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+			}
+			
+			.iosSlider .nextButton {
+				position: absolute;
+				top: 20%;
+				right: 1%;
+				width: 20px;
+				height: 40px;
+				background: url(../images/slider-buttons.png) no-repeat 100% 0;
+				z-index: 2;
+				
+				opacity: .50;
+				filter: alpha(opacity=50);
+				-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+			}

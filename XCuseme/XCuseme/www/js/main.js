@@ -2,6 +2,56 @@
 (function($){
 	$(document).ready(function(){
 	
+		// Wait for Cordova to load
+		document.addEventListener("deviceready", onDeviceReady, false);
+	
+		// Cordova is ready
+		function onDeviceReady() {
+			// Empty
+		}
+	
+		// alert dialog dismissed
+		function alertDismissed() {
+			// do something
+		}
+		
+		function callStaffCallback() {
+			// do something
+			console.log("ajax call here to the server's computer");
+		}
+	
+		// Show a custom alert
+		function callStaffAlert() {
+			navigator.notification.alert(
+				'Please wait, a staff member will be with you shortly.',  // message
+				callStaffCallback,         // callback
+				'Request sent',            // title
+				'Okay'                  // buttonName
+			);
+		}
+		
+
+		// Beep three times
+		function playBeep() {
+			navigator.notification.beep(3);
+		}
+	
+		// Vibrate for 2 seconds
+		function vibrate() {
+			navigator.notification.vibrate(2000);
+		}
+		
+		$(".staffCallDialogBtn").click(function(){
+			callStaffAlert();
+			playBeep();
+			vibrate();
+			
+			return false;
+		});
+	
+	
+			
+	
 		var billCalculation = function(){
 			// ============== Bill Prices before Taking off $ to calculate ===========
 			var $totalPrice = $("#totalPrice").text(),
@@ -87,18 +137,6 @@
 		
 		$(".billMenuClick").click(function(){
 			billCalculation();
-		});
-		
-		$(".startService").click(function(){
-			$(".setUpTable").delay(500).fadeOut();
-		});
-		
-		$(".staffCallDialogBtn").click(function(){
-			var dialog = $(".staffCallDialog");
-			//dialog.fadeIn(300).delay(800).fadeOut(400);
-			
-			console.log("calling staff member");
-			alert("A staff member will be with you shortly");
 		});
 		
 		
