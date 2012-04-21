@@ -129,7 +129,8 @@ header h1 {
 #buttonContainer {
 	width: 960px;
 	min-height: 400px;
-	margin: 40px auto 0 auto;
+	margin: 40px auto 80px auto;
+	overflow: hidden;
 }
 
 #buttonContainer li {
@@ -142,6 +143,7 @@ header h1 {
 	display: block;
 	width: 220px;
 	overflow: hidden;
+	position:relative;
 	height: 160px;
 	text-shadow: 1px 1px 1px #888; /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
 	-webkit-border-radius: 12px; /* Saf3-4, iOS 1-3.2, Android ≤1.6 */
@@ -152,8 +154,52 @@ header h1 {
           box-shadow: 1px 1px 4px 0px #000; /* Opera 10.5, IE9, FF4+, Chrome 6+, iOS 5 */
 }
 
+.tableNumber, .tableIcon, .tableStatus {
+	position: absolute;
+}
+
+.tableIcon {
+	width: 55px;
+	height: 55px;
+	text-indent: -9999px;
+	right: 10px;
+	top: 30px;
+	background: url('../img/iconSprite.png') 0px -70px no-repeat;
+}
+
+.tableIcon.served {
+	background-position: 0px 0px;
+}
+
+.tableButton.assistance .tableIcon {
+	background-position: 0px -138px;
+}
+
 .tableButton .tableNumber {
 	font: bold 7em "Arial Black", Arial, sans-serif;
+	top: -10px;
+	left: 10px;
+}
+
+.tableStatus {
+	bottom: 2px;
+	right: 10px;
+	font: bold 1.6em "Arial Black", Arial, sans-serif;
+}
+
+.tablePatronsNumber {
+	font-size: 1.8em;
+}
+
+.tableButton {
+	background: rgb(226,226,226); /* Old browsers */
+background: -moz-linear-gradient(-45deg, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(226,226,226,1)), color-stop(50%,rgba(219,219,219,1)), color-stop(51%,rgba(209,209,209,1)), color-stop(100%,rgba(254,254,254,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg, rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 51%,rgba(254,254,254,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg, rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 51%,rgba(254,254,254,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg, rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 51%,rgba(254,254,254,1) 100%); /* IE10+ */
+background: linear-gradient(-45deg, rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 51%,rgba(254,254,254,1) 100%); /* W3C */
+
 }
 
 .tableButton.active {
@@ -190,7 +236,35 @@ background: linear-gradient(-45deg, rgba(255,255,0,1) 0%,rgba(255,110,2,1) 100%)
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff00', endColorstr='#ff6e02',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
+/* -----------------------------------------=Footer-----*/
 
+footer {
+	clear: both;
+	height: 22px;
+	position: fixed;
+	bottom: 0;
+	overflow: hidden;
+	width: 100%;
+	background: rgb(169,3,41); /* Old browsers */
+	-webkit-box-shadow: 0px -2px 3px 1px #000; /* Saf3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow: 0px -2px 3px 1px #000; /* FF3.5 - 3.6 */
+	box-shadow: 0px -2px 3px 1px #000; /* Opera 10.5, IE9, FF4+, Chrome 6+, iOS 5 */
+
+	background: -moz-linear-gradient(top, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(169,3,41,1)), color-stop(44%,rgba(143,2,34,1)), color-stop(100%,rgba(109,0,25,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* IE10+ */
+	background: linear-gradient(top, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+}
+
+footer p {
+	width: 100%;
+	color: #fff;
+	margin-top: 2px;
+	text-align: center;
+}
 
 
 
