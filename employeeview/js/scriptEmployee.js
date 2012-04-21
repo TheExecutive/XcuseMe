@@ -134,9 +134,9 @@
 							that = $(this);
 							if(that.data('tableid') === clearTableId && that.hasClass('assistance')){ //clear out assistance if they don't have it
 								that.removeClass('assistance'); //remove assistance from anything that doesn't need it.
-							}*/
+							}
 						});
-					}
+					}*/
 				});
 		    },
 		    error: function(error){
