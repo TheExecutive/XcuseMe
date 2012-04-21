@@ -7,12 +7,17 @@
 		<title>XCuse.me app - Welcome</title>
 		
 		<!-- jquery -->
+		<script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
+		
 		<script type="text/javascript" src="js/jquery-1.6.4.js"></script>
 		<script type="text/javascript" src="js/jquery-mobile.js"></script>
+		
 		<script type="text/javascript" src="js/dialog2.js"></script>
-		<script type="text/javascript" src="js/main.js" ></script>
 		<script type="text/javascript" src="js/jquery.easing-1.3.js"></script>
 		<script type="text/javascript" src="js/jquery.ios-slider-0.9.js"></script>
+		
+		<script type="text/javascript" src="js/camera.js" ></script>
+		<script type="text/javascript" src="js/main.js" ></script>
 		
 		<!-- css -->
 		<link rel="stylesheet" type="text/css" href="css/jquery-mobile.css" />
@@ -20,6 +25,9 @@
   		<link rel="stylesheet" type="text/css" href="css/warm_and_cool.css" />
 
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		
+
+
 	</head>
 	
 	<body>
@@ -35,6 +43,20 @@
 					<div id="logoImg">
 						<img id="logo" src="images/logo/mainLogo.png" alt="excuse me main logo" title="the main logo for the excuse me mobile application" />
 					</div>
+					
+					<!--
+					<button onclick="capturePhoto();">Capture Photo</button>
+    				<button onclick="capturePhotoEdit();">Capture Editable Photo</button>
+					-->
+					
+					<button class="testBtn">Test Feature</button>
+					<button class="capturePhotoEdit">Check in With Your Table</button>
+					
+					<img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+					<img style="display:none;" id="largeImage" src="" />
+
+					
+					
 				</div><!--close mainLogo div-->
 			</div><!--close header-->
 			
@@ -237,67 +259,72 @@
 			</div><!--close header-->
 			
 			<div id="dealContent">
-				<div class = 'iosSlider'>
-					<div class = 'slider'>
-						<div class = 'item' id = 'item1'>
-							<div class = 'text1'>
-								Mondays
+				<div class='iosSlider'>
+					<div class='slider'>
+						<div class='item' id='item1'>
+							<div class='text1'>
+								Skol 360
 							</div>
 							
-							<div class = 'text2'>
-								Menu Madness - from 4:00pm to 10:00pm all entrees (lobster not included) Menu Madness - from 4:00pm to 10:00pm all entrees (lobster not included)
+							<div class='text2'>
+								Skol is a brazilian beer, that is growing day by day expanding throghout the world. With a unique taste, it has gained its place on the market.
 							</div>
 							
-							<div class = 'dealPrice'>
+							<div class='dealPrice'>
 								$13.99
 							</div>
 						</div>
 						
-						<div class = 'item' id = 'item2'>
-							<div class = 'text1'>
+						<div class='item' id='item2'>
+							<div class='text1'>
 								Tuesday
 							</div>
 							
-							<div class = 'text2'>
+							<div class='text2'>
 								get dinner for 2 with a bottle of wine
 							</div>
 							
-							<div class = 'dealPrice'>
+							<div class='dealPrice'>
 								$13.99
 							</div>
 						</div>
 						
-						<div class = 'item' id = 'item3'>
-							<div class = 'text1'>
+						<div class='item' id='item3'>
+							<div class='text1'>
 								Wednesday House
 							</div>
 							
-							<div class = 'text2'>
+							<div class='text2'>
 								Menu Madness - from 4:00pm to 10:00pm all entrees (lobster not included)
 							</div>
 							
-							<div class = 'dealPrice'>
+							<div class='dealPrice'>
 								$13.99
 							</div>
 						</div>
 						
-						<div class = 'item' id = 'item4'>
-							<div class = 'text1'>
+						<div class='item' id='item4'>
+							<div class='text1'>
 								Thursday Party
 							</div>
 							
-							<div class = 'text2'>
+							<div class='text2'>
 								Menu Madness - from 4:00pm to 10:00pm all entrees (lobster not included)
 							</div>
 							
-							<div class = 'dealPrice'>
+							<div class='dealPrice'>
 								$13.99
 							</div>
 						</div>
 					</div>
 			
-					<div class = 'prevButton'></div>
-					<div class = 'nextButton'></div>
+					<div class='prevButton'>
+						<img src="images/backArrow.png" />
+					</div>
+					
+					<div class='nextButton'>
+						<img src="images/nextArrow.png" />
+					</div>
 				</div>
 				
 			</div><!--close header-->

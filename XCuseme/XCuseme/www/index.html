@@ -13,10 +13,13 @@
 		<script type="text/javascript" src="js/jquery-mobile.js"></script>
 		
 		<script type="text/javascript" src="js/dialog2.js"></script>
+		
 		<script type="text/javascript" src="js/jquery.easing-1.3.js"></script>
 		<script type="text/javascript" src="js/jquery.ios-slider-0.9.js"></script>
 		
+		<script type="text/javascript" src="js/get_barcode_from_image.js" ></script>
 		<script type="text/javascript" src="js/camera.js" ></script>
+		
 		<script type="text/javascript" src="js/main.js" ></script>
 		
 		<!-- css -->
@@ -26,8 +29,7 @@
 
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
 		
-
-
+		<!--<script language="javascript"> document.ontouchmove = function(e){ e.preventDefault(); }</script>--->
 	</head>
 	
 	<body>
@@ -38,33 +40,23 @@
 				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
 			</div><!--close header-->
 			
-			<div id="mainContent" data-role="content">
+			<div id="mainContent" data-role="content" class="fixedContent">
 				<div id="mainLogo">
 					<div id="logoImg">
-						<img id="logo" src="images/logo/mainLogo.png" alt="excuse me main logo" title="the main logo for the excuse me mobile application" />
+						<!--
+							<img id="logo" src="images/logo/mainLogo.png" alt="excuse me main logo" title="the main logo for the excuse me mobile application" />
+						-->
+						
+						<img id="logo" src="images/logo/tap-and-grind.png" alt="tap and grind main logo" title="the main logo for the tap and grind mobile application" />
 					</div>
 					
-					<!--
-					<button onclick="capturePhoto();">Capture Photo</button>
-    				<button onclick="capturePhotoEdit();">Capture Editable Photo</button>
-					-->
+					<img id="barcode" src="http://tobeytailor.s3.amazonaws.com/get_barcode_from_image/barcode.jpg"/>
 					
-					<button class="testBtn">Test Feature</button>
-					<button class="capturePhotoEdit">Check in With Your Table</button>
-					
-					<img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
-					<img style="display:none;" id="largeImage" src="" />
-
-					
+					<button class="capturePhotoEdit" data-theme="e">1st Scan Table</button>
+					<button class="testBtn" onclick="alert(getBarcodeFromImage('barcode'))">2nd Verify Table</button>
 					
 				</div><!--close mainLogo div-->
 			</div><!--close header-->
-			
-			<div class="staffCallDialog">
-				
-				<h1>THANK YOU</H1>
-				
-			</div>
 			
 			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
 				<div data-role="navbar" class="nav-glyphish-example">
@@ -102,7 +94,7 @@
 				
 			</div><!--close food menu-->
 			
-			<div id="mainContent" data-role="content">
+			<div id="mainContent" data-role="content" class="fixedContent">
 				<div class="menuList">
 					<div class="content-primary">
 						<ul data-role="listview">
@@ -220,10 +212,6 @@
 				</div><!--close menuList div-->
 			</div><!--close mainContent div-->
 			
-			<div class="staffCallDialog">
-				<h1>THANK YOU</H1>
-			</div>
-			
 			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
 				<div data-role="navbar" class="nav-glyphish-example">
 					<ul>
@@ -258,7 +246,7 @@
 				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
 			</div><!--close header-->
 			
-			<div id="dealContent">
+			<div id="dealContent" class="fixedContent">
 				<div class='iosSlider'>
 					<div class='slider'>
 						<div class='item' id='item1'>
@@ -329,10 +317,6 @@
 				
 			</div><!--close header-->
 			
-			<div class="staffCallDialog">
-				<h1>THANK YOU</H1>
-			</div>
-			
 			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
 				<div data-role="navbar" class="nav-glyphish-example">
 					<ul>
@@ -370,7 +354,7 @@
 				
 			</div><!--close food menu-->
 			
-			<div id="mainContent" data-role="content">
+			<div id="mainContent" data-role="content" class="fixedContent">
 				<div class="menuList">
 					<div class="content-primary">
 					
@@ -524,10 +508,6 @@
 				</div><!--close menuList div-->
 			</div><!--close mainContent div-->
 			
-			<div class="staffCallDialog">
-				<h1>THANK YOU</H1>
-			</div>
-			
 			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
 				<div data-role="navbar" class="nav-glyphish-example">
 					<ul>
@@ -565,7 +545,7 @@
 				
 			</div><!--close food menu-->
 			
-			<div id="mainContent" data-role="content">
+			<div id="mainContent" data-role="content" class="fixedContent">
 				<div class="menuList">
 					<div class="content-primary">
 					
@@ -695,10 +675,6 @@
 				</div><!--close menuList div-->
 			</div><!--close mainContent div-->
 			
-			<div class="staffCallDialog">
-				<h1>THANK YOU</H1>
-			</div>
-			
 			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
 				<div data-role="navbar" class="nav-glyphish-example">
 					<ul>
@@ -737,7 +713,7 @@
 				
 			</div><!--close food menu-->
 			
-			<div id="billContent">
+			<div id="billContent" class="fixedContent">
 				<div class="content-primary menuCart">
 				
 					<ul data-role="listview" data-inset="true" data-theme="b">
@@ -777,10 +753,12 @@
 							Tip % 
 							<span class="cartItemPrice totalPrice">
 									<select name="tip-percentage" id="tip-percentage" data-mini="true">
+										<option value="0" selected="selected">0%</option>
+										<option value="5">5%</option>
 										<option value="10">10%</option>
 										<option value="15">15%</option>
 										<option value="20">20%</option>
-										<option value="25" selected="selected">25%</option>
+										<option value="25">25%</option>
 										<option value="30">30%</option>
 									</select>
 							</span>
@@ -828,10 +806,6 @@
 				</div><!--close content-primary div-->
 			</div><!--close mainContent div-->
 			
-			<div class="staffCallDialog">
-				<h1>THANK YOU</H1>
-			</div>
-			
 			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
 				<div data-role="navbar" class="nav-glyphish-example">
 					<ul>
@@ -863,8 +837,8 @@
 				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
 			</div><!--close header-->
 			
-			<div id="mainContent" class="contactPage" data-role="content">
-				<form action="#" method="get">
+			<div id="mainContent" class="contactPage fixedContent" data-role="content">
+				<!--<form action="#" method="get">--->
 					<div data-role="fieldcontain">
 						<label for="name" class="contactInput">What is your name ?</label>
 						<input type="text" name="name" id="name" value="" data-theme="b"  />
@@ -872,7 +846,7 @@
 					
 					<div data-role="fieldcontain">
 						<label for="slider">Rate your costumer experience : </label>
-						<input type="range" name="slider" id="slider" value="50" min="0" max="100" data-highlight="true"  data-theme="b" />
+						<input type="range" name="slider" id="slider" value="50" min="0" max="100" data-highlight="true" data-theme="b" data-highlight="true" />
 					</div>
 					
 					<div data-role="fieldcontain">
@@ -918,9 +892,46 @@
 					</div>
 					
 						<fieldset class="ui-grid-a">
-							<button type="submit" data-theme="e">Send Feedback</button>
+							<button class="submitFormBtn" type="submit" data-theme="e">Send Feedback</button>
 						</fieldset>
-				</form>
+				<!--</form>-->
+			</div><!--close header-->
+			
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
+				<div data-role="navbar" class="nav-glyphish-example">
+					<ul>
+						<li>
+							<a href="#home-page" id="home" data-icon="custom">Home</a>
+						</li>
+						<li>
+							<a href="#menu-page" id="aboutme" data-icon="custom">Menu</a>
+						</li>
+						<li>
+							<a href="#deals-page" id="links" data-icon="custom">Deals</a>
+						</li>
+						<li>
+							<a href="#bill-page" id="gallery" data-icon="custom">My Bill</a>
+						</li>
+						<li>
+							<a href="#contact-page" class="ui-btn-active"  id="email" data-icon="custom">Contact</a>
+						</li>
+					</ul>
+				</div><!-- close navbar -->
+			</div><!--close footer -->
+		</div><!--close home div-->
+		<!-- =============== END PAGE ================= -->
+		
+		
+		
+		<!-- =============== START PAGE ================= -->
+		<div id="thankyou-page" class="pages" data-role="page" data-theme="a" >
+			<div data-role="header">
+				<h1>Thank You</h1>
+				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
+			</div><!--close header-->
+			
+			<div id="mainContent" class="contactPage fixedContent" data-role="content">
+				<h1> thank you </h1>
 			</div><!--close header-->
 			
 			<div class="staffCallDialog">
@@ -952,6 +963,7 @@
 			</div><!--close footer -->
 		</div><!--close home div-->
 		<!-- =============== END PAGE ================= -->
+		
 		
 		
 	</body>
