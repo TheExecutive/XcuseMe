@@ -2,14 +2,17 @@
 (function($){
 	$(document).ready(function(){
 	
+	
+	
 		// Wait for Cordova to load
 		document.addEventListener("deviceready", onDeviceReady, false);
 	
 		// Cordova is ready
 		function onDeviceReady() {
-			// Empty
+			//device is ready
 		}
-	
+
+		// ================================== ALERTS ===================================== //
 		// alert dialog dismissed
 		function alertDismissed() {
 			// do something
@@ -48,76 +51,88 @@
 			
 			return false;
 		});
-	
-	
+		
+		$(".testBtn").click(function(){
+			//getBarcodeFromImage("smallImage");
+
+			//alert("before getBarcodeFromImage");
+			//alert(getBarcodeFromImage('barcode'));
+			//alert("after getBarcodeFromImage");
 			
+			return false;
+		});
+		// ================================== ALERTS END ===================================== //
+		
 	
+	
+				
+		// ================================== CALCULATOR ===================================== //
 		var billCalculation = function(){
 			// ============== Bill Prices before Taking off $ to calculate ===========
-			var $totalPrice = $("#totalPrice").text(),
-				$numberOfPerson = $("#number-of-person").val(),
-				$tipPercentage = $("#tip-percentage").val(),
-				$tipPerPerson = $("#tip-per-person").text(),
-				$totalPerPerson = $("#total-per-person").text(),
-				$totalPlusTip = $("#total-plus-tip").text(),
-				$itemOrdered = $(".itemOrdered .cartItemPrice").text()
+			var totalPrice = $("#totalPrice").text(),
+				numberOfPerson = $("#number-of-person").val(),
+				tipPercentage = $("#tip-percentage").val(),
+				tipPerPerson = $("#tip-per-person").text(),
+				totalPerPerson = $("#total-per-person").text(),
+				totalPlusTip = $("#total-plus-tip").text(),
+				itemOrdered = $(".itemOrdered .cartItemPrice").text()
 			;//close variables
 			
-			console.log($itemOrdered);
+			console.log(itemOrdered);
 			
 			// ============== Bill Prices Ready to calculate without the $ ===========
-			var $totalPriceFixed = $totalPrice.replace('$', ""),
-				$tipPerPersonFixed = $tipPerPerson.replace('$', ""),
-				$totalPerPersonFixed = $totalPerPerson.replace('$', ""),
-				$totalPlusTipFixed = $totalPlusTip.replace('$', "")
+			var totalPriceFixed = totalPrice.replace('$', ""),
+				tipPerPersonFixed = tipPerPerson.replace('$', ""),
+				totalPerPersonFixed = totalPerPerson.replace('$', ""),
+				totalPlusTipFixed = totalPlusTip.replace('$', "")
 			;//close variables
 			
 			// ============== Bill Prices Calculation ===========
-			var $tipPerPersonNew = (($tipPercentage * $totalPriceFixed)/100)/$numberOfPerson,
-				$totalPerPersonNew = ($totalPriceFixed / $numberOfPerson) + $tipPerPersonNew,
-				$totalPlusTipNew = $totalPerPersonNew * $numberOfPerson
+			var tipPerPersonNew = ((tipPercentage * totalPriceFixed)/100)/numberOfPerson,
+				totalPerPersonNew = (totalPriceFixed / numberOfPerson) + tipPerPersonNew,
+				totalPlusTipNew = totalPerPersonNew * numberOfPerson
 			;//close variables
 			
 			// ============== After Calculations Setting the fields ===========
-			//console.log("totalPerPersonNew " + $totalPerPersonNew);
+			//console.log("totalPerPersonNew " + totalPerPersonNew);
 			$("#total-per-person").text("");
-			$("#total-per-person").text("$"+$totalPerPersonNew);
+			$("#total-per-person").text("$"+totalPerPersonNew);
 			
-			//console.log("tipPerPersonNew " + $tipPerPersonNew);
+			//console.log("tipPerPersonNew " + tipPerPersonNew);
 			$("#tip-per-person").text("");
-			$("#tip-per-person").text("$"+$tipPerPersonNew);
+			$("#tip-per-person").text("$"+tipPerPersonNew);
 			
-			//console.log("totalPlusTipNew " + $totalPlusTipNew);
+			//console.log("totalPlusTipNew " + totalPlusTipNew);
 			$("#total-plus-tip").text("");
-			$("#total-plus-tip").text("$"+$totalPlusTipNew);
+			$("#total-plus-tip").text("$"+totalPlusTipNew);
 			
 			//$("#totalPrice").text("111111");
 			
 			/*
-			console.log("totalPrice " + $totalPrice);
-			console.log("numberOfPerson " + $numberOfPerson);
-			console.log("tipPercentage " + $tipPercentage);
-			console.log("tipPerPerson " + $tipPerPerson);
-			console.log("totalPerPerson " + $totalPerPerson);
-			console.log("totalPlusTip " + $totalPlusTip);
+			console.log("totalPrice " + totalPrice);
+			console.log("numberOfPerson " + numberOfPerson);
+			console.log("tipPercentage " + tipPercentage);
+			console.log("tipPerPerson " + tipPerPerson);
+			console.log("totalPerPerson " + totalPerPerson);
+			console.log("totalPlusTip " + totalPlusTip);
 			*/
 			
-			//console.log("totalPriceFixed " + $totalPriceFixed);
-			//console.log("tipPerPersonFixed " + $tipPerPersonFixed);
-			//console.log("totalPerPersonFixed " + $totalPerPersonFixed);
-			//console.log("totalPlusTipFixed " + $totalPlusTipFixed);
+			//console.log("totalPriceFixed " + totalPriceFixed);
+			//console.log("tipPerPersonFixed " + tipPerPersonFixed);
+			//console.log("totalPerPersonFixed " + totalPerPersonFixed);
+			//console.log("totalPlusTipFixed " + totalPlusTipFixed);
 		}
 		
 		var initFn = function(){
-			var $beveragesCount = $(".ui-li-count.beverages"),
-				$beveragesAmount = $("#beverages-page .menuListItem").length,
-				$appetizersCount = $(".ui-li-count.appetizers"),
-				$appetizersAmount = $("#appetizers-page .menuListItem").length
+			var beveragesCount = $(".ui-li-count.beverages"),
+				beveragesAmount = $("#beverages-page .menuListItem").length,
+				appetizersCount = $(".ui-li-count.appetizers"),
+				appetizersAmount = $("#appetizers-page .menuListItem").length
 			;//close vasriables
 			
 			//dynamically setting the ammount of items in the beverages div
-			$beveragesCount.html($beveragesAmount);
-			$appetizersCount.html($appetizersAmount);
+			beveragesCount.html(beveragesAmount);
+			appetizersCount.html(appetizersAmount);
 			//console.log("appetizersCount -> " + $appetizersCount);
 			//console.log("appetizersAmount -> " + $appetizersAmount);
 			//console.log("appetizersCount 2-> " + $appetizersCount);
@@ -138,18 +153,21 @@
 		$(".billMenuClick").click(function(){
 			billCalculation();
 		});
+		// ================================== CALCULATOR END ===================================== //
 		
-		
-		$(".nextArrow").click(function() {
- 			console.log("set your table");
-		});
 		
 		
 		$("#checkTotalPrice").click(function(){
-			var $itemPrices = $(".cartItemPrice");
- 			var $arr = $.makeArray($itemPrices)
+			var itemPrices = $(".cartItemPrice");
+ 			var arr = $.makeArray($itemPrices)
 
-			alert("total price : " + $arr);
+			alert("total price : " + arr);
+		});
+		
+		$(".submitFormBtn").click(function(){
+			
+			window.location = "#thankyou-page";
+			
 		});
 		
 		
@@ -220,19 +238,20 @@
 	
 	$(document).delegate('.menuListItem', 'click', function(e) {
 		var self = this;
-		var $itemName = $(this).find(".menuItemName").text();
-		var $itemPrice = $(this).find(".menuItemPrice").text();
-		var $itemId = $(this).find(".menuItemNumber").val();
-		var $cartItems = $("#stringselect");
-		var $cartStatus = 0;
-	
+		var itemName = $(this).find(".menuItemName").text();
+		var itemPrice = $(this).find(".menuItemPrice").text();
+		var itemId = $(this).find(".menuItemNumber").val();
+		var cartItems = $("#stringselect");
+		var cartStatus = 0;
+		var currentCartPrice = $("#totalPrice");
+		var itemPriceFixed = itemPrice.replace('$', "");
 		
 		$(self).simpledialog2({
 			'mode' : 'button',
 			'showModal' : true,
 			'shadow' : true,
-			'headerText' : $itemName + " ?",
-			'buttonPrompt' : $itemPrice + " <br /> <img src='images/menu/"+$itemId+".png' height='110'/> <br />",
+			'headerText' : itemName + " ?",
+			'buttonPrompt' : itemPrice + " <br /> <img src='images/menu/"+itemId+".png' height='110'/> <br />",
 			'width' : '100%',
 			'buttons' : 
 			{
@@ -240,19 +259,23 @@
 				{
 					click: function () 
 					{ 
-						console.log("item "+$itemName+" added");
+						console.log("item "+itemName+" added");
 						
 						//alert("We will bring it to you right away, please wait.");
 						
 						$(
 							'<li class="itemOrdered" >'
-									+ $itemName + 
+									+ itemName + 
 								'<span class="cartItemPrice">'
-									+$itemPrice+
+									+itemPrice+
 								'</span>'+
 							'</li>'
-						).appendTo($cartItems);
+						).appendTo(cartItems);
 						
+						// todo : fix the total price calculation
+						var currentValue = itemPriceFixed;
+						var newValue = currentValue;
+						currentCartPrice.text("$"+newValue);
 					},
 					'theme' : 'c'
 				},
