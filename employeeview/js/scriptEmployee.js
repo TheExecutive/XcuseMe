@@ -42,6 +42,12 @@
 		//this runs on the ajax success
 		//clear out the html from the ul before beginning.
 		buttonContainerUL.html('');
+
+		//create a function to sort through tables.
+		response.sort(function(a, b){
+			return eval(a.tableId) - eval(b.tableId);
+		});
+
 		//first, make a loop for each of the returned objects.
 		$(response).each(function(index){
 			var tableId = eval(this.tableId), //use eval to turn back into a number if it is a string.
@@ -96,8 +102,8 @@
 		});
 
 		//run this every 8 seconds.
-		setInterval( monitorRemoteApp, 8000);
-		//monitorRemoteApp();
+		//setInterval( monitorRemoteApp, 8000);
+		monitorRemoteApp();
 		
 	}
 
