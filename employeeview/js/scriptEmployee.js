@@ -88,8 +88,16 @@
 	function setUpControlPanel(){
 		tableButtons = buttonContainerUL.find('.tableButton'); //grabbing all table buttons
 
+		//click events to dismiss alerts.
+		tableButtons.on("click", function(event){
+			that = $(this); //do I need this?
+			tableId = that.data('tableid');
+			dismissAlertClick(that, tableId);
+		});
+
 		//run this every 8 seconds.
-		setInterval( monitorRemoteApp, 8000);
+		//setInterval( monitorRemoteApp, 8000);
+		monitorRemoteApp();
 		
 	}
 
@@ -128,44 +136,33 @@
 		});
 	}
 
-	function notifyServer(url, query, doc, method, callback){
-		var mongoDataObj = {}; //creating the mongoData Object
-		//var url =  https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata
-		/*
-		http://support.mongohq.com/api/documents/index.html
-		The base API end point is https://api.mongohq.com and you will pass your key as a params named _apikey for authentication.
-		*/
-		//PARAMS USED FOR A PUT REQUEST (aka update by criteria, bulk update)
-		
-		//_apikey Your MongoHQ accounts secret key
-		mongoDataObj._apikey = apiKey;
-		//db The database name. (in the URL)
-		//col The collection name. (in the URL)
-
-		//criteria The JSON criteria used to match which documents to update
-		mongoDataObj.criteria = {
-			"type" : "table" //this is temporary, have it select by unique tableId later
-		};
-		/*object The JSON document update command (called objNew in the MongoDB docs.
-		Accepts standard MongoDB update directives, like $set or $inc).*/
-		//This is pretty much a shitty way of saying what you wanna update
-		mongoDataObj.object = {
-			//toggle the needsAssistance boolean in mongo.
-			//If it's false, make it true, if true make it false.
-			//this is updating as a string for some reason
-			"$set" : {"needsAssistance" : needsAssistanceToggle === "true" ? "false" : "true"} //objects within objects, mofos
-		};
-
-		mongoDataObj.document = doc;
-
+	function dismissAlertClick(clickedButton, tableId){
 		$.ajax({
-			url: url,
-			type: method,
+			url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
+			type: "PUT",
 		    dataType: 'json',
-		    data: mongoDataObj,
-		    success: callback,
-		    error: mongoError
-		 });
+		    data: {
+				"_apikey" : apiKey,
+				//criteria
+				"criteria" : { //the query must be stringified in JSON in order to be passed succesfully.
+					"type" : "table",
+					"tableId" : tableId //requesting the mongo object representing the table I clicked
+				},
+				"object" : {
+					"$set" : {
+						"needsAssistance" : "false" //setting the table I clicked to no longer need assistance.
+					}
+				},
+				"document" : {} //just an empty object
+		    },
+		    success : function(response){
+				$(clickedButton).removeClass('assistance');
+				console.log("Mongo update successful", response);
+		    },
+		    error : function(error){
+				console.log("Mongo update buttons error", error);
+		    }
+		});
 
 	}
 
@@ -192,6 +189,7 @@
 	}
 
 	function fillMongo(url, method, number){
+		//this is a dirty function to quickly fill the mongo server with some data.
 		var mongoDataObj = {}; //creating the mongoData Object
 		mongoDataObj._apikey = apiKey;
 		//criteria The JSON criteria used to match which documents to update
@@ -219,7 +217,6 @@
 	$(document).ready(function(){
 		//fetch the table data from mongo.
 		fetchMongoTableData();
-
 		
 	}); // end document ready
 	
