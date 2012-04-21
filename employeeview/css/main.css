@@ -132,6 +132,8 @@ header h1 {
 	min-height: 400px;
 	margin: 40px auto 80px auto;
 	overflow: hidden;
+	
+	background: url('../img/ajax-loader.gif') 50% 50% no-repeat;
 }
 
 #buttonContainer li {
