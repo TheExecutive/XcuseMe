@@ -43,12 +43,17 @@
 	}
 	function processInformation(response){
 		//this runs on the ajax success
+		//remove the loading graphic.
+		buttonContainerUL.parent().css({
+			"background" : "none"
+		});
+
 		//clear out the html from the ul before beginning.
 		buttonContainerUL.html('');
 
 		//create a function to sort through tables.
 		response.sort(function(a, b){
-			return eval(a.tableId) - eval(b.tableId);
+			return eval(a.tableId) - eval(b.tableId); //sort by the table id to recorder.
 		});
 
 		//first, make a loop for each of the returned objects.
@@ -105,8 +110,8 @@
 		});
 
 		//run this every 8 seconds.
-		//setInterval( monitorRemoteApp, 8000);
-		monitorRemoteApp();
+		setInterval( monitorRemoteApp, 8000);
+		//monitorRemoteApp();
 		
 	}
 
