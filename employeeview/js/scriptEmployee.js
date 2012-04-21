@@ -5,24 +5,29 @@
 (function($){
 
 	var apiKey = "xvien5ya8rh538ryt5kh",
-		tableButtons = $(".tableButton")
+		tableButtons = $(".tableButton"),
+		buttonContainerUL = $("#buttonContainer ul")
 	;
 
 
-	function fetchMongoTableData(url, query, doc, method, callback){
+	function fetchMongoTableData(callback){
 		//var url =  https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata
 		/*
 		http://support.mongohq.com/api/documents/index.html
 		The base API end point is https://api.mongohq.com and you will pass your key as a params named _apikey for authentication.
 		*/
 		$.ajax({
-			url: url,
-			type: method,
+			url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
+			type: "GET",
 		    dataType: 'json',
 		    data: {
 				"_apikey" : apiKey,
 				"q" : JSON.stringify({ //the query must be stringified in JSON in order to be passed succesfully.
 					"type" : "table" //requesting all objects with the type of "table"
+
+				}),
+				"sort" : JSON.stringify({
+					"tableId" : 1 //sort acsending
 				}),
 				"document" : {} //just an empty object
 		    },
@@ -35,9 +40,45 @@
 	}
 	function processInformation(response){
 		//this runs on the ajax success
+		//clear out the html from the ul before beginning.
+		buttonContainerUL.html('');
 		//first, make a loop for each of the returned objects.
 		$(response).each(function(index){
-			console.log(this.type);
+			var tableId = eval(this.tableId), //use eval to turn back into a number if it is a string.
+				tableDisplay = tableId,
+				tableClass = "",
+				tableStatus = "",
+				tableServed = "" //declaring
+			;
+			var stringTableDisplay = tableDisplay + "";
+			if (stringTableDisplay.length < 2){
+				//if the number only has one digit, add a leading zero to the display
+				tableDisplay = "0" + tableDisplay;
+			}
+
+			if (this.available === "true"){
+				tableClass = "vacant";
+				tableStatus = "vacant";
+			}else{
+				tableStatus = "occupied";
+			}
+
+			if (this.hasBeenServed === "true"){
+				tableServed = "served";
+			}
+
+			if (this.needsAssistance === "true"){
+				tableClass = "assistance";
+			}
+
+			//make a link for each of the avialible tables.
+			buttonContainerUL.append(
+				'<li><a class="tableButton '+tableClass+'" data-tableid="'+tableId+'">'+
+					'<span class="tableNumber">'+tableDisplay+'</span>'+
+					'<span class="tableIcon '+tableServed+'">'+'Icon'+'</span>'+
+					'<span class="tableStatus">'+tableStatus+'</span>'+
+				'</a></li>'
+			);
 		});
 		
 		//the response is an array of objects so an index of 0 has to be specified
@@ -134,10 +175,7 @@
 
 	$(document).ready(function(){
 		//fetch the table data from mongo.
-		var mongoQuery = {
-			"type": "table" //get the data where the type is table
-		};
-		fetchMongoTableData("https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",mongoQuery,{},"GET",processInformation);
+		fetchMongoTableData(processInformation);
 
 		
 	}); // end document ready
