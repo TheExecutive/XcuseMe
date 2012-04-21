@@ -132,7 +132,7 @@
 						var clearTableId = eval(this.tableId); //get table id of this false one
 						tableButtons.each(function(){
 							that = $(this);
-							if(that.data('tableid') === clearTableId && that.hasClass('assistance')){ //clear out assistance if they don't have it
+							if(that.data('tableid') === clearTableId && that.hasClass('assistance')){ //clear out assistance if they do have it
 								that.removeClass('assistance'); //remove assistance from anything that doesn't need it.
 							}
 						});
