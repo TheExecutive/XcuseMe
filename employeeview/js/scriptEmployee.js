@@ -16,6 +16,8 @@
 		http://support.mongohq.com/api/documents/index.html
 		The base API end point is https://api.mongohq.com and you will pass your key as a params named _apikey for authentication.
 		*/
+		
+		
 		$.ajax({
 			url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
 			type: "GET",
@@ -36,6 +38,7 @@
 				console.log("Mongo Error: ", error);
 		    }
 		});
+		
 
 	}
 	function processInformation(response){
