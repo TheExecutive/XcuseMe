@@ -26,6 +26,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -164,7 +165,7 @@ header h1 {
 	text-indent: -9999px;
 	right: 10px;
 	top: 30px;
-	background: url('../img/iconSprite.png') 0px -70px no-repeat;
+	background: url("../img/iconSprite.png") 0px -70px no-repeat;
 }
 
 .tableIcon.served {
