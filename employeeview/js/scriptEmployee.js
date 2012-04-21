@@ -5,12 +5,12 @@
 (function($){
 
 	var apiKey = "xvien5ya8rh538ryt5kh",
-		tableButtons = $(".tableButton"),
-		buttonContainerUL = $("#buttonContainer ul")
+		buttonContainerUL = $("#buttonContainer ul"),
+		tableButtons //declaring
 	;
 
 
-	function fetchMongoTableData(callback){
+	function fetchMongoTableData(){
 		//var url =  https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata
 		/*
 		http://support.mongohq.com/api/documents/index.html
@@ -31,7 +31,7 @@
 				}),
 				"document" : {} //just an empty object
 		    },
-		    success: callback,
+		    success: processInformation,
 		    error: function(error){
 				console.log("Mongo Error: ", error);
 		    }
@@ -81,8 +81,51 @@
 			);
 		});
 		
-		//the response is an array of objects so an index of 0 has to be specified
+		//after all that is complete, then run the set up links function.
+		setUpControlPanel();
+	}
 
+	function setUpControlPanel(){
+		tableButtons = buttonContainerUL.find('.tableButton'); //grabbing all table buttons
+
+		//run this every 8 seconds.
+		setInterval( monitorRemoteApp, 8000);
+		
+	}
+
+	function monitorRemoteApp(){
+		//this function will run an ajax call that will run continuously.
+		$.ajax({
+			url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
+			timeout: 80000,
+			type: "GET",
+		    dataType: 'json',
+		    data: {
+				"_apikey" : apiKey,
+				"q" : JSON.stringify({ //the query must be stringified in JSON in order to be passed succesfully.
+					"type" : "table" //requesting all objects with the type of "table"
+				}),
+				"document" : {} //just an empty object
+		    },
+		    success: function(response){
+				//now that we have the data, check to see if any of the data has changed.
+				$(response).each(function(index){
+					if(this.needsAssistance === "true"){
+						//if this is true, get the corresponding id for the link and light it up.
+						var assistTableId = eval(this.tableId); //save the table id of the table that needs asstance.
+						tableButtons.each(function(){ //now run through all the table buttons
+							that = $(this);
+							if(that.data('tableid') === assistTableId){ //if the tableId of the one that needs assistance matches the data attribute
+								that.addClass('assistance'); //then add that class.
+							}
+						});
+					}
+				});
+		    },
+		    error: function(error){
+				console.log("Mongo Error when updating: ", error);
+		    }
+		});
 	}
 
 	function notifyServer(url, query, doc, method, callback){
@@ -175,7 +218,7 @@
 
 	$(document).ready(function(){
 		//fetch the table data from mongo.
-		fetchMongoTableData(processInformation);
+		fetchMongoTableData();
 
 		
 	}); // end document ready
