@@ -14,8 +14,26 @@
 	<array>
 		<string>icon.png</string>
 		<string>icon@2x.png</string>
-		<string>icon-72.png</string>
+		<string>tapAndGrindSplash-72x72.png</string>
+		<string>Default.png</string>
+		<string>Default@2x.png</string>
+		<string>tapAndGrindSplash-144x144.png</string>
 	</array>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>icon.png</string>
+				<string>icon@2x.png</string>
+				<string>tapAndGrindSplash-72x72.png</string>
+				<string>Default.png</string>
+				<string>Default@2x.png</string>
+				<string>tapAndGrindSplash-144x144.png</string>
+			</array>
+		</dict>
+	</dict>
 	<key>CFBundleIdentifier</key>
 	<string>com.xcusemeapp.XCuseme</string>
 	<key>CFBundleInfoDictionaryVersion</key>

@@ -30,7 +30,6 @@
 		E769ECB6153DFFE200913F00 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E769ECB5153DFFE200913F00 /* icon.png */; };
 		E769ECB8153DFFE200913F00 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E769ECB7153DFFE200913F00 /* icon@2x.png */; };
 		E769ECBA153DFFE200913F00 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = E769ECB9153DFFE200913F00 /* icon-72.png */; };
-		E769ECBD153DFFE200913F00 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E769ECBC153DFFE200913F00 /* Default.png */; };
 		E769ECBF153DFFE200913F00 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E769ECBE153DFFE200913F00 /* Default@2x.png */; };
 		E769ECC1153DFFE200913F00 /* Capture.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E769ECC0153DFFE200913F00 /* Capture.bundle */; };
 		E769ECC3153DFFE200913F00 /* Cordova.plist in Resources */ = {isa = PBXBuildFile; fileRef = E769ECC2153DFFE200913F00 /* Cordova.plist */; };
@@ -327,7 +326,6 @@
 				E769ECB6153DFFE200913F00 /* icon.png in Resources */,
 				E769ECB8153DFFE200913F00 /* icon@2x.png in Resources */,
 				E769ECBA153DFFE200913F00 /* icon-72.png in Resources */,
-				E769ECBD153DFFE200913F00 /* Default.png in Resources */,
 				E769ECBF153DFFE200913F00 /* Default@2x.png in Resources */,
 				E769ECC1153DFFE200913F00 /* Capture.bundle in Resources */,
 				E769ECC3153DFFE200913F00 /* Cordova.plist in Resources */,
