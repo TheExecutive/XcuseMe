@@ -96,8 +96,8 @@
 		});
 
 		//run this every 8 seconds.
-		//setInterval( monitorRemoteApp, 8000);
-		monitorRemoteApp();
+		setInterval( monitorRemoteApp, 8000);
+		//monitorRemoteApp();
 		
 	}
 
@@ -144,7 +144,7 @@
 		    data: {
 				"_apikey" : apiKey,
 				//criteria
-				"criteria" : { //the query must be stringified in JSON in order to be passed succesfully.
+				"criteria" : { //Only need to stringify queries, don't have to stringify PUTS.
 					"type" : "table",
 					"tableId" : tableId //requesting the mongo object representing the table I clicked
 				},
