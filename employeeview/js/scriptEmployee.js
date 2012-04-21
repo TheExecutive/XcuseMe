@@ -127,7 +127,7 @@
 								that.addClass('assistance'); //then add that class.
 							}
 						});
-					}/*else{
+					}else{
 						//if this.needsAssistance is false
 						var clearTableId = eval(this.tableId); //get table id of this false one
 						tableButtons.each(function(){
@@ -136,7 +136,7 @@
 								that.removeClass('assistance'); //remove assistance from anything that doesn't need it.
 							}
 						});
-					}*/
+					}
 				});
 		    },
 		    error: function(error){
