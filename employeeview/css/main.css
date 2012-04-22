@@ -143,6 +143,7 @@ header h1 {
 
 .tableButton {
 	color: #fff;
+	cursor: pointer;
 	display: block;
 	width: 220px;
 	overflow: hidden;
