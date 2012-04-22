@@ -21,6 +21,7 @@
 		$.ajax({
 			url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
 			type: "GET",
+			headers: {"Content-Type": "application/json"}, //this must be here to ensure the object is treated as json.
 		    dataType: 'json',
 		    data: {
 				"_apikey" : apiKey,
@@ -51,15 +52,9 @@
 		//clear out the html from the ul before beginning.
 		buttonContainerUL.html('');
 
-		//create a function to sort through tables.
-		response.sort(function(a, b){
-			return eval(a.tableId) - eval(b.tableId); //sort by the table id to recorder.
-		});
-
 		//first, make a loop for each of the returned objects.
 		$(response).each(function(index){
-			var tableId = eval(this.tableId), //use eval to turn back into a number if it is a string.
-				tableDisplay = tableId,
+			var tableDisplay = this.tableId,
 				tableClass = "",
 				tableStatus = "",
 				tableServed = "" //declaring
@@ -70,24 +65,24 @@
 				tableDisplay = "0" + tableDisplay;
 			}
 
-			if (this.available === "true"){
+			if (this.available === true){
 				tableClass = "vacant";
 				tableStatus = "vacant";
 			}else{
 				tableStatus = "occupied";
 			}
 
-			if (this.hasBeenServed === "true"){
+			if (this.hasBeenServed === true){
 				tableServed = "served";
 			}
 
-			if (this.needsAssistance === "true"){
+			if (this.needsAssistance === true){
 				tableClass = "assistance";
 			}
 
 			//make a link for each of the avialible tables.
 			buttonContainerUL.append(
-				'<li><a class="tableButton '+tableClass+'" data-tableid="'+tableId+'">'+
+				'<li><a class="tableButton '+tableClass+'" data-tableid="'+tableDisplay+'">'+
 					'<span class="tableNumber">'+tableDisplay+'</span>'+
 					'<span class="tableIcon '+tableServed+'">'+'Icon'+'</span>'+
 					'<span class="tableStatus">'+tableStatus+'</span>'+
@@ -120,6 +115,7 @@
 		$.ajax({
 			url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
 			timeout: 80000,
+			headers: {"Content-Type": "application/json"}, //this must be here to ensure the object is treated as json.
 			type: "GET",
 		    dataType: 'json',
 		    data: {
@@ -163,8 +159,9 @@
 		$.ajax({
 			url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
 			type: "PUT",
+			headers: {"Content-Type": "application/json"}, //this must be here to ensure the object is treated as json.
 		    dataType: 'json',
-		    data: {
+		    data: JSON.stringify({
 				"_apikey" : apiKey,
 				//criteria
 				"criteria" : { //Only need to stringify queries, don't have to stringify PUTS.
@@ -173,11 +170,11 @@
 				},
 				"object" : {
 					"$set" : {
-						"needsAssistance" : "false" //setting the table I clicked to no longer need assistance.
+						"needsAssistance" : false //setting the table I clicked to no longer need assistance.
 					}
 				},
 				"document" : {} //just an empty object
-		    },
+		    }),
 		    success : function(response){
 				$(clickedButton).removeClass('assistance');
 				console.log("Mongo update successful", response);
@@ -210,32 +207,6 @@
 		}
 		
 	}
-
-	function fillMongo(url, method, number){
-		//this is a dirty function to quickly fill the mongo server with some data.
-		var mongoDataObj = {}; //creating the mongoData Object
-		mongoDataObj._apikey = apiKey;
-		//criteria The JSON criteria used to match which documents to update
-		mongoDataObj.document = {
-			"type" : "table",
-			"available" : "false",
-			"hasBeenServed" : "false",
-			"needsAssistance" : "false",
-			"tableId" : number
-		};
-
-		$.ajax({
-			url: url,
-			type: method,
-		    dataType: 'json',
-		    data: mongoDataObj,
-		    success: function(response){
-				console.log("RESULT: ", response);
-		    },
-		    error: mongoError
-		});
-	}
-
 
 	$(document).ready(function(){
 		//fetch the table data from mongo.
