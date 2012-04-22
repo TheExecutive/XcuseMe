@@ -2,10 +2,10 @@
 (function($){
 	$(document).ready(function(){
 		
-		function preventBehavior(e) 
-		{ 
-		  e.preventDefault(); 
-		};
+		function preventBehavior(e)
+		{
+		  e.preventDefault();
+		}
 		document.addEventListener("touchmove", preventBehavior, false);
 		
 		
@@ -22,9 +22,10 @@
 		function callBtnClick(tableId){
 			$.ajax({
 				url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
+				headers: {"Content-Type": "application/json"}, //this must be here to ensure the object is treated as json.
 				type: "PUT",
 				dataType: 'json',
-				data: {
+				data: JSON.stringify({
 					"_apikey" : apiKey,
 					//criteria
 					"criteria" : { //Only need to stringify queries, don't have to stringify PUTS.
@@ -33,11 +34,11 @@
 					},
 					"object" : {
 						"$set" : {
-							"needsAssistance" : "true" //setting the table I clicked to no longer need assistance.
+							"needsAssistance" : true //setting the table I clicked to no longer need assistance.
 						}
 					},
 					"document" : {} //just an empty object
-				},
+				}),
 				success : function(response){
 					console.log("Mongo update successful", response);
 				},
