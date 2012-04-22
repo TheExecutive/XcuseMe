@@ -1,6 +1,58 @@
 //main js
 (function($){
 	$(document).ready(function(){
+		
+		function preventBehavior(e) 
+		{ 
+		  e.preventDefault(); 
+		};
+		document.addEventListener("touchmove", preventBehavior, false);
+		
+		
+		/* todo : enable this if you want the items from the menu getting added to the bill list */
+		$(".stringselect").hide();
+		$(".totalPrice").show();
+		$(".billTitleSection").css({'marginBottom':'50px'});
+		
+	
+		var apiKey = "xvien5ya8rh538ryt5kh",
+		staffCallDialogBtn = $('.staffCallDialogBtn')
+		;
+	
+		function callBtnClick(tableId){
+			$.ajax({
+				url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
+				type: "PUT",
+				dataType: 'json',
+				data: {
+					"_apikey" : apiKey,
+					//criteria
+					"criteria" : { //Only need to stringify queries, don't have to stringify PUTS.
+						"type" : "table",
+						"tableId" : tableId //requesting the mongo object representing the table I clicked
+					},
+					"object" : {
+						"$set" : {
+							"needsAssistance" : "true" //setting the table I clicked to no longer need assistance.
+						}
+					},
+					"document" : {} //just an empty object
+				},
+				success : function(response){
+					console.log("Mongo update successful", response);
+				},
+				error : function(error){
+					console.log("Mongo update buttons error", error);
+				}
+			});
+		}
+
+	$(staffCallDialogBtn).live("click", function(evt){
+		callBtnClick(11); //testing table 11
+	});
+		
+	
+	
 	
 	
 	
@@ -21,6 +73,7 @@
 		function callStaffCallback() {
 			// do something
 			console.log("ajax call here to the server's computer");
+			callBtnClick(11);
 		}
 	
 		// Show a custom alert
@@ -68,8 +121,15 @@
 				
 		// ================================== CALCULATOR ===================================== //
 		var billCalculation = function(){
+			
+
+		
 			// ============== Bill Prices before Taking off $ to calculate ===========
-			var totalPrice = $("#totalPrice").text(),
+			
+			// todo : totalPrice2 is the original text span tag, where the items from the cart is being displayed. 
+			// todo : totalPrice is the input field where the user can manually input their bill price and get the calculation
+			var totalPrice2 = $("#totalPrice").text(),
+				totalPrice = $("#totalPriceInput").val(),
 				numberOfPerson = $("#number-of-person").val(),
 				tipPercentage = $("#tip-percentage").val(),
 				tipPerPerson = $("#tip-per-person").text(),
@@ -78,6 +138,7 @@
 				itemOrdered = $(".itemOrdered .cartItemPrice").text()
 			;//close variables
 			
+
 			console.log(itemOrdered);
 			
 			// ============== Bill Prices Ready to calculate without the $ ===========
@@ -93,18 +154,22 @@
 				totalPlusTipNew = totalPerPersonNew * numberOfPerson
 			;//close variables
 			
+			
 			// ============== After Calculations Setting the fields ===========
 			//console.log("totalPerPersonNew " + totalPerPersonNew);
 			$("#total-per-person").text("");
-			$("#total-per-person").text("$"+totalPerPersonNew);
+			//$("#total-per-person").text("$"+totalPerPersonNew);
+			$("#total-per-person").text(totalPerPersonNew).currency();
 			
 			//console.log("tipPerPersonNew " + tipPerPersonNew);
 			$("#tip-per-person").text("");
-			$("#tip-per-person").text("$"+tipPerPersonNew);
+			//$("#tip-per-person").text("$"+tipPerPersonNew);
+			$("#tip-per-person").text(tipPerPersonNew).currency();
 			
 			//console.log("totalPlusTipNew " + totalPlusTipNew);
 			$("#total-plus-tip").text("");
-			$("#total-plus-tip").text("$"+totalPlusTipNew);
+			//$("#total-plus-tip").text("$"+totalPlusTipNew);
+			$("#total-plus-tip").text(totalPlusTipNew).currency();
 			
 			//$("#totalPrice").text("111111");
 			
@@ -143,6 +208,11 @@
 		billCalculation();
 		
 		$("#number-of-person").change(function(){
+			billCalculation();
+		});
+		
+		// todo : remove this when the cart is working, this will set it so when you input a number manually to the bill it calculates the tip
+		$("#totalPriceInput").keyup(function(){
 			billCalculation();
 		});
 		
@@ -263,6 +333,7 @@
 						
 						//alert("We will bring it to you right away, please wait.");
 						
+						/*
 						$(
 							'<li class="itemOrdered" >'
 									+ itemName + 
@@ -276,6 +347,7 @@
 						var currentValue = itemPriceFixed;
 						var newValue = currentValue;
 						currentCartPrice.text("$"+newValue);
+						*/
 					},
 					'theme' : 'c'
 				},

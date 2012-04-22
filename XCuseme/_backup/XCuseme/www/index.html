@@ -20,7 +20,9 @@
 		<script type="text/javascript" src="js/get_barcode_from_image.js" ></script>
 		<script type="text/javascript" src="js/camera.js" ></script>
 		
+		<script type="text/javascript" src="js/database.js"></script>
 		<script type="text/javascript" src="js/main.js" ></script>
+
 		
 		<!-- css -->
 		<link rel="stylesheet" type="text/css" href="css/jquery-mobile.css" />
@@ -28,10 +30,6 @@
   		<link rel="stylesheet" type="text/css" href="css/warm_and_cool.css" />
 
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
-		
-		<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" 
-				type="text/javascript">
-		</script>
 		
 		<!--<script language="javascript"> document.ontouchmove = function(e){ e.preventDefault(); }</script>--->
 	</head>
@@ -58,10 +56,6 @@
 					
 					<button class="capturePhotoEdit" data-theme="e">1st Scan Table</button>
 					<button class="testBtn" onclick="alert(getBarcodeFromImage('barcode'))">2nd Verify Table</button>
-					
-					<!---
-					<button class="testBtn" onclick="navigator.notification.alert('Thank You for registering your table, enjoy your visit.', 'callBackFn', 'Table Registered', 'Okay')">2nd Verify Table</button>
-					--->
 					
 				</div><!--close mainLogo div-->
 			</div><!--close header-->
@@ -939,18 +933,14 @@
 			</div><!--close header-->
 			
 			<div id="mainContent" class="contactPage fixedContent" data-role="content">
-				<h2>10% Off, on your next visit !</h2> 
-				
-				<div class="qrCode">
-					<img src="images/qrcodes/10percent-off.png" alt="10% percent off" />
-				</div>
-				
-				<p>Save this QR Code, and next time you come in. Just show the staff member from Tab & Grind next time you come in.</p>
-				
-				<h3>Don't forget to like follow us</h3>
-				<iframe src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/pages/tap-grind/199018406862018" scrolling="no" frameborder="0"></iframe>
-				
+				<h1> thank you </h1>
 			</div><!--close header-->
+			
+			<div class="staffCallDialog">
+				
+				<h1>THANK YOU</H1>
+				
+			</div>
 			
 			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
 				<div data-role="navbar" class="nav-glyphish-example">

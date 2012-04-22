@@ -17,6 +17,7 @@
 		<script type="text/javascript" src="js/jquery.easing-1.3.js"></script>
 		<script type="text/javascript" src="js/jquery.ios-slider-0.9.js"></script>
 		
+		<script type="text/javascript" src="js/jquery-currency/jquery.currency.js"></script>
 		<script type="text/javascript" src="js/get_barcode_from_image.js" ></script>
 		<script type="text/javascript" src="js/camera.js" ></script>
 		
@@ -711,20 +712,21 @@
 				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
 			</div><!--close header-->
 			
-			<div id="foodDetail">
-				
-			</div><!--close food menu-->
-			
 			<div id="billContent" class="fixedContent">
 				<div class="content-primary menuCart">
 				
-					<ul data-role="listview" data-inset="true" data-theme="b">
+					<ul class="billTitleSection" data-role="listview" data-inset="true" data-theme="b">
 						<li class="billTitle">
 							Total Bill 
 							
+							<!---
 							<span class="cartItemPrice totalPrice" id="totalPrice">
 								$100.00
 							</span>
+							--->
+							
+							<input type="text" name="totalPriceInput" data-mini="true" class="totalPriceInput" id="totalPriceInput" />
+							
 						</li>
 						
 						<ul id='stringselect' class="stringselect">
@@ -736,7 +738,7 @@
 						<li class="billSection2">
 							How many people ?
 							<span class="cartItemPrice totalPrice">
-									<select name="number-of-person" id="number-of-person" data-mini="true">
+									<select name="number-of-person" id="number-of-person" data-mini="true" ui-disabled="true">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -933,14 +935,22 @@
 			</div><!--close header-->
 			
 			<div id="mainContent" class="contactPage fixedContent" data-role="content">
-				<h1> thank you </h1>
+				<!--
+					<h2>10% Off, on your next visit !</h2> 
+					
+					<div class="qrCode">
+						<img src="http://qrcode.kaywa.com/img.php?s=6&d=http%3A%2F%2Fwww.xcusemeapp.com" alt="qrcode"  />
+					</div>
+					
+					<p>Save this QR Code, and next time you come in. Just show the staff member from Tab & Grind next time you come in.</p>
+				-->	
+				
+				<h2>Don't forget to follow us.</h2>
+				<p>We come out with different </p>
+				
+				<iframe src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/pages/tap-grind/199018406862018" scrolling="no" frameborder="0"></iframe>
+				
 			</div><!--close header-->
-			
-			<div class="staffCallDialog">
-				
-				<h1>THANK YOU</H1>
-				
-			</div>
 			
 			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
 				<div data-role="navbar" class="nav-glyphish-example">

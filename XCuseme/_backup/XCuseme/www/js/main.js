@@ -2,52 +2,7 @@
 (function($){
 	$(document).ready(function(){
 	
-		function preventBehavior(e) 
-		{ 
-		  e.preventDefault(); 
-		};
-		document.addEventListener("touchmove", preventBehavior, false);
 	
-		
-		
-		var apiKey = "xvien5ya8rh538ryt5kh",
-			staffCallDialogBtn = $('.staffCallDialogBtn')
-		;
-	
-		function callBtnClick(tableId){
-			$.ajax({
-				url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
-				type: "PUT",
-				dataType: 'json',
-				data: {
-					"_apikey" : apiKey,
-					//criteria
-					"criteria" : { //Only need to stringify queries, don't have to stringify PUTS.
-						"type" : "table",
-						"tableId" : tableId //requesting the mongo object representing the table I clicked
-					},
-					"object" : {
-						"$set" : {
-							"needsAssistance" : "true" //setting the table I clicked to no longer need assistance.
-						}
-					},
-					"document" : {} //just an empty object
-				},
-				success : function(response){
-					console.log("Mongo update successful", response);
-				},
-				error : function(error){
-					console.log("Mongo update buttons error", error);
-				}
-			});
-		};
-		
-		
-		
-		
-		
-		
-		
 	
 		// Wait for Cordova to load
 		document.addEventListener("deviceready", onDeviceReady, false);
@@ -66,8 +21,6 @@
 		function callStaffCallback() {
 			// do something
 			console.log("ajax call here to the server's computer");
-			//alert("ajax call here to the server's computer");
-			callBtnClick(11);
 		}
 	
 		// Show a custom alert
@@ -75,10 +28,11 @@
 			navigator.notification.alert(
 				'Please wait, a staff member will be with you shortly.',  // message
 				callStaffCallback,         // callback
-				'Request Sent',            // title
+				'Request sent',            // title
 				'Okay'                  // buttonName
 			);
 		}
+		
 
 		// Beep three times
 		function playBeep() {
@@ -91,11 +45,6 @@
 		}
 		
 		$(".staffCallDialogBtn").click(function(){
-		
-			// todo : take this callBtnClick(11); function out, the reason why its here its so Troy and I can test it on the mac browser since the desktop doesnt have navigator.notification is undefined
-			callBtnClick(11);
-			
-			
 			callStaffAlert();
 			playBeep();
 			vibrate();
@@ -104,6 +53,11 @@
 		});
 		
 		$(".testBtn").click(function(){
+			//getBarcodeFromImage("smallImage");
+
+			//alert("before getBarcodeFromImage");
+			//alert(getBarcodeFromImage('barcode'));
+			//alert("after getBarcodeFromImage");
 			
 			return false;
 		});
@@ -318,79 +272,10 @@
 							'</li>'
 						).appendTo(cartItems);
 						
-						//$(.cartItemPrice)each()
 						// todo : fix the total price calculation
 						var currentValue = itemPriceFixed;
 						var newValue = currentValue;
 						currentCartPrice.text("$"+newValue);
-						
-						
-						
-						// todo: this is redundant, because this function exists outside but i cannot call it in here for some reason. Fix it so i can call the same billCalculation function.
-						
-						// ================================== CALCULATOR ===================================== //
-						var billCalculation = function(){
-							// ============== Bill Prices before Taking off $ to calculate ===========
-							var totalPrice = $("#totalPrice").text(),
-								numberOfPerson = $("#number-of-person").val(),
-								tipPercentage = $("#tip-percentage").val(),
-								tipPerPerson = $("#tip-per-person").text(),
-								totalPerPerson = $("#total-per-person").text(),
-								totalPlusTip = $("#total-plus-tip").text(),
-								itemOrdered = $(".itemOrdered .cartItemPrice").text()
-							;//close variables
-							
-							console.log(itemOrdered);
-							
-							// ============== Bill Prices Ready to calculate without the $ ===========
-							var totalPriceFixed = totalPrice.replace('$', ""),
-								tipPerPersonFixed = tipPerPerson.replace('$', ""),
-								totalPerPersonFixed = totalPerPerson.replace('$', ""),
-								totalPlusTipFixed = totalPlusTip.replace('$', "")
-							;//close variables
-							
-							// ============== Bill Prices Calculation ===========
-							var tipPerPersonNew = ((tipPercentage * totalPriceFixed)/100)/numberOfPerson,
-								totalPerPersonNew = (totalPriceFixed / numberOfPerson) + tipPerPersonNew,
-								totalPlusTipNew = totalPerPersonNew * numberOfPerson
-							;//close variables
-							
-							// ============== After Calculations Setting the fields ===========
-							//console.log("totalPerPersonNew " + totalPerPersonNew);
-							$("#total-per-person").text("");
-							$("#total-per-person").text("$"+totalPerPersonNew);
-							
-							//console.log("tipPerPersonNew " + tipPerPersonNew);
-							$("#tip-per-person").text("");
-							$("#tip-per-person").text("$"+tipPerPersonNew);
-							
-							//console.log("totalPlusTipNew " + totalPlusTipNew);
-							$("#total-plus-tip").text("");
-							$("#total-plus-tip").text("$"+totalPlusTipNew);
-							
-							//$("#totalPrice").text("111111");
-							
-							/*
-							console.log("totalPrice " + totalPrice);
-							console.log("numberOfPerson " + numberOfPerson);
-							console.log("tipPercentage " + tipPercentage);
-							console.log("tipPerPerson " + tipPerPerson);
-							console.log("totalPerPerson " + totalPerPerson);
-							console.log("totalPlusTip " + totalPlusTip);
-							*/
-							
-							//console.log("totalPriceFixed " + totalPriceFixed);
-							//console.log("tipPerPersonFixed " + tipPerPersonFixed);
-							//console.log("totalPerPersonFixed " + totalPerPersonFixed);
-							//console.log("totalPlusTipFixed " + totalPlusTipFixed);
-						}
-						
-						
-						
-						
-						
-						
-						billCalculation();
 					},
 					'theme' : 'c'
 				},
@@ -408,5 +293,61 @@
 	});//close delgate
 	
 
+/*
+	$(document).delegate('.menuListItem', 'click', function(e) {
+		var self = this;
+		var $itemName = $(this).find(".menuItemName").text();
+		var $itemPrice = $(this).find(".menuItemPrice").text();
+		var $itemId = $(this).find(".menuItemNumber").val();
+		var $cartItems = $("#stringselect");
+		var $cartStatus = 0;
+	
+		$(self).each(function(){
+			//if ( $(this).attr('data-addoption') ) {
+				$(self).simpledialog({
+					'mode' : 'bool',
+					'prompt' : "Order " + $itemName + " ?",
+					'subTitle' : $itemPrice + " <br /> <img src='images/menu/"+$itemId+".png' height='110'/> <br />",
+					'width' : '100%',
+   					'headerClose' : true,
+					'useDialogForceFalse' : true,
+					'buttons' : 
+					{
+						'Place this order' : 
+						{
+							click: function () 
+							{ 
+								
+								console.log("item added");
+								
+								$(
+									'<li class="ui-li ui-li-static ui-body-b" >'
+											+ $itemName + 
+										'<span class="cartItemPrice">'
+											+$itemPrice+
+										'</span>'+
+									'</li>'
+								).appendTo($cartItems);
+								
+							},
+							'theme' : 'c'
+						},
+						'Cancel' : 
+						{
+							click: function () 
+							{ 
+								console.log("item canceled");
+							},
+							'theme' : 'a'
+						}
+					}//close simpledialog options
+				})//close simpledialog
+			//}//close if statement
+		});//close self selected
+	});//close delgate
+
+*/
+		
+	
 })(jQuery); //close private scope
 		
