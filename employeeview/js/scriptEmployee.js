@@ -128,9 +128,9 @@
 		    success: function(response){
 				//now that we have the data, check to see if any of the data has changed.
 				$(response).each(function(index){
-					if(this.needsAssistance === "true"){
+					if(this.needsAssistance === true){
 						//if this is true, get the corresponding id for the link and light it up.
-						var assistTableId = eval(this.tableId); //save the table id of the table that needs asstance.
+						var assistTableId = this.tableId; //save the table id of the table that needs asstance.
 						tableButtons.each(function(){ //now run through all the table buttons
 							that = $(this);
 							if(that.data('tableid') === assistTableId){ //if the tableId of the one that needs assistance matches the data attribute
@@ -139,7 +139,7 @@
 						});
 					}else{
 						//if this.needsAssistance is false
-						var clearTableId = eval(this.tableId); //get table id of this false one
+						var clearTableId = this.tableId; //get table id of this false one
 						tableButtons.each(function(){
 							that = $(this);
 							if(that.data('tableid') === clearTableId && that.hasClass('assistance')){ //clear out assistance if they do have it
@@ -196,9 +196,9 @@
 			//No need to grab the new data, we already have it in our local variable.
 			//since this is a toggle, it'll be the opposite of whatever it was.
 			console.log('BEFORE THE CHANGE: ', needsAssistanceToggle);
-			needsAssistanceToggle = (needsAssistanceToggle === "true") ? "false" : "true";
+			needsAssistanceToggle = (needsAssistanceToggle === true) ? false : true;
 			console.log('AFTER THE CHANGE: ', needsAssistanceToggle);
-			tableStatus = (needsAssistanceToggle === "true") ? "Server Requested" : "Normal";
+			tableStatus = (needsAssistanceToggle === true) ? "Server Requested" : "Normal";
 			conceptList.append('<li>Table Status: '+ tableStatus +'</li>');
 			conceptList.listview('refresh'); //you must call this method any time you make
 			//updates to a listview
