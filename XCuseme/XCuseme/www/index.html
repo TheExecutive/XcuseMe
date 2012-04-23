@@ -32,7 +32,12 @@
 
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
 		
-		<!--<script language="javascript"> document.ontouchmove = function(e){ e.preventDefault(); }</script>--->
+		<!-- iPad/iPhone specific css below, add after your main css >
+		<link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="css/iPad.css" type="text/css" />		
+		<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="css/iphone.css" type="text/css" />		
+		-->
+		
+		
 	</head>
 	
 	<body>
@@ -87,7 +92,7 @@
 		
 		
 		<!-- =============== START PAGE ================= -->
-		<div id="menu-page" class="pages" data-role="page" data-theme="a">
+		<div id="menu2-page" class="pages" data-role="page" data-theme="a">
 			<div data-role="header" data-position="fixed">
 				<h1>Menu</h1>
 				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
@@ -241,6 +246,364 @@
 		
 		
 		
+		
+		<!-- =============== START PAGE ================= -->
+		<div id="menu-page" class="pages" data-role="page" data-theme="a">
+			<div data-role="header" data-position="fixed">
+				<h1>Beverages</h1>
+				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
+			</div><!--close header--> 
+			
+			<div id="foodDetail">
+				
+			</div><!--close food menu-->
+			
+			<div id="mainContent" data-role="content" class="fixedContent contactPage">
+				<div class="menuList">
+					<div class="content-primary">
+						<ul data-role="listview" data-filter="true" data-filter-placeholder="Search people...">
+						
+						<!-- =================== A ==================== -->
+							<li data-role="list-divider">A</li>
+							
+							<li data-filtertext="Amstel Light">
+								<a class="productItem" href="#productDetail-page">
+									<img class="productImg" src="http://extra.listverse.com/amazon/beer/amstel.jpg" />
+									
+									<h3 class="productName">Amstel Light</h3>
+									
+									<p class="productDescription">Have you ever seen regular Amstel??</p>
+									
+								</a>
+								
+								<a class="quickPurchase" href="#" data-rel="dialog" data-transition="slideup" data-theme="d">
+										Quick Purchase
+								</a>
+							</li>
+						
+						<!-- =================== B ==================== -->
+							<li data-role="list-divider">B</li>
+							
+							<li data-filtertext="Budweiser">
+								<a class="productItem"  href="#productDetail-page">
+									<img class="productImg" src="http://extra.listverse.com/amazon/beer/Budweiser_logo.jpg" />
+									
+									<h3 class="productName">Budweiser</h3>
+									
+									<p class="productDescription">The biggest beer in the world (or at least it seems). I remember backpacking in Europe and seeing people sitting at cafes drinking Bud when a host of great European beers were inside waiting to be tasted. I hate having to include this, but it isn’t that bad.</p>
+									
+								</a>
+								
+								<a class="quickPurchase" href="#" data-rel="dialog" data-transition="slideup" data-theme="d">
+										Quick Purchase
+								</a>
+							</li>
+						
+						<!-- =================== C ==================== -->
+							<li data-role="list-divider">C</li>
+							
+							<li data-filtertext="Corona">
+								<a class="productItem"  href="#productDetail-page">
+									<img class="productImg" src="http://extra.listverse.com/amazon/beer/Corona_extra.jpg" />
+									
+									<h3 class="productName">Corona</h3>
+									
+									<p class="productDescription">Ok, ok, I had to include this list simply because this beer is unique in that is almost entirely associated with summertime. Rarely do you see skiers downing a few apres-ski. Made popular by California surfers, this Mexican import is served with a lime. It is almost white and is rarely found in kegs.</p>
+									
+								</a>
+								
+								<a class="quickPurchase" href="#" data-rel="dialog" data-transition="slideup" data-theme="d">
+										Quick Purchase
+								</a>
+							</li>
+						
+						<!-- =================== D ==================== -->
+							<li data-role="list-divider">D</li>
+						
+						<!-- =================== E ==================== -->
+							<li data-role="list-divider">E</li>
+						
+						<!-- =================== F ==================== -->
+							<li data-role="list-divider">F</li>
+							
+							<li data-filtertext="Foster's">
+								<a class="productItem" href="#productDetail-page">
+									<img class="productImg" src="http://extra.listverse.com/amazon/beer/fosters-lager.jpg" />
+									
+									<h3 class="productName">Foster's</h3>
+									
+									<p class="productDescription">Made popular by the “oilcan”, this Australian beer is served at every Outback restaurant but remains, ironically enough, unpopular in it’s native country.</p>
+									
+								</a>
+								
+								<a class="quickPurchase" href="#" data-rel="dialog" data-transition="slideup" data-theme="d">
+										Quick Purchase
+								</a>
+							</li>
+						
+						<!-- =================== G ==================== -->
+							<li data-role="list-divider">G</li>
+							
+							<li class="productItem"  data-filtertext="Guinness">
+								<a href="#productDetail-page">
+									<img class="productImg" src="http://extra.listverse.com/amazon/beer/Guinness-original-logo.jpg" />
+									
+									<h3 class="productName">Guinness</h3>
+									
+									<p class="productDescription">This beer basically stands alone in the stout category. It’s truly the only beer that you can recognize from across the room. Just holding one makes you feel as if you are in a small pub in some quaint Irish town with a wool sweater on and the cold rain beating against the pub windows. Only a true bartender knows that in order to get a perfect pour, the glass should be filled to the middle, then filled once it has settled.</p>
+									
+								</a>
+								
+								<a class="quickPurchase" href="#" data-rel="dialog" data-transition="slideup" data-theme="d">
+										Quick Purchase
+								</a>
+							</li>
+						
+						<!-- =================== H ==================== -->
+							<li data-role="list-divider">H</li>
+						
+						<!-- =================== I ==================== -->
+							<li data-role="list-divider">I</li>
+							
+							<li data-filtertext="Iron City Beer">
+								<a class="productItem" href="#productDetail-page">
+									<img class="productImg" src="http://extra.listverse.com/amazon/beer/iron-city.jpg" />
+									
+									<h3 class="productName">Iron City Beer</h3>
+									
+									<p class="productDescription">The logo is unattractive, the name does nothing, heck even the city conjures up bad images, but they make a pretty good cheap beer.</p>
+									
+								</a>
+								
+								<a class="quickPurchase" href="#" data-rel="dialog" data-transition="slideup" data-theme="d">
+										Quick Purchase
+								</a>
+							</li>
+						
+						<!-- =================== J ==================== -->
+							<li data-role="list-divider">J</li>
+						
+						<!-- =================== L ==================== -->
+							<li data-role="list-divider">L</li>
+						
+						<!-- =================== M ==================== -->
+							<li data-role="list-divider">M</li>
+						
+						<!-- =================== N ==================== -->
+							<li data-role="list-divider">N</li>
+							
+							<li data-filtertext="Newcastle">
+								<a class="productItem" href="#productDetail-page">
+									<img class="productImg" src="http://extra.listverse.com/amazon/beer/Newcastle_brown_ale_f.jpg" />
+									
+									<h3 class="productName">Newcastle</h3>
+									
+									<p class="productDescription">“Newcastle Brown, I’m tellin’ you, it can sure smack you down.” In Newcastle, the beer is often called ‘Dog’ (or simply ‘Broon’). The ‘Dog’ name comes from the euphemism “I’m going to walk the dog” or “I’m going to see a man about a dog” – meaning “I’m going to the pub” – and was further popularized by a 1980s advertising campaign. In southern parts of the country it is often referred to as “Newkie Brown”.</p>
+									
+								</a>
+								
+								<a class="quickPurchase" href="#" data-rel="dialog" data-transition="slideup" data-theme="d">
+										Quick Purchase
+								</a>
+							</li>
+						
+						<!-- =================== O ==================== -->
+							<li data-role="list-divider">O</li>
+							
+							<li data-filtertext="Ommegang">
+								<a class="productItem" href="#productDetail-page">
+									<img class="productImg" src="http://extra.listverse.com/amazon/beer/ommegang.jpg" />
+									
+									<h3 class="productName">Ommegang</h3>
+									
+									<p class="productDescription">One of the fastest growing US microbrews from Cooperstown, NY. Their five beers should be sought out if possible.</p>
+									
+								</a>
+								
+								<a class="quickPurchase" href="#" data-rel="dialog" data-transition="slideup" data-theme="d">
+										Quick Purchase
+								</a>
+							</li>
+						
+						<!-- =================== P ==================== -->
+							<li data-role="list-divider">P</li>
+							
+							<li data-filtertext="Paulaner">
+								<a class="productItem" href="#productDetail-page">
+									<img class="productImg" src="http://extra.listverse.com/amazon/beer/paulaner.jpg" />
+									
+									<h3 class="productName">Paulaner</h3>
+									
+									<p class="productDescription">The highest ranking wheat beer (hefeweise) on this list goes perfect with an orange slice.</p>
+									
+								</a>
+								
+								<a class="quickPurchase" href="#" data-rel="dialog" data-transition="slideup" data-theme="d">
+										Quick Purchase
+								</a>
+							</li>
+						
+						<!-- =================== Q ==================== -->
+							<li data-role="list-divider">Q</li>
+						
+						<!-- =================== R ==================== -->
+							<li data-role="list-divider">R</li>
+							
+							<li data-filtertext="Red Stripe">
+								<a class="productItem" href="#productDetail-page">
+									<img class="productImg" src="http://extra.listverse.com/amazon/beer/Redstripe.jpg" />
+									
+									<h3 class="productName">Red Stripe</h3>
+									
+									<p class="productDescription">Think Jamaica, reggae, and everything else rastafarian… oh yeah, and they have the best bottles. Hooray Beer!</p>
+									
+								</a>
+								
+								<a class="quickPurchase" href="#" data-rel="dialog" data-transition="slideup" data-theme="d">
+										Quick Purchase
+								</a>
+							</li>
+						
+						<!-- =================== S ==================== -->
+							<li data-role="list-divider">S</li>
+							
+							<li data-filtertext="Stella Artois">
+								<a class="productItem" href="#productDetail-page">
+									<img class="productImg" src="http://extra.listverse.com/amazon/beer/321px-Stella_Artois_Bottle.jpg" />
+									
+									<h3 class="productName">Stella Artois</h3>
+									
+									<p class="productDescription">Quite simply put, a nice clean crisp beer that is widely available worldwide. A nice starter beer if you are looking at imported beers.</p>
+									
+								</a>
+								
+								<a class="quickPurchase" href="#" data-rel="dialog" data-transition="slideup" data-theme="d">
+										Quick Purchase
+								</a>
+							</li>
+							
+							<li data-filtertext="Samuel Adams">
+								<a class="productItem" href="#productDetail-page">
+									<img class="productImg" src="http://extra.listverse.com/amazon/beer/Samadamsovallogo.jpg" />
+									
+									<h3 class="productName">Samuel Adams</h3>
+									
+									<p class="productDescription">Named for a founding father of American independence, this Massachusetts brewery cranks out microbrew taste at macrobrew rates. At least one of their long list of quality beers is available at most bars in the US. They take pride in the many awards their brews have garnished.</p>
+									
+								</a>
+								
+								<a class="quickPurchase" href="#" data-rel="dialog" data-transition="slideup" data-theme="d">
+										Quick Purchase
+								</a>
+							</li>
+						
+						<!-- =================== T ==================== -->
+							<li data-role="list-divider">U</li>
+						
+						<!-- =================== V ==================== -->
+							<li data-role="list-divider">V</li>
+						
+						<!-- =================== W ==================== -->
+							<li data-role="list-divider">W</li>
+						
+						<!-- =================== X ==================== -->
+							<li data-role="list-divider">X</li>
+						
+						<!-- =================== Y ==================== -->
+							<li data-role="list-divider">Y</li>
+						
+						<!-- =================== Z ==================== -->
+							<li data-role="list-divider">Z</li>
+							
+							
+						</ul>	
+					</div><!--close content-primary div-->
+				</div><!--close menuList div-->
+			</div><!--close mainContent div-->
+			
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
+				<div data-role="navbar" class="nav-glyphish-example">
+					<ul>
+						<li>
+							<a href="#home-page" id="home" data-icon="custom">Home</a>
+						</li>
+						<li>
+							<a href="#menu-page" class="ui-btn-active" id="aboutme" data-icon="custom">Menu</a>
+						</li>
+						<li>
+							<a href="#deals-page" id="links" data-icon="custom">Deals</a>
+						</li>
+						<li class="billMenuClick">
+							<a href="#bill-page" id="gallery" data-icon="custom">My Bill</a>
+						</li>
+						<li>
+							<a href="#contact-page" id="email" data-icon="custom">Contact</a>
+						</li>
+					</ul>
+					
+				</div><!-- close navbar -->
+			</div><!--close footer -->
+		</div><!--close home div-->
+		<!-- =============== END PAGE ================= -->
+		
+		
+		
+		
+		
+		
+		<!-- =============== START PAGE ================= -->
+		<div id="productDetail-page" class="pages" data-role="page" data-theme="a">
+			<div data-role="header" data-position="fixed">
+				<h1>Beverages</h1>
+				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
+			</div><!--close header--> 
+			
+			<div id="foodDetail">
+				
+			</div><!--close food menu-->
+			
+			
+			<div id="mainContent" data-role="content" class="contactPage fixedContent">
+					<span class="productDescription">
+						<p><!-- clicked item description will be placed here with jquery --></p>
+					</span>
+					
+					<a data-theme="e" href="#" data-role="button">
+						Order<span class="productName"></span>?
+					</a>
+					
+					<!--
+					<img class="productImg" src="http://extra.listverse.com/amazon/beer/Samadamsovallogo.jpg" />
+					-->
+					
+			</div><!--close mainContent div-->
+			
+			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
+				<div data-role="navbar" class="nav-glyphish-example">
+					<ul>
+						<li>
+							<a href="#home-page" id="home" data-icon="custom">Home</a>
+						</li>
+						<li>
+							<a href="#menu-page" class="ui-btn-active" id="aboutme" data-icon="custom">Menu</a>
+						</li>
+						<li>
+							<a href="#deals-page" id="links" data-icon="custom">Deals</a>
+						</li>
+						<li class="billMenuClick">
+							<a href="#bill-page" id="gallery" data-icon="custom">My Bill</a>
+						</li>
+						<li>
+							<a href="#contact-page" id="email" data-icon="custom">Contact</a>
+						</li>
+					</ul>
+					
+				</div><!-- close navbar -->
+			</div><!--close footer -->
+		</div><!--close home div-->
+		<!-- =============== END PAGE ================= -->
+		
+		
 	
 		<!-- =============== START PAGE ================= -->
 		<div id="deals-page" class="pages" data-role="page" data-theme="a" >
@@ -331,364 +694,6 @@
 						</li>
 						<li>
 							<a href="#deals-page" class="ui-btn-active" id="links" data-icon="custom">Deals</a>
-						</li>
-						<li>
-							<a href="#bill-page" id="gallery" data-icon="custom">My Bill</a>
-						</li>
-						<li>
-							<a href="#contact-page" id="email" data-icon="custom">Contact</a>
-						</li>
-					</ul>
-				</div><!-- close navbar -->
-			</div><!--close footer -->
-		</div><!--close home div-->
-		<!-- =============== END PAGE ================= -->
-		
-		
-		
-		<!-- =============== START PAGE ================= -->
-		<div id="beverages-page" class="pages" data-role="page" data-theme="a">
-			<div data-role="header" data-position="fixed">
-				<h1>Beverages</h1>
-				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
-			</div><!--close header--> 
-			
-			<div id="foodDetail">
-				
-			</div><!--close food menu-->
-			
-			<div id="mainContent" data-role="content" class="fixedContent">
-				<div class="menuList">
-					<div class="content-primary">
-					
-						<ul data-role="listview" data-theme="a" data-filter="true" data-filter-placeholder="quick search...">
-						
-							<!-- =================== C =================== -->
-							<li data-role="list-divider">C</li>
-								<li data-filtertext="Coke Coca Cola" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="34662" />
-										
-										<span class="menuItemName">
-											Coke Classic
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$2.09</span>
-									</a>
-								</li>
-								
-								<li data-filtertext="Coke Coca Cola" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="34662" />
-										
-										<span class="menuItemName">
-											Coke Zero
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$2.13</span>
-									</a>
-								</li>
-								
-								<li data-filtertext="Coke Coca Cola" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="34662" />
-										
-										<span class="menuItemName">
-											Coke Diet
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$1.99</span>
-									</a>
-								</li>
-								
-							<!-- =================== F =================== -->
-							<li data-role="list-divider">F</li>
-								<li data-filtertext="Orange Fanta Laranja" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="51234" />
-										
-										
-										<span class="menuItemName">
-											Fanta Orange
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$2.00</span>
-									</a>
-								</li>
-								<li data-filtertext="Grape Fanta Uva" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="76234" />
-										
-										<span class="menuItemName">
-											Fanta Grape
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$2.15</span>
-									</a>
-								</li>
-								
-							<!-- =================== L =================== -->
-							<li data-role="list-divider">L</li>
-								<li data-filtertext="Life Savers Soda" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="1235622" />
-										
-										<span class="menuItemName">
-											Life Savers Soda
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$2.55</span>
-									</a>
-								</li>
-								
-							<!-- =================== P =================== -->
-							<li data-role="list-divider">P</li>
-								<li data-filtertext="Pepsi" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="43221" />
-										
-										<span class="menuItemName">
-											Pepsi
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$2.11</span>
-									</a>
-								</li>
-								
-								<li data-filtertext="Pepsi" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="43221" />
-										
-										<span class="menuItemName">
-											Pepsi Diet
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$2.39</span>
-									</a>
-								</li>
-								
-							<!-- =================== S =================== -->
-							<li data-role="list-divider">S</li>
-								<li data-filtertext="Sprite" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="1235512" />
-										
-										<span class="menuItemName">
-											Sprite
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$2.50</span>
-									</a>
-								</li>
-								
-								<li data-filtertext="Coors Rocky Mountain Sparkling Water agua com gas água" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="723212"/>
-										
-										<span class="menuItemName">
-											Sparkling Water
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$3.50</span>
-									</a>
-								</li>
-								
-							<!-- =================== V =================== -->
-							<li data-role="list-divider">V</li>
-								<li data-filtertext="Vio" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="123733" />
-										
-										<span class="menuItemName">
-											Vio
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$2.50</span>
-									</a>
-								</li>
-						</ul>
-					</div><!--close content-primary div-->
-				</div><!--close menuList div-->
-			</div><!--close mainContent div-->
-			
-			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
-				<div data-role="navbar" class="nav-glyphish-example">
-					<ul>
-						<li>
-							<a href="#home-page" id="home" data-icon="custom">Home</a>
-						</li>
-						<li>
-							<a href="#menu-page" class="ui-btn-active" id="aboutme" data-icon="custom">Menu</a>
-						</li>
-						<li>
-							<a href="#deals-page" id="links" data-icon="custom">Deals</a>
-						</li>
-						<li class="billMenuClick">
-							<a href="#bill-page" id="gallery" data-icon="custom">My Bill</a>
-						</li>
-						<li>
-							<a href="#contact-page" id="email" data-icon="custom">Contact</a>
-						</li>
-					</ul>
-				</div><!-- close navbar -->
-			</div><!--close footer -->
-		</div><!--close home div-->
-		<!-- =============== END PAGE ================= -->
-		
-		
-		
-		<!-- =============== START PAGE ================= -->
-		<div id="appetizers-page" class="pages" data-role="page" data-theme="a">
-			<div data-role="header" data-position="fixed">
-				<h1>Appetizers</h1>
-				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
-			</div><!--close header--> 
-			
-			<div id="foodDetail">
-				
-			</div><!--close food menu-->
-			
-			<div id="mainContent" data-role="content" class="fixedContent">
-				<div class="menuList">
-					<div class="content-primary">
-					
-						<ul data-role="listview" data-theme="a" data-filter="true" data-filter-placeholder="quick search...">
-						
-							<!-- =================== C =================== -->
-							<li data-role="list-divider">C</li>
-								<li data-filtertext="Coke Coca Cola" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="34662" />
-										
-										<span class="menuItemName">
-											Appetizers
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$2.09</span>
-									</a>
-								</li>
-								
-							<!-- =================== F =================== -->
-							<li data-role="list-divider">F</li>
-								<li data-filtertext="Orange Fanta Laranja" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="51234" />
-										
-										
-										<span class="menuItemName">
-											Random Test
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$2.00</span>
-									</a>
-								</li>
-								<li data-filtertext="Grape Fanta Uva" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="76234" />
-										
-										<span class="menuItemName">
-											afasf
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$2.15</span>
-									</a>
-								</li>
-								
-							<!-- =================== L =================== -->
-							<li data-role="list-divider">L</li>
-								<li data-filtertext="Life Savers Soda" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="1235622" />
-										
-										<span class="menuItemName">
-											Life Savers Soda
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$2.55</span>
-									</a>
-								</li>
-								
-							<!-- =================== P =================== -->
-							<li data-role="list-divider">P</li>
-								<li data-filtertext="Pepsi" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="43221" />
-										
-										<span class="menuItemName">
-											Pepsi
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$2.11</span>
-									</a>
-								</li>
-								
-								<li data-filtertext="Pepsi" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="43221" />
-										
-										<span class="menuItemName">
-											Pepsi Diet
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$2.39</span>
-									</a>
-								</li>
-								
-							<!-- =================== S =================== -->
-							<li data-role="list-divider">S</li>
-								<li data-filtertext="Sprite" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="1235512" />
-										
-										<span class="menuItemName">
-											Sprite
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$2.50</span>
-									</a>
-								</li>
-								
-								<li data-filtertext="Coors Rocky Mountain Sparkling Water agua com gas água" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="723212"/>
-										
-										<span class="menuItemName">
-											Sparkling Water
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$3.50</span>
-									</a>
-								</li>
-								
-							<!-- =================== V =================== -->
-							<li data-role="list-divider">V</li>
-								<li data-filtertext="Vio" class="menuListItem">
-									<a href="#">
-										<input class="menuItemNumber" value="123733" />
-										
-										<span class="menuItemName">
-											Vio
-										</span>
-							
-										<span class="ui-li-count menuItemPrice">$2.50</span>
-									</a>
-								</li>
-						</ul>
-					</div><!--close content-primary div-->
-				</div><!--close menuList div-->
-			</div><!--close mainContent div-->
-			
-			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
-				<div data-role="navbar" class="nav-glyphish-example">
-					<ul>
-						<li>
-							<a href="#home-page" id="home" data-icon="custom">Home</a>
-						</li>
-						<li>
-							<a href="#menu-page" class="ui-btn-active" id="aboutme" data-icon="custom">Menu</a>
-						</li>
-						<li>
-							<a href="#deals-page" id="links" data-icon="custom">Deals</a>
 						</li>
 						<li>
 							<a href="#bill-page" id="gallery" data-icon="custom">My Bill</a>

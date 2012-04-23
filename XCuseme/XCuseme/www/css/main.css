@@ -20,9 +20,21 @@
 	height: 200px;
 }
 
+#productDetail-page .productName{
+	padding: 10px 15px;
+}
+
 .fixedContent{
 	height: 325px;
 	overflow: scroll;
+}
+
+#mainContent{
+	position: relative;
+}	
+
+.productDescription p{
+	text-indent: 25px;
 }
 
 #mainLogo{
