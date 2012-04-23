@@ -2,12 +2,11 @@
 (function($){
 	$(document).ready(function(){
 		
-		function preventBehavior(e)
-		{
-		  e.preventDefault();
-		}
+		function preventBehavior(e) 
+		{ 
+		  e.preventDefault(); 
+		};
 		document.addEventListener("touchmove", preventBehavior, false);
-		
 		
 		/* todo : enable this if you want the items from the menu getting added to the bill list */
 		$(".stringselect").hide();
@@ -48,14 +47,11 @@
 			});
 		}
 
-	$(staffCallDialogBtn).live("click", function(evt){
-		callBtnClick(11); //testing table 11
-	});
-		
-	
-	
-	
-	
+/*
+		$(staffCallDialogBtn).live("click", function(evt){
+			callBtnClick(11); //testing table 11
+		});
+*/
 	
 		// Wait for Cordova to load
 		document.addEventListener("deviceready", onDeviceReady, false);
@@ -76,16 +72,38 @@
 			console.log("ajax call here to the server's computer");
 			callBtnClick(11);
 		}
+
 	
 		// Show a custom alert
 		function callStaffAlert() {
 			navigator.notification.alert(
 				'Please wait, a staff member will be with you shortly.',  // message
-				callStaffCallback,         // callback
-				'Request sent',            // title
-				'Okay'                  // buttonName
+				callStaffCallback(),         	// callback
+				'Request sent',           	// title
+				'Okay'                  	// buttonName
 			);
 		}
+		
+		function onOrderConfirm(button) {
+			if(button == 2){
+				console.log("after use confirm item purchase, do a ajax call");
+				callBtnClick(11);
+			}else{
+				console.log("user canceled the order");
+			}
+		}
+	
+		// Show a custom alert
+		function quickItemOrder(itemName) {
+			navigator.notification.confirm(
+				'Would you like to order '+itemName+' ?',  // message
+				onOrderConfirm,              // callback to invoke with index of button pressed
+				'Place Order',            // title
+				'No,Yes Please'          // buttonLabels
+			);
+
+		}
+
 		
 
 		// Beep three times
@@ -117,8 +135,47 @@
 		});
 		// ================================== ALERTS END ===================================== //
 		
+		
+		$(".productItem").live("click", function(){
+			var itemName = $(this).find(".productName").text(),
+				itemDesc = $(this).find(".productDescription").text(),
+				detailDescription = $("#productDetail-page .productDescription p"),
+				detailName = $("#productDetail-page .productName")
+			;
+			window.location = "#productDetail-page";
+			
+			
+			// todo : fix item order description
+			detailDescription.html("");
+			detailDescription.html(itemDesc);
+			
+			// todo : fix item order button name
+			detailName.html("");
+			detailName.html(itemName);
+			
+			
+			console.log("Button Name -> " + detailName.html());
+			console.log("Product Description -> " + detailDescription.html());
+		
+		});
 	
 	
+		$(".quickPurchase").live("click", function(){
+			var itemName = $(this).parent().find(".productName").text();
+			
+			quickItemOrder(itemName);
+		});
+		
+		$(".productName").live("click", function(){
+			var	itemName = $("#productDetail-page .productName").text();
+			
+			quickItemOrder(itemName);
+			
+			return false;
+		});
+			
+				
+				
 				
 		// ================================== CALCULATOR ===================================== //
 		var billCalculation = function(){

@@ -107,6 +107,15 @@
 	margin-top: 10px;
 }
 
+/* todo : this is the total bill amount inputted by the user */
+#totalPriceInput{
+	width: 80px;
+	margin-top: -9px;
+	margin-right: -15px;
+	float: right;
+	color: #B53737;
+}
+
 .billSection2{
 	padding: 1em 15px !important;
 }
