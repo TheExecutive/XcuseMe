@@ -85,7 +85,8 @@
 		function onOrderConfirm(button) {
 			if(button == 2){
 				console.log("after use confirm item purchase, do a ajax call");
-				callBtnClick(11);
+				
+				callStaffAlert();
 			}else{
 				console.log("user canceled the order");
 			}
@@ -161,6 +162,14 @@
 	
 		
 		$(".quickPurchase").live("click", function(){
+			var itemName = $(this).parent().find(".productName").text();
+			
+			quickItemOrder(itemName);
+		});
+		
+		
+		
+		$("#productDetail-page .orderButton").live("click", function(){
 			var itemName = $(this).parent().find(".productName").text();
 			
 			quickItemOrder(itemName);
@@ -413,63 +422,5 @@
 			}//close simpledialog options
 		})//close simpledialog
 	});//close delgate
-	
-
-/*
-	$(document).delegate('.menuListItem', 'click', function(e) {
-		var self = this;
-		var $itemName = $(this).find(".menuItemName").text();
-		var $itemPrice = $(this).find(".menuItemPrice").text();
-		var $itemId = $(this).find(".menuItemNumber").val();
-		var $cartItems = $("#stringselect");
-		var $cartStatus = 0;
-	
-		$(self).each(function(){
-			//if ( $(this).attr('data-addoption') ) {
-				$(self).simpledialog({
-					'mode' : 'bool',
-					'prompt' : "Order " + $itemName + " ?",
-					'subTitle' : $itemPrice + " <br /> <img src='images/menu/"+$itemId+".png' height='110'/> <br />",
-					'width' : '100%',
-   					'headerClose' : true,
-					'useDialogForceFalse' : true,
-					'buttons' : 
-					{
-						'Place this order' : 
-						{
-							click: function () 
-							{ 
-								
-								console.log("item added");
-								
-								$(
-									'<li class="ui-li ui-li-static ui-body-b" >'
-											+ $itemName + 
-										'<span class="cartItemPrice">'
-											+$itemPrice+
-										'</span>'+
-									'</li>'
-								).appendTo($cartItems);
-								
-							},
-							'theme' : 'c'
-						},
-						'Cancel' : 
-						{
-							click: function () 
-							{ 
-								console.log("item canceled");
-							},
-							'theme' : 'a'
-						}
-					}//close simpledialog options
-				})//close simpledialog
-			//}//close if statement
-		});//close self selected
-	});//close delgate
-
-*/
-		
-	
 })(jQuery); //close private scope
 		
