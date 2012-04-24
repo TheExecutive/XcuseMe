@@ -6,7 +6,12 @@
 
 	var apiKey = "xvien5ya8rh538ryt5kh",
 		buttonContainerUL = $("#buttonContainer ul"),
-		tableButtons //declaring
+		tableButtons, //declaring
+		registerForm = $(".registerForm"),
+		clientName = registerForm.find('#clientName'),
+		additionalNote = registerForm.find('#additionalNote'),
+		radioVacant = registerForm.find('#vacant'),
+		radioOccupied = registerForm.find('#occupied')
 	;
 
 
@@ -184,6 +189,33 @@
 				console.log("Mongo update buttons error", error);
 		    }
 		});
+	}
+
+	function getSingleTable(tableId){
+		$.ajax({
+			url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
+			type: "GET",
+			headers: {"Content-Type": "application/json"}, //this must be here to ensure the object is treated as json.
+		    dataType: 'json',
+		    data: {
+				"_apikey" : apiKey,
+				"q" : JSON.stringify({ //the query must be stringified in JSON in order to be passed succesfully.
+					"type" : "table",
+					"tableId" : tableId
+				}),
+				"document" : {} //just an empty object
+		    },
+		    success: function(response){
+				var returnedTable = response[0];
+				//fill the input fields from what's been gotten back from mongo.
+				clientName.val(returnedTable.patronName);
+				additionalNote.val(returnedTable.additionalNote);
+		    },
+		    error: function(error){
+				console.log("Mongo Error: ", error);
+		    }
+		});
+		
 
 	}
 
@@ -266,13 +298,23 @@
 			tableTitle = "" //declaring
 		;//close variables
 
+		//clear out values by default.
+		clientName.val('Please enter the party name.');
+		additionalNote.val('Enter any additional notes about the party here.');
+
 		if(tableStatus === "occupied"){
 			tableTitle = 'Table '+tableNumber+' is occupied';
+			//if the table is occupied, pull additional data from mongo.
+			getSingleTable(+tableNumber); //table number string as number with plus
+
 		}else if(tableStatus === "vacant"){
 			tableTitle = 'Register Table ' + tableNumber;
+
 		}else if(tableStatus === "assistance"){
 			tableTitle = 'Table '+tableNumber+' need assistance';
 		}
+
+
 
 		// a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
 		$(".registerPopUp").dialog("destroy");
@@ -295,13 +337,6 @@
 				//this is the function that it will run when the window is confirmed
 				"update this table": function() {
 
-					var registerForm = $(".registerForm"),
-						clientName = registerForm.find('#clientName'),
-						additionalNote = registerForm.find('#additionalNote'),
-						radioVacant = registerForm.find('#vacant'),
-						radioOccupied = registerForm.find('#occupied')
-					;
-
 					//creating an update object.
 					var updateObj = {
 						"clickedTblBtn" : clickedTblBtn,
@@ -319,7 +354,6 @@
 						}
 
 					}else if(tableStatus === "occupied"){
-						
 						if(radioVacant.attr("checked") === "checked"){
 							changeTableStatus(updateObj, 'vacant');
 						}else{
