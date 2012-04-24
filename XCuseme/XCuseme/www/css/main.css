@@ -1,3 +1,6 @@
+
+
+
 #barcode{
 	display: none;
 }
@@ -218,6 +221,11 @@
 #email .ui-icon { 
 	background:  url('../glyphish-icons/icons/18-envelope-white.png') 50% 50% no-repeat;  
 	background-size: 24px 16px; 
+}
+
+#cart .ui-icon { 
+	background:  url('../glyphish-icons/icons/80-shopping-cart-white.png') 50% 50% no-repeat;  
+	background-size: 20px 15px; 
 }
 
 .menuItemNumber{

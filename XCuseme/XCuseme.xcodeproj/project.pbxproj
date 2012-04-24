@@ -39,6 +39,7 @@
 		E769ECCC153DFFE300913F00 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E769ECCB153DFFE300913F00 /* MainViewController.xib */; };
 		E769ECD0153DFFE300913F00 /* verify.sh in Resources */ = {isa = PBXBuildFile; fileRef = E769ECCF153DFFE300913F00 /* verify.sh */; };
 		E769ECDF153E012500913F00 /* www in Resources */ = {isa = PBXBuildFile; fileRef = E769ECDE153E012500913F00 /* www */; };
+		E78AE7EC15452488008150EA /* icon-144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = E78AE7EB15452488008150EA /* icon-144x144.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		E769ECCE153DFFE300913F00 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = Plugins/README; sourceTree = "<group>"; };
 		E769ECCF153DFFE300913F00 /* verify.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = verify.sh; sourceTree = "<group>"; };
 		E769ECDE153E012500913F00 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+		E78AE7EB15452488008150EA /* icon-144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-144x144.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		E769EC6C153DFFE100913F00 = {
 			isa = PBXGroup;
 			children = (
+				E78AE7EB15452488008150EA /* icon-144x144.png */,
 				E769EC98153DFFE200913F00 /* XCuseme */,
 				E769EC7D153DFFE200913F00 /* Frameworks */,
 				E769EC7B153DFFE200913F00 /* Products */,
@@ -334,6 +337,7 @@
 				E769ECCC153DFFE300913F00 /* MainViewController.xib in Resources */,
 				E769ECD0153DFFE300913F00 /* verify.sh in Resources */,
 				E769ECDF153E012500913F00 /* www in Resources */,
+				E78AE7EC15452488008150EA /* icon-144x144.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

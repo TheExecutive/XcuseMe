@@ -2,11 +2,9 @@
 (function($){
 	$(document).ready(function(){
 		
-		function preventBehavior(e) 
-		{ 
-		  e.preventDefault(); 
-		};
-		document.addEventListener("touchmove", preventBehavior, false);
+		
+		
+		
 		
 		/* todo : enable this if you want the items from the menu getting added to the bill list */
 		$(".stringselect").hide();
