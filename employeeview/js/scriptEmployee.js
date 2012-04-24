@@ -164,7 +164,7 @@
 		    data: JSON.stringify({
 				"_apikey" : apiKey,
 				//criteria
-				"criteria" : { //Only need to stringify queries, don't have to stringify PUTS.
+				"criteria" : {
 					"type" : "table",
 					"tableId" : tableId //requesting the mongo object representing the table I clicked
 				},
