@@ -95,7 +95,7 @@
 		// Show a custom alert
 		function quickItemOrder(itemName) {
 			navigator.notification.confirm(
-				'Would you like to order '+itemName+' ?',  // message
+				'Would you like to order '+itemName+' !',  // message
 				onOrderConfirm,              // callback to invoke with index of button pressed
 				'Place Order',            // title
 				'No,Yes Please'          // buttonLabels
@@ -379,7 +379,7 @@
 			'mode' : 'button',
 			'showModal' : true,
 			'shadow' : true,
-			'headerText' : itemName + " ?",
+			'headerText' : itemName + " !",
 			'buttonPrompt' : itemPrice + " <br /> <img src='images/menu/"+itemId+".png' height='110'/> <br />",
 			'width' : '100%',
 			'buttons' : 
