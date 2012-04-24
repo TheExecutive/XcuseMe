@@ -124,7 +124,7 @@ header h1 {
 	width: 122px;
 	height: 138px;
 	text-indent: -9999px;
-	margin: -50px auto;
+	margin: -50px auto 20px auto;
 	background-image: url('../img/mainLogo.png');
 }
 

@@ -105,8 +105,8 @@
 		});
 
 		//run this every 8 seconds.
-		//setInterval( monitorRemoteApp, 8000);
-		monitorRemoteApp();
+		setInterval( monitorRemoteApp, 8000);
+		//monitorRemoteApp();
 		
 	}
 
