@@ -239,6 +239,11 @@
 	background-size: 24px 16px; 
 }
 
+#calculator .ui-icon { 
+	background:  url('../glyphish-icons/icons/161-calculator-white.png') 50% 50% no-repeat; 
+	background-size: 22px 24px; 
+}
+
 #cart .ui-icon { 
 	background:  url('../glyphish-icons/icons/80-shopping-cart-white.png') 50% 50% no-repeat; 
 	background-size: 16px 15px; 
