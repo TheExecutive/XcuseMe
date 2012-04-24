@@ -187,6 +187,38 @@
 
 	}
 
+	function changeAvailability(clickedButton, tableId, availability){
+		$.ajax({
+			url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
+			type: "PUT",
+			headers: {"Content-Type": "application/json"}, //this must be here to ensure the object is treated as json.
+		    dataType: 'json',
+		    data: JSON.stringify({
+				"_apikey" : apiKey,
+				//criteria
+				"criteria" : {
+					"type" : "table",
+					"tableId" : tableId //requesting the mongo object representing the table I clicked
+				},
+				"object" : {
+					"$set" : {
+						"needsAssistance" : false //setting the table I clicked to no longer need assistance.
+					}
+				},
+				"document" : {} //just an empty object
+		    }),
+		    success : function(response){
+				$(clickedButton).removeClass('assistance');
+				
+				console.log("Mongo update successful", response);
+		    },
+		    error : function(error){
+				console.log("Mongo update buttons error", error);
+		    }
+		});
+
+	}
+
 	function processServerRequest(response){
 		var tableStatus; //setting up this var
 		//this runs on the ajax success
@@ -215,90 +247,65 @@
 	
 	
 	// when you click on the table item, the pop up menu will appear according to the status of the table, if the table status is set to need assistance then the content in that pop up should and will be different from the table status of occupied or vacant.
-	$(".tableButton").live("click", function(){
-		var 	
-			tableNumber = $(this).find(".tableNumber").text(),//this is the table number for the clicked table
-			
-			tableStatus = $(this).find(".tableStatus").text()//this is the table status for the clicked table
+	buttonContainerUL.on("click", ".tableButton", function(evt){ //better to use .on as .live has been deprecated
+		//when using on, specify a parent that will be always on the page then specify the class of the element that wont.
+		var clickedTableButton = $(this),
+			tableNumber = this.find(".tableNumber").text(),//this is the table number for the clicked table
+			tableStatus = this.find(".tableStatus").text(),//this is the table status for the clicked table
+			tableTitle = "" //declaring
 		;//close variables
-		
-		if(tableStatus == "occupied"){
-			// a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
-			$(".registerPopUp").dialog("destroy");
-			
-			//setting the dialog window
-			$(".registerPopUp").dialog({
-				height: 550,
-				width: 650,
-				modal: true,
-				show: { effect: 'drop', direction: "down" },
-				draggable: false,
-				resizable: false,
-				title: 'Table '+tableNumber+' is occupied',
-				buttons: {
-					//this is the function that it will run when the window is closed
-					close: function() {
-						$(this).dialog("destroy");
-						
-					},
-					//this is the function that it will run when the window is confirmed
-					"Update this table": function() {
-						
-					}
-				}
-			});//close dialog window
-		}else if(tableStatus == "vacant"){
-			// a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
-			$(".registerPopUp").dialog("destroy");
-			
-			//setting the dialog window
-			$(".registerPopUp").dialog({
-				height: 550,
-				width: 650,
-				modal: true,
-				show: { effect: 'drop', direction: "down" },
-				draggable: false,
-				resizable: false,
-				title: 'Register Table ' + tableNumber,
-				buttons: {
-					//this is the function that it will run when the window is closed
-					close: function() {
-						$(this).dialog("destroy");
-						
-					},
-					//this is the function that it will run when the window is confirmed
-					"Update this table": function() {
-						
-					}
-				}
-			});//close dialog window
-		}else if(tableStatus == "assistance"){
-			// a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
-			$(".registerPopUp").dialog("destroy");
-			
-			//setting the dialog window
-			$(".registerPopUp").dialog({
-				height: 550,
-				width: 650,
-				modal: true,
-				show: { effect: 'drop', direction: "down" },
-				draggable: false,
-				resizable: false,
-				title: 'Table '+tableNumber+' need assistance',
-				buttons: {
-					//this is the function that it will run when the window is closed
-					close: function() {
-						$(this).dialog("destroy");
-						
-					},
-					//this is the function that it will run when the window is confirmed
-					"Update this table": function() {
-						
-					}
-				}
-			});//close dialog window
-		}//close if statement
 
+		if(tableStatus === "occupied"){
+			tableTitle = 'Table '+tableNumber+' is occupied';
+		}else if(tableStatus === "vacant"){
+			tableTitle = 'Register Table ' + tableNumber;
+		}else if(tableStatus === "assistance"){
+			tableTitle = 'Table '+tableNumber+' need assistance';
+		}
+
+		// a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
+		$(".registerPopUp").dialog("destroy");
+		
+		//setting the dialog window
+		$(".registerPopUp").dialog({
+			height: 550,
+			width: 650,
+			modal: true,
+			show: { effect: 'drop', direction: "down" },
+			draggable: false,
+			resizable: false,
+			title: tableTitle,
+			buttons: {
+				//this is the function that it will run when the window is closed
+				close: function() {
+					$(this).dialog("destroy");
+					
+				},
+				//this is the function that it will run when the window is confirmed
+				"update this table": function() {
+
+					var registerForm = $(".registerForm"),
+						clientName = registerForm.find('#clientName'),
+						additionalNote = registerForm.find('#additionalNote'),
+						radioVacant = registerForm.find('#vacant'),
+						radioOccupied = registerForm.find('#occupied')
+					;
+
+					if(tableStatus === "vacant"){
+						
+						if(radioOccupied.attr("checked") === "checked"){
+							changeAvailability(clickedTableButton, tableNumber, 'occupied');
+						}
+
+					}else if(tableStatus === "occupied"){
+						tableTitle = 'Register Table ' + tableNumber;
+					}else if(tableStatus === "assistance"){
+						tableTitle = 'Table '+tableNumber+' need assistance';
+					}
+					console.log($('#radio').children('input'));
+				}
+			}
+		});//close dialog window
 		
 		return false;
 	});
