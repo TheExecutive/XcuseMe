@@ -57,7 +57,7 @@
 					"$set" : {
 						"available" : false,
 						"hasBeenServed" : false,
-						"needsAssistance" : false //setting the table I clicked to no longer need assistance.
+						"additionalNote" : "none" //setting the table I clicked to no longer need assistance.
 					}
 				},
 				multi : true, //WARNING, multi is set to true, will update anything that matches.
@@ -101,7 +101,7 @@
 
 	$(document).ready(function(){
 		//fetch the table data from mongo.
-		//testNumberInsert();
+		//testInsert();
 		
 	}); // end document ready
 	
