@@ -166,16 +166,6 @@
 			quickItemOrder(itemName);
 		});
 		
-		/*
-		$(".productName").live("click", function(){
-			var	itemName = $("#productDetail-page .productName").text();
-			
-			quickItemOrder(itemName);
-			
-			return false;
-		});
-		*/
-			
 				
 				
 				

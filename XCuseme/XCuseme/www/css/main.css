@@ -40,6 +40,10 @@
 	min-height: 220px;
 }
 
+#productDetail-page .productName{
+	padding: 0px;
+}
+
 .productDescription p{
 	text-indent: 25px;
 }
