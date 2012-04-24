@@ -139,8 +139,9 @@
 				itemDesc = $(this).find(".productDescription").text(),
 				detailDescription = $("#productDetail-page .productDescription p"),
 				detailName = $("#productDetail-page .productName")
-			;
-			window.location = "#productDetail-page";
+			;//close variables
+			
+			$.mobile.changePage("#productDetail-page");
 			
 			
 			// todo : fix item order description
@@ -158,12 +159,14 @@
 		});
 	
 	
+		
 		$(".quickPurchase").live("click", function(){
 			var itemName = $(this).parent().find(".productName").text();
 			
 			quickItemOrder(itemName);
 		});
 		
+		/*
 		$(".productName").live("click", function(){
 			var	itemName = $("#productDetail-page .productName").text();
 			
@@ -171,6 +174,7 @@
 			
 			return false;
 		});
+		*/
 			
 				
 				

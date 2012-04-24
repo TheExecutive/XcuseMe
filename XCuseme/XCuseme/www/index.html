@@ -257,7 +257,7 @@
 			<div id="mainContent" data-role="content" class="fixedContent contactPage">
 				<div class="menuList">
 					<div class="content-primary">
-						<ul id="scrollableDiv" class="scrollableDiv" data-role="listview" data-filter="true" data-filter-placeholder="Search people...">
+						<ul id="scrollableDiv" class="scrollableDiv" data-role="listview" data-filter="true" data-filter-placeholder="Search beer...">
 						
 						<!-- =================== A ==================== -->
 							<li data-role="list-divider">A</li>
@@ -268,7 +268,7 @@
 									
 									<h3 class="productName">Amstel Light</h3>
 									
-									<p class="productDescription">Have you ever seen regular Amstel??</p>
+									<p class="productDescription">The brewery was founded on June 11, 1870 in Amsterdam and named after the Amstel River, the waters of which also served for refrigeration. By 1872, Amstel was annually producing 10,000 hectoliters. For the purpose of storing the beer, winter ice from canals was kept in special double-walled cellars.</p>
 									
 								</a>
 								
@@ -554,18 +554,19 @@
 				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
 			</div><!--close header--> 
 			
-			<div id="foodDetail">
-				
-			</div><!--close food menu-->
-			
-			
 			<div id="mainContent" data-role="content" class="contactPage fixedContent">
-					<span class="productDescription">
+					<div class="productDescription">
+						<h2 class="productName"></h2>
+						
 						<p><!-- clicked item description will be placed here with jquery --></p>
-					</span>
+					</div>
 					
 					<a data-theme="e" href="#" data-role="button">
 						Order<span class="productName"></span>?
+					</a>
+					
+					<a data-theme="b" href="#menu-page" data-role="button">
+						Back to menu
 					</a>
 					
 					<!--
@@ -738,7 +739,7 @@
 					<ul data-role="listview" data-inset="true" data-theme="b" class="billSection">
 						<li class="billSection2">
 							How many people ?
-							<span class="cartItemPrice totalPrice">
+							<span class="cartItemPrice totalPrice" data-icon="custom" id="people">
 									<select name="number-of-person" id="number-of-person" data-mini="true" ui-disabled="true">
 										<option value="1">1</option>
 										<option value="2">2</option>
@@ -756,7 +757,7 @@
 						
 						<li class="billSection2">
 							Tip % 
-							<span class="cartItemPrice totalPrice">
+							<span class="cartItemPrice totalPrice" data-icon="custom" id="badge">
 									<select name="tip-percentage" id="tip-percentage" data-mini="true">
 										<option value="0" selected="selected">0%</option>
 										<option value="5">5%</option>

@@ -36,8 +36,16 @@
 	position: relative;
 }	
 
+#productDetail-page .productDescription{
+	min-height: 220px;
+}
+
 .productDescription p{
 	text-indent: 25px;
+}
+
+#productDetail-page h2{
+	margin-top: -20px;
 }
 
 #mainLogo{
@@ -226,6 +234,16 @@
 #cart .ui-icon { 
 	background:  url('../glyphish-icons/icons/80-shopping-cart-white.png') 50% 50% no-repeat; 
 	background-size: 16px 15px; 
+}
+
+#people .ui-icon { 
+	background:  url('../glyphish-icons/icons/63-runner.png') 50% 50% no-repeat; 
+	background-size: 14px 16px; 
+}
+
+#badge .ui-icon { 
+	background:  url('../glyphish-icons/icons/108-badge.png') 50% 50% no-repeat; 
+	background-size: 15px 18px; 
 }
 
 .menuItemNumber{
