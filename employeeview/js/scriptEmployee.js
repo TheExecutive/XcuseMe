@@ -187,7 +187,7 @@
 
 	}
 
-	function changeAvailability(clickedButton, tableId, availability){
+	function changeTableStatus(updateObj, availability){
 		$.ajax({
 			url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
 			type: "PUT",
@@ -198,17 +198,28 @@
 				//criteria
 				"criteria" : {
 					"type" : "table",
-					"tableId" : tableId //requesting the mongo object representing the table I clicked
+					"tableId" : updateObj.tableNumber
 				},
 				"object" : {
 					"$set" : {
-						"needsAssistance" : false //setting the table I clicked to no longer need assistance.
+						"available" : (availability === "vacant" ? true : false), //if it's not vacant, then no matter what else it is, it has to be false.
+						"patronName" : (availability === "vacant" ? null : updateObj.patronName), //if it's vacant, then there should be no need for a name
+						"additionalNote" : (availability === "vacant" ? null : updateObj.additionalNote) /// same here.
 					}
 				},
 				"document" : {} //just an empty object
 		    }),
 		    success : function(response){
-				$(clickedButton).removeClass('assistance');
+				thatBtn = $(updateObj.clickedTblBtn);
+				//remove all three classes
+				thatBtn.removeClass('vacant');
+				thatBtn.removeClass('occupied');
+				thatBtn.removeClass('assistance');
+
+				//then add back the one we want.
+				thatBtn.addClass(availability);
+				//changing the table status of the button as well.
+				thatBtn.find('.tableStatus').html(availability);
 				
 				console.log("Mongo update successful", response);
 		    },
@@ -249,9 +260,9 @@
 	// when you click on the table item, the pop up menu will appear according to the status of the table, if the table status is set to need assistance then the content in that pop up should and will be different from the table status of occupied or vacant.
 	buttonContainerUL.on("click", ".tableButton", function(evt){ //better to use .on as .live has been deprecated
 		//when using on, specify a parent that will be always on the page then specify the class of the element that wont.
-		var clickedTableButton = $(this),
-			tableNumber = this.find(".tableNumber").text(),//this is the table number for the clicked table
-			tableStatus = this.find(".tableStatus").text(),//this is the table status for the clicked table
+		var clickedTblBtn = $(this),
+			tableNumber = clickedTblBtn.find(".tableNumber").text(),//this is the table number for the clicked table
+			tableStatus = clickedTblBtn.find(".tableStatus").text(),//this is the table status for the clicked table
 			tableTitle = "" //declaring
 		;//close variables
 
@@ -291,18 +302,35 @@
 						radioOccupied = registerForm.find('#occupied')
 					;
 
+					//creating an update object.
+					var updateObj = {
+						"clickedTblBtn" : clickedTblBtn,
+						"patronName" : clientName.val(),
+						"additionalNote" : additionalNote.val(),
+						"tableNumber" : +tableNumber //plus to convert it to a number
+					};
+
 					if(tableStatus === "vacant"){
 						
 						if(radioOccupied.attr("checked") === "checked"){
-							changeAvailability(clickedTableButton, tableNumber, 'occupied');
+							changeTableStatus(updateObj, 'occupied');
+						}else{
+							changeTableStatus(updateObj, 'vacant');
 						}
 
 					}else if(tableStatus === "occupied"){
-						tableTitle = 'Register Table ' + tableNumber;
+						
+						if(radioVacant.attr("checked") === "checked"){
+							changeTableStatus(updateObj, 'vacant');
+						}else{
+							changeTableStatus(updateObj, 'occupied');
+						}
+
 					}else if(tableStatus === "assistance"){
-						tableTitle = 'Table '+tableNumber+' need assistance';
+						var hi = 2; //this is a placeholder.
 					}
-					console.log($('#radio').children('input'));
+					
+					$(this).dialog("destroy"); //destroy the window after this.
 				}
 			}
 		});//close dialog window
