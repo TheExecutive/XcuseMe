@@ -50,6 +50,16 @@
 			callBtnClick(11); //testing table 11
 		});
 */
+
+
+
+
+
+
+
+
+
+
 	
 		// Wait for Cordova to load
 		document.addEventListener("deviceready", onDeviceReady, false);
@@ -135,6 +145,9 @@
 		// ================================== ALERTS END ===================================== //
 		
 		
+		
+		
+		
 		$(".productItem").live("click", function(){
 			var itemName = $(this).find(".productName").text(),
 				itemDesc = $(this).find(".productDescription").text(),
@@ -155,9 +168,16 @@
 			detailName.html("");
 			detailName.html(itemName);
 			
-			// todo : fix item big photo image
-			detailPhoto.attr('src', "");
-			detailPhoto.attr('src', "images/menu/"+itemId+"-big.png");
+			
+			// todo : fix the photo so that if there is no photo available then set a default photo.
+			
+			// if there is no item ID then the attribute will be undefined so it will have a default photo
+			if(detailPhoto.attr('src') == "images/menu/undefined-big.png"){
+				detailPhoto.attr('src', "images/menu/noBeerLogo-big.png");
+			}else{
+			//else it will grab the correct item id and grab the photo from the images/menu/ folder
+				detailPhoto.attr('src', "images/menu/"+itemId+"-big.png");
+			};
 			
 			console.log("Button Name -> " + detailName.html());
 			console.log("Product Description -> " + detailDescription.html());
@@ -250,6 +270,8 @@
 			//console.log("totalPlusTipFixed " + totalPlusTipFixed);
 		}
 		
+		
+		
 		var initFn = function(){
 			var beveragesCount = $(".ui-li-count.beverages"),
 				beveragesAmount = $("#beverages-page .menuListItem").length,
@@ -268,6 +290,12 @@
 		
 		initFn();
 		billCalculation();
+		
+		
+		
+		
+		
+		
 		
 		$("#number-of-person").change(function(){
 			billCalculation();

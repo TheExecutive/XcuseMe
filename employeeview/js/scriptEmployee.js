@@ -47,6 +47,7 @@
 		
 
 	}
+	
 	function processInformation(response){
 		//this runs on the ajax success
 		//remove the loading graphic.
@@ -288,7 +289,6 @@
 	
 	
 	
-	
 	// when you click on the table item, the pop up menu will appear according to the status of the table, if the table status is set to need assistance then the content in that pop up should and will be different from the table status of occupied or vacant.
 	buttonContainerUL.on("click", ".tableButton", function(evt){ //better to use .on as .live has been deprecated
 		//when using on, specify a parent that will be always on the page then specify the class of the element that wont.
@@ -321,7 +321,7 @@
 		
 		//setting the dialog window
 		$(".registerPopUp").dialog({
-			height: 550,
+			height: 600,
 			width: 650,
 			modal: true,
 			show: { effect: 'drop', direction: "down" },
@@ -371,12 +371,61 @@
 		
 		return false;
 	});
+	
+	
+	//This function takes two parameters: integer value for password length and optional boolean value true if you want to include special characters in your generated passwords.
+	function password(length, special) {
+	  	var iteration = 0;
+	  	var password = "";
+	  	var randomNumber;
+		var passWordOutput = $(".tablePassword");
+	  
+	 	if(special == undefined){
+		  	var special = false;
+	  	}
+	  
+	 	 while(iteration < length){
+			randomNumber = (Math.floor((Math.random() * 100)) % 94) + 33;
+			if(!special){
+		  	if ((randomNumber >=33) && (randomNumber <=47)) { continue; }
+		  	if ((randomNumber >=58) && (randomNumber <=64)) { continue; }
+		  	if ((randomNumber >=91) && (randomNumber <=96)) { continue; }
+		  	if ((randomNumber >=123) && (randomNumber <=126)) { continue; }
+			}
+			iteration++;
+			password += String.fromCharCode(randomNumber);
+	  	}
+	  
+	  	console.log("user this code to checkin on  a table -> "+password);
+	  
+	 	passWordOutput.val(password);
+	  
+	  	return password;
+	  
+	}
+	
+	$(".tablePassGen").click(function(){
+		
+		password(4, false);
+		
+		return false;
+		
+	});
+	
 
 
 
 	$(document).ready(function(){
 		//fetch the table data from mongo.
 		fetchMongoTableData();
+		
+        
+        $( ".formSection button.tablePassGen" ).button({
+            icons: {
+                primary: "ui-icon-star"
+            }
+        });
+		
 		
 		//setting these radio buttons to style with the jquery ui plugin
 		$( "#radio" ).buttonset();

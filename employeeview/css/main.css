@@ -150,7 +150,7 @@ header h1 {
 	margin-bottom: 20px;
 }
 
-.registerPopUp .formSection input, .registerPopUp .formSection textarea{
+.registerPopUp .formSection input.clientName, .registerPopUp .formSection textarea{
 	min-width: 590px;
 	max-width: 590px;
 	
@@ -164,6 +164,26 @@ header h1 {
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px; 
+}
+
+.registerPopUp .formSection input#tablePassword{
+	width: 385px;
+	
+	color: #707070;
+	
+	padding: 13px 10px;
+	border: 1px solid #404040;
+	
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px; 
+	margin-left: 5px;
+	
+	text-align: center;
+}
+
+.registerPopUp .formSection .tablePassGen{
+	padding: 5px 10px;
 }
 
 .ui-dialog .ui-dialog-title{
