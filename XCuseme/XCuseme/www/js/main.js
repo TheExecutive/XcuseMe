@@ -95,7 +95,7 @@
 		// Show a custom alert
 		function quickItemOrder(itemName) {
 			navigator.notification.confirm(
-				'Would you like to order '+itemName+' !',  // message
+				'Would you like to order '+itemName+' ?',  // message
 				onOrderConfirm,              // callback to invoke with index of button pressed
 				'Place Order',            // title
 				'No,Yes Please'          // buttonLabels
@@ -139,7 +139,9 @@
 			var itemName = $(this).find(".productName").text(),
 				itemDesc = $(this).find(".productDescription").text(),
 				detailDescription = $("#productDetail-page .productDescription p"),
-				detailName = $("#productDetail-page .productName")
+				detailName = $("#productDetail-page .productName"),
+				itemId = $(this).data("itemid"),
+				detailPhoto = $("#productDetail-page .productImage img")
 			;//close variables
 			
 			$.mobile.changePage("#productDetail-page");
@@ -153,6 +155,9 @@
 			detailName.html("");
 			detailName.html(itemName);
 			
+			// todo : fix item big photo image
+			detailPhoto.attr('src', "");
+			detailPhoto.attr('src', "images/menu/"+itemId+"-big.png");
 			
 			console.log("Button Name -> " + detailName.html());
 			console.log("Product Description -> " + detailDescription.html());
@@ -181,8 +186,6 @@
 		// ================================== CALCULATOR ===================================== //
 		var billCalculation = function(){
 			
-
-		
 			// ============== Bill Prices before Taking off $ to calculate ===========
 			
 			// todo : totalPrice2 is the original text span tag, where the items from the cart is being displayed. 
