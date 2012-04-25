@@ -100,22 +100,6 @@
 		setUpControlPanel();
 	}
 
-	function setUpControlPanel(){
-		tableButtons = buttonContainerUL.find('.tableButton'); //grabbing all table buttons
-
-		//click events to dismiss alerts.
-		tableButtons.on("click", function(event){
-			that = $(this); //do I need this?
-			tableId = that.data('tableid');
-			dismissAlertClick(that, tableId);
-		});
-
-		//run this every 8 seconds.
-		setInterval( monitorRemoteApp, 8000);
-		//monitorRemoteApp();
-		
-	}
-
 	function monitorRemoteApp(){
 		//this function will run an ajax call that will run continuously.
 		$.ajax({
@@ -133,23 +117,46 @@
 		    },
 		    success: function(response){
 				//now that we have the data, check to see if any of the data has changed.
-				$(response).each(function(index){
+				$(response).each(function(index){ //run through every table in mongo.
+
+					var currentTableId = this.tableId; //save the table id of the table on this run.
+
 					if(this.needsAssistance === true){
 						//if this is true, get the corresponding id for the link and light it up.
-						var assistTableId = this.tableId; //save the table id of the table that needs asstance.
 						tableButtons.each(function(){ //now run through all the table buttons
 							that = $(this);
-							if(that.data('tableid') === assistTableId){ //if the tableId of the one that needs assistance matches the data attribute
+							if(that.data('tableid') === currentTableId){ //if the tableId of the one that needs assistance matches the data attribute
 								that.addClass('assistance'); //then add that class.
 							}
 						});
 					}else{
 						//if this.needsAssistance is false
-						var clearTableId = this.tableId; //get table id of this false one
 						tableButtons.each(function(){
 							that = $(this);
-							if(that.data('tableid') === clearTableId && that.hasClass('assistance')){ //clear out assistance if they do have it
+							if(that.data('tableid') === currentTableId && that.hasClass('assistance')){ //clear out assistance if they do have it
 								that.removeClass('assistance'); //remove assistance from anything that doesn't need it.
+							}
+						});
+					}
+
+					if(this.available === true){
+						//if this is true, get the corresponding id for the link and make it vacant.
+						tableButtons.each(function(){ //now run through all the table buttons
+							that = $(this);
+							if(that.data('tableid') === currentTableId && !that.hasClass('vacant')){ //if the table does not have vacant already
+								that.addClass('vacant'); //then add that class.
+								that.removeClass('occupied'); //and remove occupied if it's there.
+								that.find('.tableStatus').html('vacant'); //change the table status to read accordingly
+							}
+						});
+					}else{
+						//if this.available is false
+						tableButtons.each(function(){
+							that = $(this);
+							if(that.data('tableid') === currentTableId && !that.hasClass('occupied')){ //if the table does not have occupied already
+								that.addClass('occupied'); //then add that class.
+								that.removeClass('vacant'); //and remove vacant if it's there.
+								that.find('.tableStatus').html('occupied'); //change the table status to read accordingly
 							}
 						});
 					}
@@ -159,6 +166,22 @@
 				console.log("Mongo Error when updating: ", error);
 		    }
 		});
+	}
+
+	function setUpControlPanel(){
+		tableButtons = buttonContainerUL.find('.tableButton'); //grabbing all table buttons
+
+		//click events to dismiss alerts.
+		tableButtons.on("click", function(event){
+			that = $(this); //do I need this?
+			tableId = that.data('tableid');
+			dismissAlertClick(that, tableId);
+		});
+
+		//run this every 8 seconds.
+		setInterval( monitorRemoteApp, 8000);
+		//monitorRemoteApp();
+		
 	}
 
 	function dismissAlertClick(clickedButton, tableId){

@@ -55,9 +55,9 @@
 				},
 				"object" : {
 					"$set" : {
-						"available" : false,
-						"hasBeenServed" : false,
-						"additionalNote" : "none" //setting the table I clicked to no longer need assistance.
+						//"available" : false,
+						//"hasBeenServed" : false,
+						"authCode" : null //setting the table I clicked to no longer need assistance.
 					}
 				},
 				multi : true, //WARNING, multi is set to true, will update anything that matches.
