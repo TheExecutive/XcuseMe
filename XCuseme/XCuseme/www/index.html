@@ -51,18 +51,23 @@
 			<div id="mainContent" data-role="content" class="fixedContent">
 				<div id="mainLogo">
 					<div id="logoImg">
-						<!--
-							<img id="logo" src="images/logo/mainLogo.png" alt="excuse me main logo" title="the main logo for the excuse me mobile application" />
-						-->
 						
+							<img id="logo" src="images/logo/mainLogo.png" alt="excuse me main logo" title="the main logo for the excuse me mobile application" />
+						
+						<!--
 						<img id="logo" src="images/logo/tap-and-grind.png" alt="tap and grind main logo" title="the main logo for the tap and grind mobile application" />
+						-->
 					</div>
 					
 					<img id="barcode" src="http://tobeytailor.s3.amazonaws.com/get_barcode_from_image/barcode.jpg"/>
 					
-					<button class="capturePhotoEdit" data-theme="e">1st Scan Table</button>
-					<button class="testBtn" onclick="alert(getBarcodeFromImage('barcode'))">2nd Verify Table</button>
-					
+					<div class="tableCodeSection">
+						<input type="text" name="tableCodeInput" id="tableCodeInput" class="tableCodeInput " data-theme="b" value="Table Code"  />
+						
+						<div class="verifyTableBg">
+							<a hre="#" id="verifyTable" class="verifyTable" data-theme="e">Verify Table</a>
+						</div>
+					</div>					
 				</div><!--close mainLogo div-->
 			</div><!--close header-->
 			
