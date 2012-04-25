@@ -285,32 +285,6 @@
 		});
 
 	}
-
-	function processServerRequest(response){
-		var tableStatus; //setting up this var
-		//this runs on the ajax success
-		console.log("The Request Has Been Made: ", response);
-		//letting the status of the table be displayed
-		if(response.ok === 1){
-			//if the response.ok is 1, the data was sucessfully changed in mongo.
-			//No need to grab the new data, we already have it in our local variable.
-			//since this is a toggle, it'll be the opposite of whatever it was.
-			console.log('BEFORE THE CHANGE: ', needsAssistanceToggle);
-			needsAssistanceToggle = (needsAssistanceToggle === true) ? false : true;
-			console.log('AFTER THE CHANGE: ', needsAssistanceToggle);
-			tableStatus = (needsAssistanceToggle === true) ? "Server Requested" : "Normal";
-			conceptList.append('<li>Table Status: '+ tableStatus +'</li>');
-			conceptList.listview('refresh'); //you must call this method any time you make
-			//updates to a listview
-		}else{
-			console.log("Something's up with the response.ok");
-		}
-	}
-	
-	
-	
-	
-	
 	
 	// when you click on the table item, the pop up menu will appear according to the status of the table, if the table status is set to need assistance then the content in that pop up should and will be different from the table status of occupied or vacant.
 	buttonContainerUL.on("click", ".tableButton", function(evt){ //better to use .on as .live has been deprecated
