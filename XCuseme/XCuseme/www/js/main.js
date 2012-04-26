@@ -184,19 +184,31 @@
 		}
 
 		function orderSend(){
+			console.log("before function.........");
+			
 			menuitems.each(function(index){
+				console.log("inside function.........");
+			
 				that = $(this);
 				//run through all the menu items and find which item has been ordered by the id.
-				if(orderedItemId === that.data('itemid') ){
+				if(orderedItemId === that.find("itemid").html() ){
 					orderAjax(currentTable.tableId, that); //sending the tableId, and the ordered item.
+					console.log("inside is statement.........");
 				}
+				
+				console.log("orderedItemId -------> " + orderedItemId);
+				console.log("that.data('itemid') ------> " + that.data('itemid'));
+				console.log("that ------> " +  that.find("itemid").html());
+				
 			});
 		}
 		
 		function onOrderConfirm(button) {
-			console.log(button);
+			console.log("------> button is -> " + button);
+			
 			if(button === 2){ //2 means the second button, i.e. the confirm.
 				console.log("after use confirm item purchase, do a ajax call");
+				
 				orderSend();
 			}else{
 				console.log("user canceled the order");
@@ -211,7 +223,6 @@
 				'Place Order',            // title
 				'No,Yes Please'          // buttonLabels
 			);
-
 		}
 		
 		function checkOutTableConfirm(button) {
