@@ -73,21 +73,31 @@
 
 				var xml = $(response[0].xml); //turning the response into a jquery obj so it can be traversed.
 				var menuitems = xml.find('menuitem'); //finding all menu items
-				console.log(menuitems);
-				menuitems.each(function(index){
-					that = $(this);
-					//make a menu item for each table.
-					menuListUL.append(
-						'<li data-filtertext="'+that.children('menuitemname').html()+'">'+
-							'<a class="productItem" href="#productDetail-page" data-itemid="'+that.children('itemid').html()+'" data-itemabv="'+that.children('abv').html()+'">'+
-								'<img class="productImg" src="'+imagePath+that.children('itemimage').html()+'" />'+ //the image part of this is using itemid when it should use image. fix this later
-								'<h3 class="productName">'+that.children('menuitemname').html()+'</h3>'+
-								'<p class="productDescription">'+that.children('description').html()+'</p>'+
-							'</a>'+
-							'<a class="quickPurchase" href="#" data-rel="dialog" data-transition="slideup" data-theme="d" data-icon="custom" id="cart">Quick Purchase</a>'+
-						'</li>'
-					);
+
+				var alphabeticalDividers = $('.menuList li[data-role="list-divider"]'); //grabbing all the dividers
+
+				alphabeticalDividers.each(function(){
+					var divider = $(this);
+
+					menuitems.each(function(index){
+						that = $(this);
+						//make a menu item for each table.
+						if(divider.html() === that.children('menuitemname').html().charAt(0)){ //if we're in the right spot alphabetically, put the item in place
+							divider.after( //insert this after the current divider in the loop
+							'<li data-filtertext="'+that.children('menuitemname').html()+'">'+
+								'<a class="productItem" href="#productDetail-page" data-itemid="'+that.children('itemid').html()+'" data-itemabv="'+that.children('abv').html()+'">'+
+									'<img class="productImg" src="'+imagePath+that.children('itemimage').html()+'" />'+ //the image part of this is using itemid when it should use image. fix this later
+									'<h3 class="productName">'+that.children('menuitemname').html()+'</h3>'+
+									'<p class="productDescription">'+that.children('description').html()+'</p>'+
+								'</a>'+
+								'<a class="quickPurchase" href="#" data-rel="dialog" data-transition="slideup" data-theme="d" data-icon="custom" id="cart">Quick Purchase</a>'+
+							'</li>'
+						);
+						}
+					});
 				});
+
+				
 		    },
 		    error: function(error){
 				console.log("Mongo MenuError: ", error);
