@@ -101,7 +101,39 @@
 			);
 
 		}
+		
+		function checkOutTableConfirm(button) {
+			if(button == 2){
+				var tableCodeInput = $("#tableCodeInput"),
+					tableCodeOutput = $("#tableCodeOutput"),
+					tableCodeFont = $(".quickFlipPanel.front"),
+					tableCodeBack = $(".quickFlipPanel.back")
+				;
+				
+				tableCodeInput.val("Table Code");
+				tableCodeOutput.text("");
+				
+				tableCodeFont.fadeIn();
+				tableCodeBack.fadeOut();
+				
+				disableFunctions();
+			}else{
+				console.log("user canceled the order");
+			}
+		}
+		
+		
+	
+		// Show a custom alert
+		function checkOutTable() {
+			navigator.notification.confirm(
+				'Are you sure you want to check out of this table ?',  // message
+				checkOutTableConfirm,             // callback to invoke with index of button pressed
+				'Table Check Out',        // title
+				'No,Check Out'         				// buttonLabels
+			);
 
+		}
 		
 
 		// Beep three times
@@ -200,19 +232,8 @@
 		
 		//this is where the user will click if they want to check off that table, so they clear out the table data and can check in later on, we will set a timeout so that after 12-24 hours the code will no longe be available.
 		$(".tableCheckOut").click(function(){
-			var tableCodeInput = $("#tableCodeInput"),
-				tableCodeOutput = $("#tableCodeOutput"),
-				tableCodeFont = $(".quickFlipPanel.front"),
-				tableCodeBack = $(".quickFlipPanel.back")
-			;
-			
-			tableCodeInput.val("Table Code");
-			tableCodeOutput.text("");
-			
-			tableCodeFont.fadeIn();
-			tableCodeBack.fadeOut();
-			
-			
+			checkOutTable();
+			vibrate();
 			//window.confirm("you sure you want to check out")
 		});
 		
@@ -239,7 +260,9 @@
 				detailDescription = $("#productDetail-page .productDescription p"),
 				detailName = $("#productDetail-page .productName"),
 				itemId = $(this).data("itemid"),
-				detailPhoto = $("#productDetail-page .productImage img")
+				detailPhoto = $("#productDetail-page .productImage img"),
+				itemAbv = $(this).data("itemabv"),
+				detailAbv = $("#productDetail-page .productSubTitle")
 			;//close variables
 			
 			$.mobile.changePage("#productDetail-page");
@@ -252,6 +275,11 @@
 			// todo : fix item order button name
 			detailName.html("");
 			detailName.html(itemName);
+			
+			detailAbv.html("");
+			detailAbv.html("ABV (alcohol by volume) is "+itemAbv+"%");
+			
+			
 			
 			
 			// todo : fix the photo so that if there is no photo available then set a default photo.
@@ -275,6 +303,7 @@
 			var itemName = $(this).parent().find(".productName").text();
 			
 			quickItemOrder(itemName);
+			vibrate();
 		});
 		
 		
@@ -283,6 +312,7 @@
 			var itemName = $(this).parent().find(".productName").text();
 			
 			quickItemOrder(itemName);
+			vibrate();
 		});
 
 // =============================== end PRODUCT ITEM ======================//			
