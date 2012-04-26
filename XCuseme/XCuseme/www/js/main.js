@@ -15,7 +15,8 @@
 	
 		var apiKey = "xvien5ya8rh538ryt5kh",
 		staffCallDialogBtn = $('.staffCallDialogBtn'),
-		menuListUL = $('.menuList ul')
+		menuListUL = $('.menuList ul'),
+		currentTable //declaring
 		;
 	
 		function callBtnClick(tableId){
@@ -47,6 +48,11 @@
 			});
 		}
 
+// ================================== ASSIGN SPECIFIC TABLE ===================================== //
+
+		
+
+// ================================== END ASSIGN SPECIFIC TABLE ===================================== //
 
 // ================================== LOAD PRODUCTS ===================================== //
 
@@ -77,12 +83,14 @@
 				var alphabeticalDividers = $('.menuList li[data-role="list-divider"]'); //grabbing all the dividers
 
 				alphabeticalDividers.each(function(){
-					var divider = $(this);
+					var divider = $(this); //save every divider as a var
 
-					menuitems.each(function(index){
+					menuitems.each(function(index){ //cycle through for alphabetical sorting
 						that = $(this);
 						//make a menu item for each table.
-						if(divider.html() === that.children('menuitemname').html().charAt(0)){ //if we're in the right spot alphabetically, put the item in place
+						if(divider.html() === that.children('menuitemname').html().charAt(0)){
+							//compare the first character of the item string to the letter in the divider
+							//if we're in the right spot alphabetically, put the item in place
 							divider.after( //insert this after the current divider in the loop
 							'<li data-filtertext="'+that.children('menuitemname').html()+'">'+
 								'<a class="productItem" href="#productDetail-page" data-itemid="'+that.children('itemid').html()+'" data-itemabv="'+that.children('abv').html()+'">'+
@@ -92,7 +100,7 @@
 								'</a>'+
 								'<a class="quickPurchase" href="#" data-rel="dialog" data-transition="slideup" data-theme="d" data-icon="custom" id="cart">Quick Purchase</a>'+
 							'</li>'
-						);
+							);
 						}
 					});
 				});
@@ -128,7 +136,7 @@
 		function callStaffCallback() {
 			// do something
 			console.log("ajax call here to the server's computer");
-			callBtnClick(11);
+			callBtnClick(currentTable.tableId); //whatever the id is from the object
 		}
 
 	
@@ -143,7 +151,7 @@
 		}
 		
 		function onOrderConfirm(button) {
-			if(button == 2){
+			if(button === 2){
 				console.log("after use confirm item purchase, do a ajax call");
 				
 				callStaffAlert();
@@ -164,7 +172,7 @@
 		}
 		
 		function checkOutTableConfirm(button) {
-			if(button == 2){
+			if(button === 2){
 				var tableCodeInput = $("#tableCodeInput"),
 					tableCodeOutput = $("#tableCodeOutput"),
 					tableCodeFont = $(".quickFlipPanel.front"),
@@ -257,38 +265,59 @@
 		};
 		disableFunctions();
 		
-// =============================== TABLE VERIFICATION ======================//		
+// =============================== TABLE VERIFICATION ======================//
 		//this is the button where the user clicks to check if the code is valid so they can check into a table. If the code is valid then it will enable the functionality that the app has disabled as default, else if the code is wrong it will disable those funcitons
 		$(".verifyTable").click(function(){
 			var tableCodeInput = $("#tableCodeInput").val(),
 				tableCodeOutput = $("#tableCodeOutput"),
 				tableCodeFont = $(".quickFlipPanel.front"),
 				tableCodeBack = $(".quickFlipPanel.back"),
-				callStaffBtn = $(".staffCallDialogBtn"),
-				dataBaseTableCode = 123
+				callStaffBtn = $(".staffCallDialogBtn")
 			;
+
+			$.ajax({
+				url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
+				type: "GET",
+				headers: {"Content-Type": "application/json"}, //this must be here to ensure the object is treated as json.
+			    dataType: 'json',
+			    data: {
+					"_apikey" : apiKey,
+					"q" : JSON.stringify({ //the query must be stringified in JSON in order to be passed succesfully.
+						"type" : "table",
+						"authCode" : tableCodeInput
+					}),
+					"document" : {} //just an empty object
+			    },
+			    success: function(response){
+
+					if(response.length > 0){
+						currentTable = response[0]; //this is an objects
+						console.log(currentTable);
+						$("#tableCodeInput").removeClass("wrongCode");
+						
+						tableCodeFont.fadeOut();
+						tableCodeBack.fadeIn();
+						
+						tableCodeOutput.text(tableCodeInput);
+						
+						enableFunctions();
+
+					}else{
+						//if the response isn't greater than zero then it's the wrong code.
+						$("#tableCodeInput").addClass("wrongCode");
+						
+						$(this).fadeOut();
+						$(this).fadeIn();
+						
+						disableFunctions();
+					}
+
+			    },
+			    error: function(error){
+					console.log("Mongo Error: ", error);
+			    }
+			});
 			
-			if(tableCodeInput == dataBaseTableCode){
-				$("#tableCodeInput").removeClass("wrongCode");
-				
-				tableCodeFont.fadeOut();
-				tableCodeBack.fadeIn();
-				
-				tableCodeOutput.text(tableCodeInput);
-				
-				enableFunctions();
-				
-				console.log("table code is correct");
-			}else if(tableCodeInput != dataBaseTableCode){
-				$("#tableCodeInput").addClass("wrongCode");
-				
-				$(this).fadeOut();
-				$(this).fadeIn();
-				
-				disableFunctions();
-				
-				console.log("table code is incorrect");
-			};
 		});
 		
 		//this is where the user will click if they want to check off that table, so they clear out the table data and can check in later on, we will set a timeout so that after 12-24 hours the code will no longe be available.
@@ -303,18 +332,18 @@
 		});
 		
 		$("#tableCodeInput").focusout(function(){
-			if($(this).val() == ""){
+			if($(this).val() === ""){
 				$(this).val("Table Code");
 			}
 		});
-// =============================== end TABLE VERIFICATION ======================//			
+// =============================== end TABLE VERIFICATION ======================//
 		
 		
 		
 		
 		
 
-// =============================== PRODUCT ITEM ======================//			
+// =============================== PRODUCT ITEM ======================//
 		$(".productItem").live("click", function(){
 			var itemName = $(this).find(".productName").text(),
 				itemDesc = $(this).find(".productDescription").text(),
@@ -346,12 +375,12 @@
 			// todo : fix the photo so that if there is no photo available then set a default photo.
 			
 			// if there is no item ID then the attribute will be undefined so it will have a default photo
-			if(detailPhoto.attr('src') == "images/menu/undefined-big.png"){
+			if(detailPhoto.attr('src') === "images/menu/undefined-big.png"){
 				detailPhoto.attr('src', "images/menu/noBeerLogo-big.png");
 			}else{
 			//else it will grab the correct item id and grab the photo from the images/menu/ folder
 				detailPhoto.attr('src', "images/menu/"+itemId+"-big.png");
-			};
+			}
 			
 			console.log("Button Name -> " + detailName.html());
 			console.log("Product Description -> " + detailDescription.html());
@@ -376,17 +405,17 @@
 			vibrate();
 		});
 
-// =============================== end PRODUCT ITEM ======================//			
+// =============================== end PRODUCT ITEM ======================//
 		
 				
 				
 				
-// =============================== CALCULATOR ======================//			
+// =============================== CALCULATOR ======================//
 		var billCalculation = function(){
 			
 			// ============== Bill Prices before Taking off $ to calculate ===========
 			
-			// todo : totalPrice2 is the original text span tag, where the items from the cart is being displayed. 
+			// todo : totalPrice2 is the original text span tag, where the items from the cart is being displayed.
 			// todo : totalPrice is the input field where the user can manually input their bill price and get the calculation
 			var totalPrice2 = $("#totalPrice").text(),
 				totalPrice = $("#totalPriceInput").val(),
@@ -446,7 +475,7 @@
 			//console.log("tipPerPersonFixed " + tipPerPersonFixed);
 			//console.log("totalPerPersonFixed " + totalPerPersonFixed);
 			//console.log("totalPlusTipFixed " + totalPlusTipFixed);
-		}
+		};
 		
 		
 		$("#number-of-person").change(function(){
@@ -465,11 +494,11 @@
 		$(".billMenuClick").click(function(){
 			billCalculation();
 		});
-// =============================== end CALCULATOR ======================//					
+// =============================== end CALCULATOR ======================//
 		
 		
 		
-// =============================== INIT FUNCTION ======================//					
+// =============================== INIT FUNCTION ======================//
 		var initFn = function(){
 			var beveragesCount = $(".ui-li-count.beverages"),
 				beveragesAmount = $("#beverages-page .menuListItem").length,
@@ -487,23 +516,23 @@
 		};
 		initFn();
 		billCalculation();
-// =============================== end INIT FUNCTION ======================//					
+// =============================== end INIT FUNCTION ======================//
 		
 		
 
 		
-// =============================== FEED BACK ======================//					
+// =============================== FEED BACK ======================//
 		$(".submitFormBtn").click(function(){
 			
 			window.location = "#thankyou-page";
 			
 		});
-// =============================== end FEED BACK ======================//					
+// =============================== end FEED BACK ======================//
 		
 		
 		
 		
-// =============================== DEALS ======================//					
+// =============================== DEALS ======================//
 		$('.iosSlider').iosSlider({
 			scrollbar: true,
 			infiniteSlider: true,
@@ -564,7 +593,7 @@
 			$(args.sliderObject).parent().find('.iosSliderButtons .button').removeClass('selected');
 			$(args.sliderObject).parent().find('.iosSliderButtons .button:eq(' + args.currentSlideNumber + ')').addClass('selected');
 		}
-// =============================== end DEALS ======================//					
+// =============================== end DEALS ======================//
 		
 	});	//close document ready
 })(jQuery); //close private scope

@@ -242,8 +242,6 @@
 				console.log("Mongo Error: ", error);
 		    }
 		});
-		
-
 	}
 
 	function changeTableStatus(updateObj, availability){
