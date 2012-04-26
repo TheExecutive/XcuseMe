@@ -98,10 +98,64 @@
 		});
 	}
 
+	function xmlParseTest(){
+		//http://www.xcusemeapp.com/tapandgrind/menuxml.xml
+		$.ajax({
+			url: "js/menuxml.xml",
+			dataType: "xml",
+			success: function(responseXML){
+				console.log(responseXML);
+			}
+		});
+	}
+
+	function xmlParseTest1(){
+		$.get("js/menuxml.xml", function(xml){
+			console.log(xml);
+		});
+	}
+
+	function xmlParseTest2(){
+		//var url =  https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata
+		/*
+		http://support.mongohq.com/api/documents/index.html
+		The base API end point is https://api.mongohq.com and you will pass your key as a params named _apikey for authentication.
+		*/
+		$.ajax({
+			url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
+			type: "GET",
+			headers: {"Content-Type": "application/json"}, //this must be here to ensure the object is treated as json.
+		    dataType: 'json',
+		    data: {
+				"_apikey" : apiKey,
+				"q" : JSON.stringify({ //the query must be stringified in JSON in order to be passed succesfully.
+					"type" : "xml" //requesting all objects with the type of "table"
+
+				}),
+				"document" : {} //just an empty object
+		    },
+		    success: function(response){
+				//console.log(response);
+				var xml = $(response[0].xml);
+				var menuitems = xml.find('menuitem');
+				
+				menuitems.each(function(index){
+					that = $(this);
+					console.log(that.children('menuitemname').html());
+				});
+		    },
+		    error: function(error){
+				console.log("Mongo Error: ", error);
+		    }
+		});
+		
+
+	}
 
 	$(document).ready(function(){
 		//fetch the table data from mongo.
 		//testInsert();
+		xmlParseTest2();
 		
 	}); // end document ready
 	
