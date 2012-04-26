@@ -221,7 +221,9 @@
 		});
 		
 		$("#tableCodeInput").focusout(function(){
-			$(this).val("Table Code");
+			if($(this).val() == ""){
+				$(this).val("Table Code");
+			}
 		});
 // =============================== end TABLE VERIFICATION ======================//			
 		
