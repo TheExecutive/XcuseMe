@@ -169,9 +169,9 @@
 					"_apikey" : apiKey,
 					"document" : {
 						"type" : "order",
-						"menuItemId" : 10,//$(orderItem).data('itemid'),
-						"name" : 10, //$(orderItem).find('.productName').html(),
-						"tableId" : tableId //requesting the mongo object representing the table I clicked
+						"itemId" : +orderItem.find("itemid").html(), //no plus needed here since this is an attribute
+						"name" : orderItem.find('menuitemname').html(),
+						"tableId" : tableId
 					}
 				}),
 				success : function(response){
@@ -184,22 +184,11 @@
 		}
 
 		function orderSend(){
-			console.log("before function.........");
-			
 			menuitems.each(function(index){
-				console.log("inside function.........");
-			
 				that = $(this);
-				//run through all the menu items and find which item has been ordered by the id.
-				if(orderedItemId === that.find("itemid").html() ){
+				if(orderedItemId === +that.find("itemid").html() ){ //html as number, not string, with plush
 					orderAjax(currentTable.tableId, that); //sending the tableId, and the ordered item.
-					console.log("inside is statement.........");
 				}
-				
-				console.log("orderedItemId -------> " + orderedItemId);
-				console.log("that.data('itemid') ------> " + that.data('itemid'));
-				console.log("that ------> " +  that.find("itemid").html());
-				
 			});
 		}
 		
