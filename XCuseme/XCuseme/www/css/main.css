@@ -21,7 +21,33 @@
 }
 
 
+.quickFlip{
+	height: 100px;
+	width: 300px;
+	margin: 0 auto;
+}
 
+.quickFlipPanel.back{
+	height: 100px;
+	width: 300px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	
+	display: none;
+}
+
+.quickFlipPanel.front{
+	height: 100px;
+	width: 300px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.quickFlip{
+	position: relative;
+}
 
 
 #mainLogo .tableCodeSection{
@@ -29,7 +55,7 @@
 	margin-top: 20px;
 }
 
-#mainLogo .tableCodeInput{
+#mainLogo .tableCodeInput, #mainLogo .tableCodeOutput{
 	height: 50px;
 	
 	-webkit-border-radius: 20px 0px 0px 20px;
@@ -48,6 +74,16 @@
 	
 	font: Bold 1.5em/1 "Arial",Helvetica,Arial,sans-serif;
 	
+}
+
+#mainLogo .tableCodeOutput{
+	color: #404040;
+	background: white;
+	padding: 20px 10px 0px 10px;
+	
+	font: Bold 1.6em/1 "Arial",Helvetica,Arial,sans-serif;
+	text-shadow: 1px 0px 0px #dedede;
+	filter: dropshadow(color=#dedede, offx=1, offy=0);
 }
 
 .tableCodeInput.correctCode{
@@ -140,7 +176,12 @@
 	
 	background: url("../images/tableCode.png") no-repeat 50% 50%;
 	background-size: 50%;
-	
+}
+
+.tableCodeSection .tableCheckOut{
+	background: url("../images/tableCode-x.png") no-repeat 50% 50%;
+	background-size: 50%;
+
 }
 
 #productDetail-page .productName{
@@ -269,12 +310,18 @@
 	box-shadow: inset 0px 0px 5px 0px #dedede;
 }
 
+.ui-field-contain, .ui-mobile fieldset.ui-field-contain{
+	margin: 0px !important;
+}
+
 .sendFeedback{
 	float: right;
 }
 
 .ui-field-contain{
-	padding-bottom: 15px;
+	padding-bottom: 5px;
+	padding-top: 0px;
+	border: none;
 }
 
 .staffCallDialog{
