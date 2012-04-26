@@ -11,7 +11,9 @@
 		clientName = registerForm.find('#clientName'),
 		additionalNote = registerForm.find('#additionalNote'),
 		radioVacant = registerForm.find('#vacant'),
-		radioOccupied = registerForm.find('#occupied')
+		radioOccupied = registerForm.find('#occupied'),
+		passWordOutput = $("#tablePassword"),
+		confirmUpdateBtn //declaring
 	;
 
 
@@ -233,6 +235,7 @@
 				var returnedTable = response[0];
 				//fill the input fields from what's been gotten back from mongo.
 				clientName.val(returnedTable.patronName);
+				passWordOutput.val(returnedTable.authCode);
 				additionalNote.val(returnedTable.additionalNote);
 		    },
 		    error: function(error){
@@ -258,6 +261,7 @@
 				},
 				"object" : {
 					"$set" : {
+						"authCode" : (availability === "vacant" ? null : updateObj.authCode), //if it's vacant, then there should be no need for an authCode
 						"available" : (availability === "vacant" ? true : false), //if it's not vacant, then no matter what else it is, it has to be false.
 						"patronName" : (availability === "vacant" ? null : updateObj.patronName), //if it's vacant, then there should be no need for a name
 						"additionalNote" : (availability === "vacant" ? null : updateObj.additionalNote) /// same here.
@@ -298,6 +302,7 @@
 		//clear out values by default.
 		clientName.val('Please enter the party name.');
 		additionalNote.val('Enter any additional notes about the party here.');
+		passWordOutput.val('');
 
 		if(tableStatus === "occupied"){
 			tableTitle = 'Table '+tableNumber+' is occupied';
@@ -310,12 +315,9 @@
 		}else if(tableStatus === "assistance"){
 			tableTitle = 'Table '+tableNumber+' need assistance';
 		}
-
-
-
 		// a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
 		$(".registerPopUp").dialog("destroy");
-		
+
 		//setting the dialog window
 		$(".registerPopUp").dialog({
 			height: 600,
@@ -325,6 +327,11 @@
 			draggable: false,
 			resizable: false,
 			title: tableTitle,
+			open: function(event, ui){
+				//grabbing the button once it is created. It is not created until a dialogue is open.
+				confirmUpdateBtn = $(".ui-dialog-buttonpane button:contains('update this table')");
+				noPasswordNoUpdate(); //run the password validator
+			},
 			buttons: {
 				//this is the function that it will run when the window is closed
 				close: function() {
@@ -337,6 +344,7 @@
 					//creating an update object.
 					var updateObj = {
 						"clickedTblBtn" : clickedTblBtn,
+						"authCode" : passWordOutput.val(), //this is the field for the password generation
 						"patronName" : clientName.val(),
 						"additionalNote" : additionalNote.val(),
 						"tableNumber" : +tableNumber //plus to convert it to a number
@@ -368,18 +376,48 @@
 		
 		return false;
 	});
+
+	function noPasswordNoUpdate(){
+		console.log($("#occupied").attr('checked') === "checked" );
+		var regExPattern = /^[^\s]{4}$/; //match exactly 4 non whitespace characters
+		if( $("#occupied").attr('checked') === "checked" ){
+			//if occupied is checked, check if there is something in the input field
+			if(regExPattern.test(passWordOutput.val())){
+				//if there are at least four characters in the input field
+				confirmUpdateBtn.button('enable');
+			}else{
+				//if there's no code but occupied is checked, disable it
+				confirmUpdateBtn.button('disable');
+			}
+		}else{
+			//if vacant is checked, it doesn't matter if the code is there or not, so enable
+			confirmUpdateBtn.button('enable');
+		}
+	}
+
+	//function to ensure the password field has something in it
+	$("#radio").change(function(event){
+		//every time the selection is changed
+		noPasswordNoUpdate();
+	});
 	
+	//function just in case someone tries to type the password themselves
+	passWordOutput.on("keyup change", function(event){
+		//fire on any of those following events
+		//every time anything in the password field is changed
+		noPasswordNoUpdate();
+	});
 	
 	//This function takes two parameters: integer value for password length and optional boolean value true if you want to include special characters in your generated passwords.
-	function password(length, special) {
-	  	var iteration = 0;
-	  	var password = "";
-	  	var randomNumber;
-		var passWordOutput = $(".tablePassword");
+	function generatePassword(length, special) {
+		var iteration = 0,
+			password = "",
+			randomNumber
+		;
 	  
-	 	if(special == undefined){
-		  	var special = false;
-	  	}
+		if(special == undefined){
+			var special = false;
+		}
 	  
 	 	 while(iteration < length){
 			randomNumber = (Math.floor((Math.random() * 100)) % 94) + 33;
@@ -403,8 +441,8 @@
 	
 	$(".tablePassGen").click(function(){
 		
-		password(4, false);
-		
+		generatePassword(4, false);
+		noPasswordNoUpdate(); //check after this is populated
 		return false;
 		
 	});
