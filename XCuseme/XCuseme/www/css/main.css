@@ -154,7 +154,6 @@
 
 }
 
-
 .tableCodeSection .verifyTableBg:hover{
 	background: rgb(125,126,125); /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -182,6 +181,11 @@
 	background: url("../images/tableCode-x.png") no-repeat 50% 50%;
 	background-size: 50%;
 
+}
+
+.tableCodeSection .tableLoading{
+	background: url("../images/ajax-loader-2.gif") no-repeat 50% 50%;
+	background-size: 25%;
 }
 
 #productDetail-page .productName{

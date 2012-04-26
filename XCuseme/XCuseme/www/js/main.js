@@ -265,16 +265,6 @@
 			
 			return false;
 		});
-		
-		$(".testBtn").click(function(){
-			//getBarcodeFromImage("smallImage");
-
-			//alert("before getBarcodeFromImage");
-			//alert(getBarcodeFromImage('barcode'));
-			//alert("after getBarcodeFromImage");
-			
-			return false;
-		});
 // ================================== ALERTS END ===================================== //
 		
 		
@@ -316,7 +306,9 @@
 				tableCodeBack = $(".quickFlipPanel.back"),
 				callStaffBtn = $(".staffCallDialogBtn")
 			;
-
+			
+			//$(this).addClass("tableLoading");
+			
 			$.ajax({
 				url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
 				type: "GET",
@@ -332,22 +324,29 @@
 			    },
 			    success: function(response){
 
+					//$(this).removeClass("tableLoading");
+					
 					if(response.length > 0){
 						currentTable = response[0]; //this is an object
 						console.log(currentTable);
-						$("#tableCodeInput").removeClass("wrongCode");
+						
+						//$("#tableCodeInput").removeClass("wrongCode");
+						
 						
 						tableCodeFont.fadeOut();
 						tableCodeBack.fadeIn();
 						
-						tableCodeOutput.text(tableCodeInput);
+						tableCodeOutput.text("Table " + response[0].tableId);
+						console.log("response "+response[0].tableId);
 						
 						enableFunctions();
 
 					}else{
 						//if the response isn't greater than zero then it's the wrong code.
-						$("#tableCodeInput").addClass("wrongCode");
+						$(this).removeClass("tableLoading");
 						
+						$("#tableCodeInput").addClass("wrongCode");
+
 						$(this).fadeOut();
 						$(this).fadeIn();
 						
@@ -357,6 +356,8 @@
 			    },
 			    error: function(error){
 					console.log("Mongo Error: ", error);
+					
+					$(this).removeClass("tableLoading");
 			    }
 			});
 			
@@ -366,6 +367,8 @@
 		$(".tableCheckOut").click(function(){
 			checkOutTable();
 			vibrate();
+			
+			$(this).removeClass("tableLoading");
 			//window.confirm("you sure you want to check out")
 		});
 		
@@ -402,11 +405,11 @@
 			
 			// todo : fix item order description
 			detailDescription.html("");
-			detailDescription.html(itemDesc);
+			detailDescription.html("itemDesc " + itemDesc);
 			
 			// todo : fix item order button name
 			detailName.html("");
-			detailName.html(itemName);
+			detailName.html("itemName " + itemName);
 			
 			detailAbv.html("");
 			detailAbv.html("ABV (alcohol by volume) is "+itemAbv+"%");
@@ -472,9 +475,8 @@
 				totalPlusTip = $("#total-plus-tip").text(),
 				itemOrdered = $(".itemOrdered .cartItemPrice").text()
 			;//close variables
-			
 
-			console.log(itemOrdered);
+			console.log("itemOrdered " + itemOrdered);
 			
 			// ============== Bill Prices Ready to calculate without the $ ===========
 			var totalPriceFixed = totalPrice.replace('$', ""),
@@ -570,7 +572,7 @@
 // =============================== FEED BACK ======================//
 		$(".submitFormBtn").click(function(){
 			
-			window.location = "#thankyou-page";
+			$.mobile.changePage("#thankyou-page");
 			
 		});
 // =============================== end FEED BACK ======================//
