@@ -16,7 +16,9 @@
 		var apiKey = "xvien5ya8rh538ryt5kh",
 		staffCallDialogBtn = $('.staffCallDialogBtn'),
 		menuListUL = $('.menuList ul'),
-		currentTable //declaring
+		currentTable, //declaring
+		orderedItemId, //declaring
+		menuitems //declaring
 		;
 	
 		function callBtnClick(tableId){
@@ -78,7 +80,8 @@
 				var imagePath = "images/menu/"; //declaring basepath up here, should it ever change
 
 				var xml = $(response[0].xml); //turning the response into a jquery obj so it can be traversed.
-				var menuitems = xml.find('menuitem'); //finding all menu items
+				
+				menuitems = xml.find('menuitem'); //finding all menu items. This is declared globally.
 
 				var alphabeticalDividers = $('.menuList li[data-role="list-divider"]'); //grabbing all the dividers
 
@@ -98,7 +101,7 @@
 									'<h3 class="productName">'+that.children('menuitemname').html()+'</h3>'+
 									'<p class="productDescription">'+that.children('description').html()+'</p>'+
 								'</a>'+
-								'<a class="quickPurchase" href="#" data-rel="dialog" data-transition="slideup" data-theme="d" data-icon="custom" id="cart">Quick Purchase</a>'+
+								'<a class="quickPurchase" href="#" data-itemid="'+that.children('itemid').html()+'" data-rel="dialog" data-transition="slideup" data-theme="d" data-icon="custom" id="cart">Quick Purchase</a>'+
 							'</li>'
 							);
 						}
@@ -151,12 +154,50 @@
 				'Okay'                  	// buttonName
 			);
 		}
+
+		function orderAjax(tableId, orderItem){
+			//one ajax to light up the box
+			callBtnClick(tableId);
+
+			//and then another one to post the order
+			$.ajax({
+				url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
+				headers: {"Content-Type": "application/json"}, //this must be here to ensure the object is treated as json.
+				type: "POST",
+				dataType: 'json',
+				data: JSON.stringify({
+					"_apikey" : apiKey,
+					"document" : {
+						"type" : "order",
+						"menuItemId" : 10,//$(orderItem).data('itemid'),
+						"name" : 10, //$(orderItem).find('.productName').html(),
+						"tableId" : tableId //requesting the mongo object representing the table I clicked
+					}
+				}),
+				success : function(response){
+					console.log('not gonna see this but doing it anyway');
+				},
+				error : function(error){
+					console.log("Mongo post order error", error);
+				}
+			});
+		}
+
+		function orderSend(){
+			menuitems.each(function(index){
+				that = $(this);
+				//run through all the menu items and find which item has been ordered by the id.
+				if(orderedItemId === that.data('itemid') ){
+					orderAjax(currentTable.tableId, that); //sending the tableId, and the ordered item.
+				}
+			});
+		}
 		
 		function onOrderConfirm(button) {
-			if(button === 2){
+			console.log(button);
+			if(button === 2){ //2 means the second button, i.e. the confirm.
 				console.log("after use confirm item purchase, do a ajax call");
-				
-				callStaffAlert();
+				orderSend();
 			}else{
 				console.log("user canceled the order");
 			}
@@ -290,7 +331,7 @@
 					"document" : {} //just an empty object
 			    },
 			    success: function(response){
-			    
+
 					if(response.length > 0){
 						currentTable = response[0]; //this is an object
 						console.log(currentTable);
@@ -370,8 +411,8 @@
 			detailAbv.html("");
 			detailAbv.html("ABV (alcohol by volume) is "+itemAbv+"%");
 			
-			
-			
+			//saving the item id I need, i.e. Troy, to the product link
+			$("#productDetail-page .orderButton").attr('data-itemid', itemId);
 			
 			// todo : fix the photo so that if there is no photo available then set a default photo.
 			
@@ -391,7 +432,9 @@
 	
 		
 		$(".quickPurchase").live("click", function(){
-			var itemName = $(this).parent().find(".productName").text();
+			that = $(this);
+			itemName = that.parent().find(".productName").text();
+			orderedItemId = that.data('itemid');
 			
 			quickItemOrder(itemName);
 			vibrate();
@@ -400,7 +443,9 @@
 		
 		
 		$("#productDetail-page .orderButton").live("click", function(){
-			var itemName = $(this).parent().find(".productName").text();
+			that = $(this);
+			itemName = that.parent().find(".productName").text();
+			orderedItemId = that.data('itemid');
 			
 			quickItemOrder(itemName);
 			vibrate();
