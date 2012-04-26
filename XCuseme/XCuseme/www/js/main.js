@@ -14,7 +14,8 @@
 		
 	
 		var apiKey = "xvien5ya8rh538ryt5kh",
-		staffCallDialogBtn = $('.staffCallDialogBtn')
+		staffCallDialogBtn = $('.staffCallDialogBtn'),
+		menuListUL = $('.menuList ul')
 		;
 	
 		function callBtnClick(tableId){
@@ -47,7 +48,57 @@
 		}
 
 
+// ================================== LOAD PRODUCTS ===================================== //
 
+		function loadProducts(){
+			//this function is to dynamically load in the menu.
+			$.ajax({
+			url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
+			type: "GET",
+			headers: {"Content-Type": "application/json"}, //this must be here to ensure the object is treated as json.
+		    dataType: 'json',
+		    data: {
+				"_apikey" : apiKey,
+				"q" : JSON.stringify({ //the query must be stringified in JSON in order to be passed succesfully.
+					"type" : "xml" //requesting the xml from mongo. There should be only one with this type.
+
+				}),
+				"document" : {} //just an empty object
+		    },
+		    success: function(response){
+				/*This is a disgustingly dirty hack done for the sake of time. The XML
+				is nothing but a gigantic string loaded into mongo. We are getting that string
+				and traversing it like it is HTML.*/
+				var imagePath = "images/menu/"; //declaring basepath up here, should it ever change
+
+				var xml = $(response[0].xml); //turning the response into a jquery obj so it can be traversed.
+				var menuitems = xml.find('menuitem'); //finding all menu items
+				console.log(menuitems);
+				menuitems.each(function(index){
+					that = $(this);
+					//make a menu item for each table.
+					menuListUL.append(
+						'<li data-filtertext="'+that.children('menuitemname').html()+'">'+
+							'<a class="productItem" href="#productDetail-page" data-itemid="'+that.children('itemid').html()+'" data-itemabv="'+that.children('abv').html()+'">'+
+								'<img class="productImg" src="'+imagePath+that.children('itemimage').html()+'" />'+ //the image part of this is using itemid when it should use image. fix this later
+								'<h3 class="productName">'+that.children('menuitemname').html()+'</h3>'+
+								'<p class="productDescription">'+that.children('description').html()+'</p>'+
+							'</a>'+
+							'<a class="quickPurchase" href="#" data-rel="dialog" data-transition="slideup" data-theme="d" data-icon="custom" id="cart">Quick Purchase</a>'+
+						'</li>'
+					);
+				});
+		    },
+		    error: function(error){
+				console.log("Mongo MenuError: ", error);
+		    }
+		});
+	}
+
+	//running function after all this
+	loadProducts();
+
+// ================================== END LOAD PRODUCTS ===================================== //
 
 	
 		// Wait for Cordova to load
