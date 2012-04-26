@@ -880,38 +880,39 @@
 		
 		<!-- =============== START PAGE ================= -->
 		<div id="contact-page" class="pages" data-role="page" data-theme="a" >
+			
 			<div data-role="header">
 				<h1>Feddback</h1>
 				<a href="#" data-icon="gear" class="staffCallDialogBtn ui-btn-right" data-theme="d" id="flag" data-icon="custom">Call Staff</a>
 			</div><!--close header-->
 			
 			<div id="mainContent" class="contactPage fixedContent" data-role="content">
-				<!--<form action="#" method="get">--->
+				<!---<form action="email.php" method="POST">--->
 					<div data-role="fieldcontain">
 						<label for="slider">Rate your costumer experience : </label>
-						<input type="range" name="slider" id="slider" value="50" min="0" max="100" data-highlight="true" data-theme="b" data-highlight="true" />
+						<input type="range" name="UExperience" id="slider" value="50" min="0" max="100" data-highlight="true" data-theme="b" data-highlight="true" />
 					</div>
 					
 					<div data-role="fieldcontain">
 						<fieldset data-role="controlgroup" data-type="horizontal">
 							<legend>Was this app helpful for you?</legend>
-								<input type="radio" name="would-you-recommend-the-app" id="would-you-recommend-the-app-yes" value="on" checked="checked" />
+								<input type="radio" name="URecommend" id="would-you-recommend-the-app-yes" value="on" checked="checked" />
 								<label for="would-you-recommend-the-app-yes">Yes</label>
 								
-								<input type="radio" name="would-you-recommend-the-app" id="would-you-recommend-the-app-no" value="off" />
+								<input type="radio" name="URecommend" id="would-you-recommend-the-app-no" value="off" />
 								<label for="would-you-recommend-the-app-no">No</label>
 						</fieldset>
 					</div>
 					
 					<div data-role="fieldcontain">
 						<label for="textarea">Comment (optional):</label>
-						<textarea cols="40" rows="8" name="textarea" id="textarea" data-theme="b"></textarea>
+						<textarea cols="40" rows="8" name="UMessage" id="textarea" data-theme="b"></textarea>
 					</div>
 					
 						<fieldset class="ui-grid-a">
 							<button class="submitFormBtn" type="submit" data-theme="e">Send Feedback</button>
 						</fieldset>
-				<!--</form>-->
+				<!---</form>--->
 			</div><!--close header-->
 			
 			<div data-role="footer" data-theme="c" data-position="fixed" class="nav-glyphish-example">
