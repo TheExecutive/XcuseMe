@@ -104,11 +104,13 @@
 						}
 					});
 				});
-
+				
+				disableFunctions(); //make sure the purchase buttons are dead after everything has been populated
 				
 		    },
 		    error: function(error){
 				console.log("Mongo MenuError: ", error);
+				disableFunctions();
 		    }
 		});
 	}
@@ -163,7 +165,7 @@
 		// Show a custom alert
 		function quickItemOrder(itemName) {
 			navigator.notification.confirm(
-				'Would you like to order '+itemName+' ?',  // message
+				'Would you like to order '+itemName+'?',  // message
 				onOrderConfirm,              // callback to invoke with index of button pressed
 				'Place Order',            // title
 				'No,Yes Please'          // buttonLabels
@@ -263,7 +265,6 @@
 			quickPurchase.hide();
 			orderButton.hide();
 		};
-		disableFunctions();
 		
 // =============================== TABLE VERIFICATION ======================//
 		//this is the button where the user clicks to check if the code is valid so they can check into a table. If the code is valid then it will enable the functionality that the app has disabled as default, else if the code is wrong it will disable those funcitons
@@ -289,9 +290,9 @@
 					"document" : {} //just an empty object
 			    },
 			    success: function(response){
-
+			    
 					if(response.length > 0){
-						currentTable = response[0]; //this is an objects
+						currentTable = response[0]; //this is an object
 						console.log(currentTable);
 						$("#tableCodeInput").removeClass("wrongCode");
 						
