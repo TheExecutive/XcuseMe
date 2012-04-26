@@ -1,0 +1,45 @@
+/* QuickFlip jQuery Plugin
+ * Author  :   Jon Raasch 
+ * Website :   http://jonraasch.com/blog/quickflip-jquery-plugin
+ * Contact :   jr@jonraasch.com
+ * Version :   0.1
+ * 
+ * Copyright (c)2008 Jon Raasch. All rights reserved.
+ * Released under FreeBSD License, see readme.txt
+ * Do not remove the above copyright notice or text
+ * 
+ *
+ *
+ * Take care not to overwrite any of the styles in this sheet
+ * 
+ * You must set a height and width for .quickFlip and .quickFlipPanel.  You can 
+ * use additional class names on .quickFlipPanel, but don't attach an ID or  
+ * inline style.  These can be attached to .quickFlip or anything within 
+ * .quickFlipPanel.
+ *
+ */
+
+.quickFlip {
+    position:relative;
+}
+
+.quickFlip .quickFlipPanel {
+    position:absolute;
+    top:0;
+    left:0;
+    margin:0!important;
+    padding:0!important;
+}
+
+.flipColLeft, .flipColRight {
+    position:absolute;
+    top:0;
+    overflow:hidden;
+    margin:0!important;
+    padding:0!important;
+}
+
+.flipColRight .quickFlipPanel {
+    right:0;
+    left:auto;
+}

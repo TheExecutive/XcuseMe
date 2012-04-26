@@ -1,15 +1,16 @@
 //main js
 (function($){
 	$(document).ready(function(){
+		/* todo : enable this if you want the items from the menu getting added to the bill list, also make sure to change the HTML to have the list div showing and not hidden 
 		
+		<span class="cartItemPrice totalPrice" id="totalPrice">$100.00</span>
 		
-		
-		
-		
-		/* todo : enable this if you want the items from the menu getting added to the bill list */
+		*/
 		$(".stringselect").hide();
 		$(".totalPrice").show();
 		$(".billTitleSection").css({'marginBottom':'50px'});
+		
+		
 		
 	
 		var apiKey = "xvien5ya8rh538ryt5kh",
@@ -45,18 +46,6 @@
 			});
 		}
 
-/*
-		$(staffCallDialogBtn).live("click", function(evt){
-			callBtnClick(11); //testing table 11
-		});
-*/
-
-
-
-
-
-
-
 
 
 
@@ -69,7 +58,7 @@
 			//device is ready
 		}
 
-		// ================================== ALERTS ===================================== //
+// ================================== ALERTS ===================================== //
 		// alert dialog dismissed
 		function alertDismissed() {
 			// do something
@@ -142,12 +131,106 @@
 			
 			return false;
 		});
-		// ================================== ALERTS END ===================================== //
+// ================================== ALERTS END ===================================== //
 		
 		
 		
 		
 		
+		
+		
+		//this function enables all the functionality that needs to be turned on to call for service, such as order, call button, etc...
+		var enableFunctions = function(){
+			var callStaffBtn = $(".staffCallDialogBtn"),
+				quickPurchase = $(".quickPurchase"),
+				orderButton = $(".orderButtonBg")
+			;//close variables
+			
+			callStaffBtn.fadeIn();
+			quickPurchase.fadeIn();
+			orderButton.fadeIn();
+		};
+		
+		//this function disables all the functionality that needs to be turned on to call for service, such as order, call button, etc...
+		var disableFunctions = function(){
+			var callStaffBtn = $(".staffCallDialogBtn"),
+				quickPurchase = $(".quickPurchase"),
+				orderButton = $(".orderButtonBg")
+			;//close variables
+				
+			callStaffBtn.hide();
+			quickPurchase.hide();
+			orderButton.hide();
+		};
+		disableFunctions();
+		
+// =============================== TABLE VERIFICATION ======================//		
+		//this is the button where the user clicks to check if the code is valid so they can check into a table. If the code is valid then it will enable the functionality that the app has disabled as default, else if the code is wrong it will disable those funcitons
+		$(".verifyTable").click(function(){
+			var tableCodeInput = $("#tableCodeInput").val(),
+				tableCodeOutput = $("#tableCodeOutput"),
+				tableCodeFont = $(".quickFlipPanel.front"),
+				tableCodeBack = $(".quickFlipPanel.back"),
+				callStaffBtn = $(".staffCallDialogBtn"),
+				dataBaseTableCode = 123
+			;
+			
+			if(tableCodeInput == dataBaseTableCode){
+				$("#tableCodeInput").removeClass("wrongCode");
+				
+				tableCodeFont.fadeOut();
+				tableCodeBack.fadeIn();
+				
+				tableCodeOutput.text(tableCodeInput);
+				
+				enableFunctions();
+				
+				console.log("table code is correct");
+			}else if(tableCodeInput != dataBaseTableCode){
+				$("#tableCodeInput").addClass("wrongCode");
+				
+				$(this).fadeOut();
+				$(this).fadeIn();
+				
+				disableFunctions();
+				
+				console.log("table code is incorrect");
+			};
+		});
+		
+		//this is where the user will click if they want to check off that table, so they clear out the table data and can check in later on, we will set a timeout so that after 12-24 hours the code will no longe be available.
+		$(".tableCheckOut").click(function(){
+			var tableCodeInput = $("#tableCodeInput"),
+				tableCodeOutput = $("#tableCodeOutput"),
+				tableCodeFont = $(".quickFlipPanel.front"),
+				tableCodeBack = $(".quickFlipPanel.back")
+			;
+			
+			tableCodeInput.val("Table Code");
+			tableCodeOutput.text("");
+			
+			tableCodeFont.fadeIn();
+			tableCodeBack.fadeOut();
+			
+			
+			//window.confirm("you sure you want to check out")
+		});
+		
+		$("#tableCodeInput").focusin(function(){
+			$(this).val("");
+		});
+		
+		$("#tableCodeInput").focusout(function(){
+			$(this).val("Table Code");
+		});
+// =============================== end TABLE VERIFICATION ======================//			
+		
+		
+		
+		
+		
+
+// =============================== PRODUCT ITEM ======================//			
 		$(".productItem").live("click", function(){
 			var itemName = $(this).find(".productName").text(),
 				itemDesc = $(this).find(".productDescription").text(),
@@ -199,11 +282,13 @@
 			
 			quickItemOrder(itemName);
 		});
+
+// =============================== end PRODUCT ITEM ======================//			
 		
 				
 				
 				
-		// ================================== CALCULATOR ===================================== //
+// =============================== CALCULATOR ======================//			
 		var billCalculation = function(){
 			
 			// ============== Bill Prices before Taking off $ to calculate ===========
@@ -271,32 +356,6 @@
 		}
 		
 		
-		
-		var initFn = function(){
-			var beveragesCount = $(".ui-li-count.beverages"),
-				beveragesAmount = $("#beverages-page .menuListItem").length,
-				appetizersCount = $(".ui-li-count.appetizers"),
-				appetizersAmount = $("#appetizers-page .menuListItem").length
-			;//close vasriables
-			
-			//dynamically setting the ammount of items in the beverages div
-			beveragesCount.html(beveragesAmount);
-			appetizersCount.html(appetizersAmount);
-			//console.log("appetizersCount -> " + $appetizersCount);
-			//console.log("appetizersAmount -> " + $appetizersAmount);
-			//console.log("appetizersCount 2-> " + $appetizersCount);
-			//console.log("appetizersAmount 2-> " + $appetizersAmount);
-		};
-		
-		initFn();
-		billCalculation();
-		
-		
-		
-		
-		
-		
-		
 		$("#number-of-person").change(function(){
 			billCalculation();
 		});
@@ -313,26 +372,45 @@
 		$(".billMenuClick").click(function(){
 			billCalculation();
 		});
-		// ================================== CALCULATOR END ===================================== //
+// =============================== end CALCULATOR ======================//					
 		
 		
 		
-		$("#checkTotalPrice").click(function(){
-			var itemPrices = $(".cartItemPrice");
- 			var arr = $.makeArray($itemPrices)
+// =============================== INIT FUNCTION ======================//					
+		var initFn = function(){
+			var beveragesCount = $(".ui-li-count.beverages"),
+				beveragesAmount = $("#beverages-page .menuListItem").length,
+				appetizersCount = $(".ui-li-count.appetizers"),
+				appetizersAmount = $("#appetizers-page .menuListItem").length
+			;//close vasriables
+			
+			//dynamically setting the ammount of items in the beverages div
+			beveragesCount.html(beveragesAmount);
+			appetizersCount.html(appetizersAmount);
+			//console.log("appetizersCount -> " + $appetizersCount);
+			//console.log("appetizersAmount -> " + $appetizersAmount);
+			//console.log("appetizersCount 2-> " + $appetizersCount);
+			//console.log("appetizersAmount 2-> " + $appetizersAmount);
+		};
+		initFn();
+		billCalculation();
+// =============================== end INIT FUNCTION ======================//					
+		
+		
 
-			alert("total price : " + arr);
-		});
 		
+// =============================== FEED BACK ======================//					
 		$(".submitFormBtn").click(function(){
 			
 			window.location = "#thankyou-page";
 			
 		});
+// =============================== end FEED BACK ======================//					
 		
 		
 		
-		/* ============================= DEALS SLIDER ======================== */
+		
+// =============================== DEALS ======================//					
 		$('.iosSlider').iosSlider({
 			scrollbar: true,
 			infiniteSlider: true,
@@ -393,65 +471,8 @@
 			$(args.sliderObject).parent().find('.iosSliderButtons .button').removeClass('selected');
 			$(args.sliderObject).parent().find('.iosSliderButtons .button:eq(' + args.currentSlideNumber + ')').addClass('selected');
 		}
-	
-	});	//close document ready
-	
-	$(document).delegate('.menuListItem', 'click', function(e) {
-		var self = this;
-		var itemName = $(this).find(".menuItemName").text();
-		var itemPrice = $(this).find(".menuItemPrice").text();
-		var itemId = $(this).find(".menuItemNumber").val();
-		var cartItems = $("#stringselect");
-		var cartStatus = 0;
-		var currentCartPrice = $("#totalPrice");
-		var itemPriceFixed = itemPrice.replace('$', "");
+// =============================== end DEALS ======================//					
 		
-		$(self).simpledialog2({
-			'mode' : 'button',
-			'showModal' : true,
-			'shadow' : true,
-			'headerText' : itemName + " !",
-			'buttonPrompt' : itemPrice + " <br /> <img src='images/menu/"+itemId+".png' height='110'/> <br />",
-			'width' : '100%',
-			'buttons' : 
-			{
-				'Place this order' : 
-				{
-					click: function () 
-					{ 
-						console.log("item "+itemName+" added");
-						
-						//alert("We will bring it to you right away, please wait.");
-						
-						/*
-						$(
-							'<li class="itemOrdered" >'
-									+ itemName + 
-								'<span class="cartItemPrice">'
-									+itemPrice+
-								'</span>'+
-							'</li>'
-						).appendTo(cartItems);
-						
-						// todo : fix the total price calculation
-						var currentValue = itemPriceFixed;
-						var newValue = currentValue;
-						currentCartPrice.text("$"+newValue);
-						*/
-					},
-					'theme' : 'c'
-				},
-				'Cancel' : 
-				{
-					click: function () 
-					{ 
-						console.log("item canceled");
-					},
-					'icon' : 'delete',
-					'theme' : 'a'
-				}
-			}//close simpledialog options
-		})//close simpledialog
-	});//close delgate
+	});	//close document ready
 })(jQuery); //close private scope
 		

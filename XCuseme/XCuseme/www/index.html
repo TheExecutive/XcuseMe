@@ -24,6 +24,7 @@
 		<script type="text/javascript" src="js/database.js"></script>
 		<script type="text/javascript" src="js/main.js" ></script>
 
+
 		
 		<!-- css -->
 		<link rel="stylesheet" type="text/css" href="css/jquery-mobile.css" />
@@ -62,12 +63,26 @@
 					<img id="barcode" src="http://tobeytailor.s3.amazonaws.com/get_barcode_from_image/barcode.jpg"/>
 					
 					<div class="tableCodeSection">
-						<input type="text" name="tableCodeInput" id="tableCodeInput" class="tableCodeInput " data-theme="b" value="Table Code"  />
+					
+						<div class="quickFlip">
+							<div class="quickFlipPanel front">
+								<input type="text" name="tableCodeInput" id="tableCodeInput" class="tableCodeInput " data-theme="b" value="Table Code"  />
+								
+								<div class="verifyTableBg">
+									<a hre="#" id="verifyTable" class="verifyTable" >Verify Table</a>
+								</div><!-- close verifyTableBg -->
+							</div><!-- close quickFlipPanel -->
 						
-						<div class="verifyTableBg">
-							<a hre="#" id="verifyTable" class="verifyTable" data-theme="e">Verify Table</a>
-						</div>
-					</div>					
+							<div class="quickFlipPanel back">
+								<span id="tableCodeOutput" class="tableCodeOutput" data-theme="b">999</span>
+								
+								<div class="verifyTableBg">
+									<a hre="#" id="verifyTable" class="verifyTable tableCheckOut">Verify Table</a>
+								</div><!-- close verifyTableBg -->
+							</div><!-- close quickFlipPanel -->
+						</div><!-- close  quickFlip-->
+					</div><!-- close  tableCodeSection-->
+						
 				</div><!--close mainLogo div-->
 			</div><!--close header-->
 			
@@ -873,49 +888,18 @@
 			<div id="mainContent" class="contactPage fixedContent" data-role="content">
 				<!--<form action="#" method="get">--->
 					<div data-role="fieldcontain">
-						<label for="name" class="contactInput">What is your name ?</label>
-						<input type="text" name="name" id="name" value="" data-theme="b"  />
-					</div>
-					
-					<div data-role="fieldcontain">
 						<label for="slider">Rate your costumer experience : </label>
 						<input type="range" name="slider" id="slider" value="50" min="0" max="100" data-highlight="true" data-theme="b" data-highlight="true" />
 					</div>
 					
 					<div data-role="fieldcontain">
-						<label for="select-choice-3" class="select">Who served you ?</label>
-						<select name="select-choice-3" id="select-choice-3" data-theme="b" >
-							<option value="Marcos DeSousa">Marcos DeSousa</option>
-							<option value="Troy Grant">Troy Grant</option>
-							<option value="Caio Mitre">Caio Mitre</option>
-							<option value="Paulo Pinho">Paulo Pinho</option>
-							<option value="Jorge Ferraz">Jorge Ferraz</option>
-							<option value="Gabe Bueno">Gabe Bueno</option>
-							<option value="Jean Ickchuki">Jean Ickchuki</option>
-							<option value="Thom Ribeiro">Thom Ribeiro</option>
-							<option value="Jeff Louzada">Jeff Louzada</option>
-						</select>
-					</div>
-					
-					<div data-role="fieldcontain">
-						<fieldset data-role="controlgroup">
-							<legend>Did you like your food ?</legend>
-								<input type="radio" name="like-food-radio" id="radio-choice-1" value="yes" checked="checked" data-theme="b" />
-								<label for="radio-choice-1">Yes</label>
-		
-								<input type="radio" name="like-food-radio" id="radio-choice-2" value="no"  data-theme="b"  />
-								<label for="radio-choice-2">No</label>
-						</fieldset>
-					</div>
-					
-					<div data-role="fieldcontain">
-						<fieldset data-role="controlgroup">
-							<legend>Would you recommend this app?</legend>
-								<input type="radio" name="recomment-app-radio" id="radio-choice-1" value="yes" checked="checked" data-theme="b" />
-								<label for="radio-choice-1">Yes</label>
-		
-								<input type="radio" name="recomment-app-radio" id="radio-choice-2" value="no"  data-theme="b"  />
-								<label for="radio-choice-2">No</label>
+						<fieldset data-role="controlgroup" data-type="horizontal">
+							<legend>Was this app helpful for you?</legend>
+								<input type="radio" name="would-you-recommend-the-app" id="would-you-recommend-the-app-yes" value="on" checked="checked" />
+								<label for="would-you-recommend-the-app-yes">Yes</label>
+								
+								<input type="radio" name="would-you-recommend-the-app" id="would-you-recommend-the-app-no" value="off" />
+								<label for="would-you-recommend-the-app-no">No</label>
 						</fieldset>
 					</div>
 					
