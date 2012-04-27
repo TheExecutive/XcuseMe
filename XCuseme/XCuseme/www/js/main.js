@@ -154,11 +154,28 @@
 				'Okay'                  	// buttonName
 			);
 		}
-
-		function orderAjax(tableId, orderItem){
+		
+		function callOrderAlertCallBack(tableId) {
+			// do something
+			console.log("ajax call here to the server's computer");
+			
 			//one ajax to light up the box
 			callBtnClick(tableId);
+		}
+		
+		function callOrderAlert(tableId) {
+			navigator.notification.alert(
+				'Please wait, a staff member will be with you shortly.',  // message
+				callOrderAlertCallBack(tableId),         	// callback
+				'Request sent',           	// title
+				'Okay'                  	// buttonName
+			);
+		}
 
+		function orderAjax(tableId, orderItem){
+			// todo : fix the alert system with a thank you message after an item has been ordered.
+			callOrderAlert(tableId)
+			
 			//and then another one to post the order
 			$.ajax({
 				url: "https://api.mongohq.com/databases/xcusemedb/collections/xcusemedata/documents",
@@ -169,9 +186,9 @@
 					"_apikey" : apiKey,
 					"document" : {
 						"type" : "order",
-						"itemId" : +orderItem.find("itemid").html(), //no plus needed here since this is an attribute
-						"name" : orderItem.find('menuitemname').html(),
-						"tableId" : tableId
+						"menuItemId" : 10,//$(orderItem).data('itemid'),
+						"name" : 10, //$(orderItem).find('.productName').html(),
+						"tableId" : tableId //requesting the mongo object representing the table I clicked
 					}
 				}),
 				success : function(response){
@@ -184,11 +201,22 @@
 		}
 
 		function orderSend(){
+			console.log("before function.........");
+			
 			menuitems.each(function(index){
+				console.log("inside function.........");
+			
 				that = $(this);
-				if(orderedItemId === +that.find("itemid").html() ){ //html as number, not string, with plush
+				//run through all the menu items and find which item has been ordered by the id.
+				if(orderedItemId === that.find("itemid").html() ){
 					orderAjax(currentTable.tableId, that); //sending the tableId, and the ordered item.
+					console.log("inside is statement.........");
 				}
+				
+				console.log("orderedItemId -------> " + orderedItemId);
+				console.log("that.data('itemid') ------> " + that.data('itemid'));
+				console.log("that ------> " +  that.find("itemid").html());
+				
 			});
 		}
 		
@@ -409,7 +437,7 @@
 			
 			// todo : fix item order button name
 			detailName.html("");
-			detailName.html("itemName " + itemName);
+			detailName.html(itemName);
 			
 			detailAbv.html("");
 			detailAbv.html("ABV (alcohol by volume) is "+itemAbv+"%");
