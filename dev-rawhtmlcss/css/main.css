@@ -1,0 +1,830 @@
+/* 	main css file
+	Marcos DeSousa
+	April 29, 2012
+*/
+
+/* ========================================= RESET CSS STARTS ===================================== */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.clr{
+	clear: both;
+}
+/* ========================================= MAIN CSS STARTS ===================================== */
+
+/* -------------- FONTS -------------- */
+@font-face {
+    font-family: ChunkFive;
+    src: url("../fonts/Chunkfive.otf");
+    font-weight:400;
+}
+
+/* -------------- BODY -------------- */
+body{
+	background: url('http://subtlepatterns.com/patterns/gplaypattern.png') repeat;
+	font: 62.5% "arial";
+	color: #313131;
+}
+
+button{
+	cursor: pointer;
+}
+
+/* -------------- WRAPPER -------------- */
+.wrapper{
+	width: 960px;
+	margin: 0 auto;
+	font: 1.2em/1.1 "Helvetica";
+	position: relative;
+}
+
+.section{
+	position: relative;
+	clear: both;
+	margin-bottom: 30px;
+}
+
+/* -------------- BANNER -------------- */
+.banner{
+	height: 100px;
+	background: #ffffff;
+}
+
+.banner a{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* -------------- LOGO -------------- */
+.banner .logo{
+	float: left;
+	width: 300px;
+	margin-top: 10px;
+}
+
+/* -------------- LOGIN -------------- */
+.login{
+	position: relative;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	
+	color: #ffffff;
+}
+
+.login .section{
+	background: #313131;
+	padding: 5px 10px;
+	
+	color: #ffffff;
+}
+
+.login .language{
+	margin-right: 15px;
+}
+
+.login .loginDropdown{
+	position: relative;
+	position: absolute;
+	top: 20px;
+	right: 0px;
+	display: none;
+	
+	width: 100%;
+	
+	background: #313131;
+	margin-top: 15px;
+	height: 100px;
+	padding: 10px;
+}
+
+.login .langDropdown{
+	position: relative;
+	position: absolute;
+	top: 20px;
+	right: 0px;
+	display: none;
+	
+	width: 100%;
+	
+	background: #313131;
+	margin-top: 15px;
+	height: 100px;
+	padding: 10px;
+}
+
+.arrow-up {
+	width: 0;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-bottom: 5px solid #313131;
+	position: absolute;
+}
+
+.login .langDropdown .arrow-up{
+	top: -5px;
+	right: 70px;
+}
+
+.login .loginDropdown .arrow-up{
+	top: -5px;
+	right: 10px;
+}
+
+.login .socialNetwork{
+	color: #313131;
+	position: absolute;
+	top: 30px;
+	right: 0px;
+}
+
+
+/* -------------- NAVIGATION -------------- */
+.nav{
+	min-height: 20px;
+	background: #b63737;
+	border-top: solid 5px #9f3030;
+}
+
+.nav li{
+	float: left;
+}
+
+.nav a{
+	color: #ffffff;
+	font: bold 1.3em/1.1 "Arial";
+	margin-right: 15px;
+	
+	display: block;
+	padding: 4px 20px 4px 10px;
+	
+	text-decoration: none;
+	overflow: hidden;
+}
+
+.nav a:hover{
+	background: #9f3030;
+}
+
+.nav a.active{
+	background: #9f3030;
+}
+
+.nav .iconSprite{
+	background: url("../images/sprite/nav-sprite.png") no-repeat 3px -4px;
+	display: block;
+	height: 35px;
+	width: 35px;
+	float: left;
+	margin-right: 5px;
+}
+
+.nav .howItLooks .iconSprite{
+	background-position: -28px -4px;
+}
+
+
+.nav .pricePlans .iconSprite{
+	background-position: -70px -4px;
+}
+
+.nav .aboutUs .iconSprite{
+	background-position: -108px -4px;
+}
+
+.nav .navLabel{
+	padding-top: 6px;
+	float: left;
+}
+
+
+
+
+
+/* -------------- SLIDER -------------- */
+.slider{
+	height: 340px;
+	overflow: hidden;
+}
+
+.slider .sliderImg{
+	width: 100%;
+}
+
+
+/* -------------- PAGE BANNER -------------- */
+.page-banner{
+	height: 260px;
+	overflow: hidden;
+}
+
+.page-banner .page-banner-img{
+	width: 100%;
+}
+
+
+/* -------------- BENEFITS and DEVICES -------------- */
+.benefits{
+	position: relative;
+	height: 100px;
+	margin: 0px;
+	background: #dedede;
+	
+}
+
+.benefits .text{
+	position: absolute;
+	left: 0px;
+	top: 10px;
+}
+
+.benefits .text .title{
+	font: bold 2em/1.1 "Arial";
+	color: #9f3030;
+}
+
+.benefits .text .bullets{
+	font: normal 1.1em/1.1 "Arial";
+}
+
+.benefits .text .bullets li{
+	list-style: disc;
+	margin-left: 50px;
+}
+
+.benefits .devices{
+	float: right;
+	position: absolute;
+	right: 0px;
+	top: -250px;
+}
+
+.gradientBorder{
+	height: 10px;
+	background: red;
+}
+
+
+/* -------------- CONTENT -------------- */
+.content{
+	margin: 20px 20px 100px 20px;
+	min-height: 600px;
+}
+
+
+/* -------------- PAGE TITLES and SECTITLE -------------- */
+.secTitle{
+	position: relative;
+	color: #d65959;
+	height: 120px;
+	margin-bottom: 20px;
+}
+
+.secTitle .titleBg{
+	color: #f4dbdb;
+	font: bold 13em/0 "ChunkFive", Helvetica, Arial, sans-serif;
+}
+
+.secTitle .titleText{
+	font: normal 4em/1 "ChunkFive", Helvetica, Arial, sans-serif;
+}
+
+.secTitle .brackets{
+	color: #313131;
+	font: normal 1.5em/0 "ChunkFive", Helvetica, Arial, sans-serif;
+}
+
+.secTitle h2{
+	display: inline;
+        text-shadow: 1px 1px 1px #000000;
+        filter: dropshadow(color=#000000, offx=1, offy=1);
+}
+
+.rightSecTitle .titleText{
+	position: absolute;
+	top: 50px;
+	right: 20px;
+}
+
+.rightSecTitle .titleBg{
+	position: absolute;
+	bottom: 50px;
+	right: 60px;
+}
+
+.leftSecTitle .titleText{
+	position: absolute;
+	top: 50px;
+	left: 0px;
+}
+
+.leftSecTitle .titleBg{
+	position: absolute;
+	bottom: 50px;
+	left: 30px;
+}
+
+
+/* -------------- DETAIL TABLE for HOW IT WORKS and HOW IT LOOKS-------------- */
+.detail-table{
+	background: #fafafa;
+	min-height: 600px;
+	position: relative;
+}
+
+.detail-table .titles{
+	width: 245px;
+	text-align: center;
+	background: #f4dbdb;
+	float: left;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+}
+
+.detail-table li{
+	display: block;
+	padding: 20px 10px;
+	border-bottom: 2px solid white;
+	color: #b63737;
+	font: normal 1.5em/1 "Arial", Helvetica, sans-serif;
+	cursor: pointer;
+}
+
+.detail-table li:hover, .detail-table li.active{
+	background: #b63737;
+	color: white;
+}
+
+.detail-table .detail {
+	margin-left: 310px;
+	padding: 20px 50px 20px 0;
+}
+
+.detail-table .detail .full-detail{
+	float: left;
+	width: 100%;
+}
+
+.detail-table .triangle{
+	font-size: 40px;
+	position: absolute;
+	left: 245px;
+	top: 0;
+	border-color: #fafafa #fafafa #fafafa #b63737;
+	border-style:solid;
+	border-width:29px;
+	width:0;
+	height: 0;
+}
+
+.detail-table .title{
+	border-bottom: 2px solid #f7f7f7;
+	width: 100%;
+	font: bold 2em/1 "Arial", Helvetica, sans-serif;
+	margin: 0 0 15px 0;
+}
+
+.detail .full-detail .photo img{
+	width: 100%;
+}
+
+.detail .description {
+	margin: 15px 0;
+}
+
+.detail .description p{
+	text-align: justify;
+	text-indent: 50px;
+	font: normal 1.2em/1.1 "Arial", Helvetica, sans-serif;
+	margin-bottom: 20px;
+}
+
+.detail .half-detail{
+	margin: 20px 0;
+}
+
+.detail .half-detail .photo img{
+	float: left;
+	width: 200px;
+}
+
+.detail .half-detail .photo img.left{
+	margin-right: 20px;
+}
+
+.detail .half-detail .photo img.right{
+	margin-left: 20px;
+}
+
+.detail .half-detail .description{
+	float: left;
+	width: 360px;
+}
+
+/* -------------- TABLE FOR PRICE PLANS -------------- */
+.detail-table{
+	min-height: 200px;
+	position: relative;
+}
+
+.detail-table.price{
+	padding-top: 75px;
+}
+
+.detail-table .table-content{
+	width: 100%;
+	float: left;
+}
+
+.detail-table .table-title{
+	font: bold 2em/1.1 "Arial", Helvetica, sans-serif;
+	background: #4384ff;
+	text-align: center;
+	color: #ffffff;
+	position: absolute;
+	top: 10px;
+	left: 0;
+	right: 0;
+}
+
+.detail-table .table-section{
+	min-height: 50px;
+}
+
+.detail-table .table-section.white{
+	background: white;
+}
+
+.detail-table .table-title h3{
+	text-align: center;
+	float: left;
+	padding: 15px 10px;
+	border-right: 2px solid #ffffff;
+}
+
+.detail-table h3.benefit{
+	width: 300px;
+}
+
+.detail-table h3.price{
+	width: 135px;
+}
+
+.detail-table h3.last{
+	border: none;
+}
+
+.detail-table .table-content h4{
+	margin: 0 0 10px 0;
+	font: normal 1.8em/1.2 "ChunkFive", Helvetica, sans-serif;
+}
+
+.detail-table .info-section{
+	float: left;
+	width: 285px;
+	padding: 15px;
+	height: 100px;
+}
+
+.detail-table .info-section .module-name{
+	color: #b63737;
+	padding: 0 5px;
+}
+
+.detail-table .info-section  p{
+	text-indent: 25px;
+	font: normal 1.2em/1.2 "Arial", Helvetica, sans-serif;
+	color: #808080;
+}
+
+.detail-table .check-section{
+	float: left;
+	width: 640px;
+	text-indent: -20000px;
+}
+
+.detail-table .check-section .checkmark{
+	height: 110px;
+	width: 155px;
+	float: left;
+	padding-left: 5px;
+}
+
+.detail-table .check-section .checkmark.true{
+	background: url("../images/sprite/check-sprite.png") no-repeat 50% 10px;
+}
+
+.detail-table .check-section .checkmark.false{
+	background: url("../images/sprite/check-sprite.png") no-repeat 50% -170px;
+}
+
+/* -------------- GAME BADGES -------------- */
+.gameBadges{
+	width: 350px;
+	height: 330px;
+	float: left;
+	margin-right: 180px;
+	position: relative;
+}
+
+.gameBadges .title p{
+	padding: 10px 20px;
+	background: #d65959;
+	color: #ffffff;
+	font: normal 1.6em/1 "Arial", Helvetica, sans-serif;
+	margin-top: 2px;
+}
+
+.gameBadges .title .secondText{
+	width: 75%;
+}
+
+.gameBadges .icon{
+	background: url("../images/sprite/badge-sprite.png") no-repeat 50% 2%;
+	width: 200px;
+	margin: 0 auto;
+	padding-top: 170px;
+	text-align: center;
+}
+
+.gameBadges .icon h3{
+	color: #313131;
+	font: bold 2em/1 "Arial", Helvetica, sans-serif;
+}
+
+.gameBadges .icon p{
+	color: #808080;
+	font: normal 1.2em/1.1 "Arial", Helvetica, sans-serif;
+}
+
+/* -------------- USER TESTEMONIALS -------------- */
+.userTestemonials{
+	width: 420px;
+	float: left;
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.userTestemonials .photo img{
+	height: 95px;
+	float: left;
+}
+
+.userTestemonials .quotes{
+	color: #a8a7a7;
+	font: bold 6em/0 "Arial", Helvetica, sans-serif;
+	padding-top: 30px;
+	
+	position: absolute;
+	top: 0;
+	left: 115px;
+}
+
+.userTestemonials p{
+	margin-left: 160px;
+	font: normal 1.2em/1.1 "Arial", Helvetica, sans-serif;
+}
+
+.userTestemonials .userName{
+	color: #313131;
+	font-weight: bold;
+}
+
+/* -------------- VIDEO -------------- */
+.video{
+	width: 500px;
+	float: left;
+}
+
+
+
+/* -------------- SIGN UP -------------- */
+.signUp{
+	width: 425px;
+	float: left;
+	margin-left: 30px;
+	font: normal 1.2em/1.1 "Arial", Helvetica, sans-serif;
+}
+
+.signUp .title{
+	font-size: 1.5em;
+	font-weight: bold;
+	display: block;
+}
+
+.signUp li{
+	background: url("https://encrypted-tbn2.google.com/images?q=tbn:ANd9GcSk4nBB8N0lTTJ4FVZGfFEnhf_WwbpgIGt61ceINtKIba0nUXco") no-repeat;
+	background-size: 50px;
+	padding-left: 75px;
+	margin-bottom: 25px;
+	min-height: 50px;
+}
+
+.signUp button.greenBtn{
+	margin-top: 10px;
+	width: 100%;
+	font: normal 1.2em/1.1 "Arial", Helvetica, sans-serif;
+}
+
+.signUp button.greenBtn:hover{
+	font: normal 1.2em/1.1 "Arial", Helvetica, sans-serif;
+}
+
+
+/* -------------- ABOUT US -------------- */
+.secContent{
+	min-height: 500px;
+	padding: 20px;
+	font: normal 1.2em/1.1 "Arial", Helvetica, sans-serif;
+}
+
+.secContent .project-intro img{
+	width: 100%;
+}
+
+.secContent .title{
+	font: bold 2em/1.1 "Arial", Helvetica, sans-serif;
+	border-bottom: 2px solid #ececec;
+	margin: 20px 0;
+}
+
+.secContent .project-intro .text{
+	margin: 20px 0;
+	text-indent: 50px;
+}
+
+.secContent .project-intro .text p{
+	margin-bottom: 20px;
+}
+
+.secContent .developer-info .photo{
+	float: left;
+}
+
+.secContent .developer-info{
+	margin-bottom: 25px;
+	position: relative;
+}
+
+.secContent .developer-info ul li{
+	background: #313131;
+	text-align: center;
+	margin-bottom: 2px;
+}
+
+.secContent .developer-info ul li a{
+	text-decoration: none;
+	color: white;
+	display: block;
+	padding: 5px;
+}
+
+.secContent .developer-info ul li.facebook{
+	background: #3b5998;
+}
+
+.secContent .developer-info ul li.twitter{
+	background: #40c8ed;
+}
+
+.secContent .developer-info ul li.website{
+	background: #313131;
+}
+
+.secContent .developer-info .text{
+	float: left;
+	margin: 0 0 0 20px;
+	width: 700px;
+}
+
+.secContent .developer-info .text p{
+	margin-bottom: 15px;
+	text-indent: 25px;
+}
+
+.secContent .developer-info h4{
+	color: #313131;
+	font: bold 1.3em/1.1 "Arial", Helvetica, sans-serif;
+	margin-bottom: 10px;
+}
+
+.secContent .developer-info .quote{
+	color: #313131;
+	font: italic 2em/1 "Helvetica", Arial, sans-serif;
+	text-align: center;
+	position: absolute;
+	bottom: 10px;
+	right: 30px;
+	margin-left: 250px;
+}
+
+/* -------------- FOOTER -------------- */
+.footer{
+	background: #313131;
+	min-height: 100px;
+	color: white;
+	font: normal 1em/1.1 "Arial", Helvetica, sans-serif;
+	padding: 20px 0;
+}
+
+.footer a{
+	color: #808080;
+	text-decoration: none;
+}
+
+.footer a:hover{
+	font-weight: bold;
+	border-bottom: 1px solid #808080;
+}
+
+.footer ul{
+	margin-left: 15px;
+}
+
+.footer li{
+	list-style: disc;
+	color: #808080;
+	margin-bottom: 5px;
+}
+
+.footer .column{
+	float: left;
+	margin-right: 20px;
+	width: 170px;
+}
+
+.footer .title{
+	border-bottom: 1px solid #505050;
+	margin-bottom: 20px;
+}
+
+.footer h4{
+	font: bold 1.5em/1 "Arial", Helvetica, sans-serif;
+	border-bottom: 2px solid #202020;
+	padding-bottom: 10px;
+}
+
+.footer p{
+	clear: both;
+	padding-top: 30px;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
