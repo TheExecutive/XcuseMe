@@ -57,7 +57,7 @@
 					"$set" : {
 						//"available" : false,
 						//"hasBeenServed" : false,
-						"authCode" : null //setting the table I clicked to no longer need assistance.
+						"locationId" : null
 					}
 				},
 				multi : true, //WARNING, multi is set to true, will update anything that matches.
@@ -155,7 +155,7 @@
 	$(document).ready(function(){
 		//fetch the table data from mongo.
 		//testInsert();
-		xmlParseTest2();
+		//xmlParseTest2();
 		
 	}); // end document ready
 	

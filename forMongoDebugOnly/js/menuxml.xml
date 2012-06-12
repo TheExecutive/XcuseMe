@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Menu xmlns="http://letsget.net/POSData.xsd">
+	<MenuSections>
+		<MenuSection>
+			<PLU>23</PLU>
+			<MenuSectionName>Online</MenuSectionName>
+			<SortOrder>1</SortOrder>
+		</MenuSection>
+	</MenuSections>
+	<MenuItems>
+		<MenuItem>
+			<PLU>Amstel Light</PLU>
+			<MenuSectionPLU>23</MenuSectionPLU>
+			<MenuItemName>Amstel Light</MenuItemName>
+			<MenuItemShortName>Amstel Light</MenuItemShortName>
+			<Price>5.75</Price>
+			<Adjustment>false</Adjustment>
+			<SortOrder>1</SortOrder>
+			<Image>1.png</Image>
+			<ItemId>1</ItemId>
+			<ABV>61</ABV>
+			<Description>You’ll find this to be a crisp dry clean finishing flavor based on the grainy sweetness that you’ll detect in very low amounts. As the flavor sits in your mouth you should pick up the slight bitterness with floral notes from the hops. The one thing that you will also find in this beer, that is common among this style is an acidic note coming from the high level of carbonation present in light lagers. More about that in a moment. There is a light thin body on this beer that finishes clean and dry. The carbonation level helps clean this beer off the palate. Personally I think the carbonic acid does over power the beer a little but at the same time I’m still willing to drink more once the palate is clean.</Description>
+		</MenuItem>
+		<MenuItem>
+			<PLU>Budweiser</PLU>
+			<MenuSectionPLU>23</MenuSectionPLU>
+			<MenuItemName>Budweiser</MenuItemName>
+			<MenuItemShortName>Budweiser</MenuItemShortName>
+			<Price>5.75</Price>
+			<Adjustment>false</Adjustment>
+			<SortOrder>2</SortOrder>
+			<Image>2.png</Image>
+			<ItemId>2</ItemId>
+			<ABV>55</ABV>
+			<Description>The biggest beer in the world (or at least it seems). I remember backpacking in Europe and seeing people sitting at cafes drinking Bud when a host of great European beers were inside waiting to be tasted. I hate having to include this, but it isn’t that bad.</Description>
+		</MenuItem>
+		<MenuItem>
+			<PLU>Corona</PLU>
+			<MenuSectionPLU>23</MenuSectionPLU>
+			<MenuItemName>Corona</MenuItemName>
+			<MenuItemShortName>Corona</MenuItemShortName>
+			<Price>5.75</Price>
+			<Adjustment>false</Adjustment>
+			<SortOrder>3</SortOrder>
+			<Image>3.png</Image>
+			<ItemId>3</ItemId>
+			<ABV>30</ABV>
+			<Description>Ok, ok, I had to include this list simply because this beer is unique in that is almost entirely associated with summertime. Rarely do you see skiers downing a few apres-ski. Made popular by California surfers, this Mexican import is served with a lime. It is almost white and is rarely found in kegs.</Description>
+		</MenuItem>
+		<MenuItem>
+			<PLU>Foster's</PLU>
+			<MenuSectionPLU>23</MenuSectionPLU>
+			<MenuItemName>Foster's</MenuItemName>
+			<MenuItemShortName>Foster's</MenuItemShortName>
+			<Price>5.75</Price>
+			<Adjustment>false</Adjustment>
+			<SortOrder>4</SortOrder>
+			<Image>4.png</Image>
+			<ItemId>4</ItemId>
+			<ABV>19</ABV>
+			<Description>Made popular by the “oilcan”, this Australian beer is served at every Outback restaurant but remains, ironically enough, unpopular in it’s native country.</Description>
+		</MenuItem>
+		<MenuItem>
+			<PLU>Guinness</PLU>
+			<MenuSectionPLU>23</MenuSectionPLU>
+			<MenuItemName>Guinness</MenuItemName>
+			<MenuItemShortName>Guinness</MenuItemShortName>
+			<Price>5.75</Price>
+			<Adjustment>false</Adjustment>
+			<SortOrder>5</SortOrder>
+			<Image>5.png</Image>
+			<ItemId>5</ItemId>
+			<ABV>25</ABV>
+			<Description>This beer basically stands alone in the stout category. It’s truly the only beer that you can recognize from across the room. Just holding one makes you feel as if you are in a small pub in some quaint Irish town with a wool sweater on and the cold rain beating against the pub windows. Only a true bartender knows that in order to get a perfect pour, the glass should be filled to the middle, then filled once it has settled.</Description>
+		</MenuItem>
+		<MenuItem>
+			<PLU>Iron City Beer</PLU>
+			<MenuSectionPLU>23</MenuSectionPLU>
+			<MenuItemName>Iron City Beer</MenuItemName>
+			<MenuItemShortName>Iron City Beer</MenuItemShortName>
+			<Price>5.75</Price>
+			<Adjustment>false</Adjustment>
+			<SortOrder>6</SortOrder>
+			<Image>6.png</Image>
+			<ItemId>6</ItemId>
+			<ABV>45</ABV>
+			<Description>The logo is unattractive, the name does nothing, heck even the city conjures up bad images, but they make a pretty good cheap beer.</Description>
+		</MenuItem>
+		<MenuItem>
+			<PLU>Newcastle</PLU>
+			<MenuSectionPLU>23</MenuSectionPLU>
+			<MenuItemName>Newcastle</MenuItemName>
+			<MenuItemShortName>Newcastle</MenuItemShortName>
+			<Price>5.75</Price>
+			<Adjustment>false</Adjustment>
+			<SortOrder>7</SortOrder>
+			<Image>7.png</Image>
+			<ItemId>7</ItemId>
+			<ABV>13</ABV>
+			<Description>“Newcastle Brown, I’m tellin’ you, it can sure smack you down.” In Newcastle, the beer is often called ‘Dog’ (or simply ‘Broon’). The ‘Dog’ name comes from the euphemism “I’m going to walk the dog” or “I’m going to see a man about a dog” – meaning “I’m going to the pub” – and was further popularized by a 1980s advertising campaign. In southern parts of the country it is often referred to as “Newkie Brown”.</Description>
+		</MenuItem>
+		<MenuItem>
+			<PLU>Ommegang</PLU>
+			<MenuSectionPLU>23</MenuSectionPLU>
+			<MenuItemName>Ommegang</MenuItemName>
+			<MenuItemShortName>Ommegang</MenuItemShortName>
+			<Price>5.75</Price>
+			<Adjustment>false</Adjustment>
+			<SortOrder>8</SortOrder>
+			<Image>8.png</Image>
+			<ItemId>8</ItemId>
+			<ABV>9</ABV>
+			<Description>One of the fastest growing US microbrews from Cooperstown, NY. Their five beers should be sought out if possible.</Description>
+		</MenuItem>
+		<MenuItem>
+			<PLU>Paulaner</PLU>
+			<MenuSectionPLU>23</MenuSectionPLU>
+			<MenuItemName>Paulaner</MenuItemName>
+			<MenuItemShortName>Paulaner</MenuItemShortName>
+			<Price>5.75</Price>
+			<Adjustment>false</Adjustment>
+			<SortOrder>9</SortOrder>
+			<Image>9.png</Image>
+			<ItemId>9</ItemId>
+			<ABV>22</ABV>
+			<Description>The highest ranking wheat beer (hefeweise) on this list goes perfect with an orange slice.</Description>
+		</MenuItem>
+		<MenuItem>
+			<PLU>Red Stripe</PLU>
+			<MenuSectionPLU>23</MenuSectionPLU>
+			<MenuItemName>Red Stripe</MenuItemName>
+			<MenuItemShortName>Red Stripe</MenuItemShortName>
+			<Price>5.75</Price>
+			<Adjustment>false</Adjustment>
+			<SortOrder>10</SortOrder>
+			<Image>10.png</Image>
+			<ItemId>10</ItemId>
+			<ABV>39</ABV>
+			<Description>Think Jamaica, reggae, and everything else rastafarian… oh yeah, and they have the best bottles. Hooray Beer!</Description>
+		</MenuItem>
+		<MenuItem>
+			<PLU>Stella Artois</PLU>
+			<MenuSectionPLU>23</MenuSectionPLU>
+			<MenuItemName>Stella Artois</MenuItemName>
+			<MenuItemShortName>Stella Artois</MenuItemShortName>
+			<Price>5.75</Price>
+			<Adjustment>false</Adjustment>
+			<SortOrder>11</SortOrder>
+			<Image>11.png</Image>
+			<ItemId>11</ItemId>
+			<ABV>28</ABV>
+			<Description>Quite simply put, a nice clean crisp beer that is widely available worldwide. A nice starter beer if you are looking at imported beers.</Description>
+		</MenuItem>
+		<MenuItem>
+			<PLU>Samuel Adams</PLU>
+			<MenuSectionPLU>23</MenuSectionPLU>
+			<MenuItemName>Samuel Adams</MenuItemName>
+			<MenuItemShortName>Samuel Adams</MenuItemShortName>
+			<Price>5.75</Price>
+			<Adjustment>false</Adjustment>
+			<SortOrder>12</SortOrder>
+			<Image>12.png</Image>
+			<ItemId>12</ItemId>
+			<ABV>17</ABV>
+			<Description>Named for a founding father of American independence, this Massachusetts brewery cranks out microbrew taste at macrobrew rates. At least one of their long list of quality beers is available at most bars in the US. They take pride in the many awards their brews have garnished.</Description>
+		</MenuItem>
+	</MenuItems>
+	<Modifiers>
+		<Modifier>
+			<MenuItemPLU>First Street</MenuItemPLU>
+			<PLU>11~Cilantro</PLU>
+			<ModifierListPLU>11</ModifierListPLU>
+			<ModifierListName>M-General Prep</ModifierListName>
+			<ModifierName>Cilantro</ModifierName>
+			<Price>0.00</Price>
+			<SortOrder>0</SortOrder>
+		</Modifier>
+		<Modifier>
+			<MenuItemPLU>First Street</MenuItemPLU>
+			<PLU>11~Sauteed Onions</PLU>
+			<ModifierListPLU>11</ModifierListPLU>
+			<ModifierListName>M-General Prep</ModifierListName>
+			<ModifierName>Sauteed Onions</ModifierName>
+			<Price>0.00</Price>
+			<SortOrder>1</SortOrder>
+		</Modifier>
+	</Modifiers>
+</Menu>
