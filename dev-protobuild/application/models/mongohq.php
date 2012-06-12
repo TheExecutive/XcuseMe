@@ -9,7 +9,7 @@ class MongoHQ extends CI_Model {
 	function __construct() {
 		//calling the model constructor
 		parent::__construct();
-		$this->apiKey = "xvien5ya8rh538ryt5kh";
+		$this->apiKey = "";
 		$this->dbURL = "https://api.mongohq.com/databases/";
 		$this->databaseName = "xcusemedb";
 		$this->collectionName = "xcusemedata";
